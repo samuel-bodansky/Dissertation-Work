@@ -107,8 +107,51 @@ Suppose $K=\mathbb{Q}{\sqrt{-n}}$ n is positive,squarefree, $n\not\equiv 3(4)$, 
 \end{equation}
 Hence the primes of the form $x^2+ny^2$ characterise the Hilbert Class field of $\mathbb{Q}(\sqrt{-n})$.
 \end{corollary}
-\subsection{BRIN Another Example}
-\cite{BRIN} [1,-1,-6,0,4,1],1531, 71, 'for sure
+In fact Bruckner \cite{BRUC} generalises this theorem when L is a \textit{generalised dihedral} extension of K over $\mathbb{Q}$. Suppose K is an imaginary quadratic field and L is an abelian extension of K which is Galois over $\mathbb{Q}$; let $\tau$ represent complex conjugation. We can then write
+\begin{theorem}
+\Gamma(L/\mathbb{Q})\cong \Gamma(L/K)\rtimes(\mathbb{Z}/2\mathbb{Z})
+\end{theorem}
+where the non-identity element of $\mathbb{Z}/2\mathbb{Z}$ acts on $\Gamma(L/K)$ via conjugation with $\tau$. L is \texit{generalised dihedral} over $\mathbb{Q}$ if this action acts as the inverse map on $\Gamma(L/K)$.
+\begin{theorem}
+Let K be an imaginary class field. Then an abelian extension L of K is generalised dihedral over $\mathbb{Q}$ iff L is contained in a ring class field of K.
+\end{theorem}
+\section{BRIN Another Example}
+Suppose K is a class field with trivial class group, i.e. h(K)=1. Then K has no Abelian (and hence no
+solvable) non-trivial unramified Galois extension. Despite this, K may have a non-solvable unramified extension. \cite{BRIN} gives such an example. Suppose
+\begin{equation}
+   K=\mathbb{Q}(\sqrt{29},\sqrt{4967}) 
+\end{equation}
+\begin{equation}
+   L=split(x^7 - 11x^5 + 17x^3 - 5x + 1,\mathbb{Q})
+\end{equation}
+Then K has class number 1 and L is a PSL(2, 7)-extension of K.
+\cite{MAIR} showed that there exist biquadratic number fields with class number one with an infinite unramified extension. 
+\begin{theorem}
+\cite{BRIN} Suppose that \begin{enumerate}
+    \item $f\in \mathbb{Z}[x]$ is an irreducible quintic with five real roots
+    \item $D=\Delta(f)$ is prime and $\mathbb{Q}(\sqrt{L}$ has class number 1
+    \item p and q are two primes such that $\mathbb{Q}(\sqrt{p.q})$ has class number 1 and $\mathbb{Q}(\sqrt{(D.p.q})$ has class number 2.
+    \item f has five simple roots modulo p and f factors modulo q into polynomials of degrees, as a tuple $\mu$ of the form (1,1,1,1,1),(1,1,1,3),(1,2,2) or (1,1,3).
+\end{enumerate}
+Then the field $K=\mathbb{Q}(\sqrt{D},\sqrt{p.q})$ has class number 1 and infinite ramified extension.
+\end{theorem}
+\begin{proof}
+A result from \cite{KOND} shows that the splitting field L
+of f is an $S_5$-extension of $\mathbb{Q}$ and an unramified $A_5$-extension of $\mathbb{Q}(\sqrt{D})$. Hence $M=K(\sqrt{p.q})$ is an
+unramified $A_5$-extension of K. It also follows that L has class number 1.
+\smallskip \newline
+Let r be the number of primes $\mathfrak{p}$ in L ramified in M, and let $\theta$ be a root of f, $T = \mathbb{Q}(\theta)$. \cite{MAR1} shows that M has an infinite 2-class field tower if $r\geq 155$. By assumption p splits completely in T and therefore also in L; furthermore q decomposes in T as $q = \mathfrak{p}_1...\mathfrak{p}_r$, with inertia degrees
+\begin{equation}
+    (deg(\mathfrak{p}_1),...deg(\mathfrak{p}_r))=\mu 
+\end{equation}
+Write $Z_\mathfrak{B}\subseteq\Gamma(L/\mathbb{Q}) = S_5$; as the decomposition group of $\mathfrak{B}$ where $\mathfrak{B}$ is a prime in L dividing q. q is unramified so this group is cyclic, and \cite{ART1} shows that $Z_\mathfrak{B}$ has order at most 3.  It now follows that L has 120 primes dividing p and at least 40 primes dividing q. Then $r\geq 160$ since they all ramify in M, and the theorem follows.
+\end{proof}
+Using SageMath, the following polynomial and primes were found:
+\begin{equation}
+    f(x) = x^5+4x^4-6x^2-x+1, p=1531,q=71,\Delta(f)=170701
+\end{equation}
+These satisfy the criteria of the above theorem and therefore describe field with infinite unramified extension. 
+%[1,-1,-6,0,4,1],1531, 71, 'for sure
 \subsection{First results}
 Goal: For a given number field K, what is the maximal unramified extension $K^{ur}$ of K is and also what is the structure of $G_K^{ur}$ is. By Class Field Theory we already know that 
 \begin{equation}
@@ -154,13 +197,7 @@ Suppose that H is a positive integer, and L is an unramified normal extension of
     \item If
         $h(L)=1$ and H=60 then again $K^{ur}=L$.
 \end{enumerate}
-\begin{equation}
-
-\end{equation}
 \end{theorem}
-
-
-
 \subsection{Result using Hoelscher}
 
 Using \cite{HOEL} and \cite{JONE}, we see that 
@@ -335,6 +372,14 @@ Yamamoto, Yoshihiko. On unramified Galois extensions of quadratic number fields.
 Brink, David. (2010). Remark on infinite unramified extensions of number fields with class number one. Journal of Number Theory - J NUMBER THEOR. 130. 304-306. 10.1016/j.jnt.2009.08.013. 
 \bibitem{DIAZ}
  F. Diaz Y. Diaz, Tables minorant la racine n-ième du discriminant d'un corps de degré n. Publications Mathématiques d'Orsay 80.06. Université de Paris-Sud, Département de Mathématique, Orsay, (1980). 59 pp. MR 82i:12007.
+ \bibitem{BRUC}
+ G. Bruckner, Charakterisierung der galoisschen Zahlkorper, deren. 2. E. Artin, Galois Theory, University of Notre Dame, Notre Dame, Indiana, 1959.
+ \bibitem{KOND}T. Kondo, Algebraic number fields with the discriminant equal to that of a quadratic number field, J. Math. Soc. Japan 47 (1)
+(1995) 31–36.
+\bibitem{MAR1}
+ J. Martinet, Tours de corps de classes et estimations de discriminants, Invent. Math. 44 (1978) 65–73
+ \bibitem{ART1}
+  B.L. van der Waerden, Die Zerlegungs- und Trägheitsgruppe als Permutationsgruppen, Math. Ann. 111 (1935) 731–733
 \end{thebibliography}
 
 \end{document}
