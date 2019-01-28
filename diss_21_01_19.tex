@@ -8,6 +8,7 @@
 \usepackage{graphicx}
 %% The amssymb package provides various useful mathematical symbols
 \usepackage{amssymb}
+\usepackage{amsfonts}
 \usepackage{tikz}
 %% The amsthm package provides extended theorem environments
 %% \usepackage{amsthm}
@@ -60,6 +61,30 @@ Aim: to construct minimally ramified extensions of number fields.
 \subsection{Jones and Roberts}
 
 \section{Initial Results}
+\subsection{Goal and Background}
+
+Recall a prime ideal $\mathfrak{p}$ in $\mathcal{O}_K$ factors in an extension L of K as
+\newline
+$\mathfrak{p}\mathcal{O}_L=\mathfrak{B}_1^{e_1}...\mathfrak{B}_m^{e_m}$ where $\mathfrak{B}_i$ are ideals in $\mathcal{O}_L$ intersecting $\mathcal{O}_K$ at $\mathfrak{p}$. Each $e_i\geq1$ and if $e_i>1$ for some i then we say that $\mathfrak{p}$ ramifies in L. If $e_i=1$ for all i then we say $\mathfrak{p}$ splits in L.
+\newline
+When L is a Galois extension of K, all of the $e_i$ are equal and in fact split(L:K) determines L.
+\newline
+In fact, if the set of primes that split in L and $\tilde{L}$ then algebraic number theory can show that $split(L:K)=split(L\tilde{L}:K)=split(\tilde{L}:K)$ and indeed $[L:K]=[L\tilde{L}:K]=[\tilde{L}:K]$. 
+\newline
+A natural question is to determine these sets split(L:K) as L changes over the finite extensions of K, and to determine the sets L corresponding to these extensions.
+\newline
+Let H be a subgroup of the class group C of K. A finite unramified abelian extension L of K is said to be a $\textit{class field}$ for H if the prime ideals of K splitting in L are exactly those in $\tilde{H}$ . The following theorem provides an answer the above question for unramified abelian extensions of K.
+\newline
+Theorem: A class field exists for each subgroup of C; it is unique, and every finite unramified abelian extension of K is the class group of some subgroup of C. If L is the class field of H, then $\Gamma(L/K)\cong C/H$ and for every prime ideal $\mathfrak{p}$ of K, $f(\mathfrak{p})$ is the order of the image of $\mathfrak{p}$ in the group C/H.
+\newline
+The class field of the trivial subgroup of C is called the Hilbert class field of K. It isthe largest abelian extension, L of K unramified at all primes of K.
+\newline
+For example,if $K=\mathbb{Q}[\sqrt{-5}]$ then take $L=\mathbb{Q}[\sqrt{-1},\sqrt{-5}]$. L is an unramified degree 2 extension of K and so the Hilbert class field of K is $K[\sqrt{-1}]$.
+
+\subsection{First results}
+Goal: For a given number field K, what is the maximal unramified extension $K^{ur}$ of K is and also what is the structure of $G_K^{ur}$ is. By Class Field Theory we already know that 
+\[(G_K^{ur})^{ab} = \Gamma(K_1:K)\cong C_K\].
+\newline
 \subsection{Important Results from Class Field Theory}
 1. \cite{YAMA}[Proposition 1] gives the following classification of polynomials of the form $f(x) = x^n+ax+b \in \mathbb{Z}[x]$, and K is the splitting field of f over $\mathbb{Q}$.
 \newline
@@ -70,10 +95,6 @@ If the following conditions hold:
 \end{enumerate}
 \newline
 Then K is an $A_n$-extension of $\mathbb{Q}(\sqrt{\Delta(f)})$ which is unramified at all finite primes. For example, if $f(x) = x^5-x+1$, then $\Delta(f)= 2869$ and write $L = \mathhbb{Q}(\sqrt{2869})$. Then K is unramified over L and $\Gamma(K:L)\cong A_5.$
-\subsection{}
-Goal: For a given number field K, what is the maximal unramified extension $K^{ur}$ of K is and also what is the structure of $G_K^{ur}$ is. By Class Field Theory we already know that 
-\[(G_K^u)^ab = \Gamma(K_1:K)\cong C_K\]
-\medskipskip
 
 \subsection{Bounds on Discriminants}
 Minkowski's theorem bound shows that if K is a number field with $r_1$ real and $2*r_2$ complex conjugate fields, and $n=r_1+2r_2$ is the degree of the field, then 
@@ -92,13 +113,13 @@ this bound can be improved by replacing the numbers 60 and 22 by 188 and 41 resp
 \subsection{How to use this bound}
 Following \cite{YAMA}, write this bound function as $B(n,r_1,r_2)$, and let H be a positive integer. Suppose that L is an unramified normal extension of K of degree M. Then if
 \newline{}
-(i) $rd_K<B(H.m.n,H.m.r_1,H.m.r_2)$ then $[K^{ur}:L]<H$ and $h(L)<H$. Indeed if H+2 then $K^{ur}=L$.
+(i) $rd_K<B(H.m.n,H.m.r_1,H.m.r_2)$ then $[K^{ur}:L]<H$ and $h(L)<H$. Indeed if H=2 then $K^{ur}=L$.
 \newline
 (ii) If h(L)=1 and H=60 then again $K^{ur}=L$.
 \subsection{Result using Hoelscher}
 
 Using \cite{HOEL} and \cite{JONE}, we see that 
-the prime p=239 is tame for \[G=S_3,G\textsuperscript{ab} = 2, p_w =3  \] and also 
+the prime p=239 is tamely ramified for \[G=S_3,G\textsuperscript{ab} = 2, p_w =3  \] and also 
 \newline
 \[G=D_5,G\textsuperscript{ab} = 2 \]
 This means that we can apply Theorem(1.1) from Hoelscher with \[N = G = D_5, K_0 = \mathbb{Q}\]
@@ -134,8 +155,8 @@ Following from \cite{MAIR}[5.1], there exist infinitely many quadratic fields wi
 The following methodology was implemented  to find suitable polynomials:
 \newline
 \begin{enumerate}
-    \item Pick 8 real numbers close to 0 and define $\tilda{P}(x)$ to be the polynomial with these roots. This is done to increase the probability that P(x) will also have 8 real roots. 
-    \item Find a polynomial P(x) which is near to $\tilda{P}(x)$.
+    \item Pick 8 real numbers close to 0 and define $\tilde{P}(x)$ to be the polynomial with these roots. This is done to increase the probability that P(x) will also have 8 real roots. 
+    \item Find a polynomial P(x) which is near to $\tilde{P}(x)$.
     \item Check that the P(x) is irreducible, has 8 real roots and has prime discriminant. 
     \item Search for primes 3 mod 4 which totally decompose in the splitting field of P. 
 \end{enumerate}
@@ -186,11 +207,11 @@ Using SYMPY I found the following polynomial:
  \end{aligned}
 \end{equation*}
 \newline
-with discriminant \[l = Disc(P) = 1486256555685463501\].
+with discriminant $l = \Delta(P) = 1486256555685463501$.
 \newline
 \cite{MAIR}[2.1] gives a condition for the p-Hilbert tower of K to be infinite. 
 \newline
-\cite{MAIR}[2.3] says that if P is an irreducible polynomial in $\mathbb{R}[x]$ with squarefree discriminant D(P), and C is its Galois closure, then $C/\mathbb{Q}(\sqrt{Disc(P)})$ is unramified.
+\cite{MAIR}[2.3] says that if P is an irreducible polynomial in $\mathbb{R}[x]$ with squarefree discriminant D(P), and C is its Galois closure, then $C/\mathbb{Q}(\sqrt{\Delta(P)})$ is unramified.
 \newline
 Using these two propositions from Maire can give an algorithm to find a field $K=\mathbb{Q}(\sqrt{l_1.l_2.l_3)}$, where $l_1$ is a prime 1 modulo 4, and $l_2$ and $l_3$ are primes 3 modulo 4. 
 \newline
@@ -210,7 +231,7 @@ Here is an algorithm to find the maximal unramified extension of a number field 
   \item Let S be the splitting field of f, and therefore $\Gamma(S:\mathhbb{Q})\cong S_5$
   \item Define $K=\mathbb{Q}(\sqrt{\Delta})$ and therefore $\Gamma(S:K)\cong A_5$. Note by Proposition 2.3 in Maire, S is an unramified extension of K. 
   \item Calculate the root discriminant of K, $rd_K$.
-  \item Use the Odlyzko bound to calculate the degree of the maximal unramified extension. If we can show that $[K^{ur}:K]<120$ and $[K^ur:\mathbb{Q}]<240$ by the Tower Law, then indeed $K^{ur} = S$.
+  \item Use the Odlyzko bound to calculate the degree of the maximal unramified extension. If we can show that $[K^{ur}:K]<120$ and $[K^{ur}:\mathbb{Q}]<240$ by the Tower Law, then indeed $K^{ur} = S$.
 \end{enumerate}
 \newline
 In fact, we can draw the following diagram: 
@@ -227,7 +248,7 @@ In fact, we can draw the following diagram:
       \end{tikzpicture}
 \end{center}
 \newline
-Using Cohn(1955) and verifying with computer search we calculate that a quintic polynomial that satisfies the above conditions, and has minimal absolute discriminant is $f(x) = x^5-2x^3-x^2+1$ which has $\Delta(f)) = -4511\equiv1 (mod 4)$.
+Using Cohn(1955) and verifying with computer search we calculate that a quintic polynomial that satisfies the above conditions, and has minimal absolute discriminant is $f(x) = x^5-2x^3-x^2+1$ which has $\Delta(f) = -4511\equiv1 (mod 4)$.
 This polynomial has root discriminant = 67.16.
 Using the bounds in given in Table(2) of Odlyzko(1990) we find that indeed $K^{ur}\cong A_{5}$. 
 
@@ -253,6 +274,8 @@ Odlyzko, A. M. \texit{Lower bounds for discriminants of number fields}, II. Toho
 Kim, Kwang-Seob & Koenig, Joachim. (2017). Some examples of quadratic fields with finite nonsolvable maximal unramified extensions II. The Ramanujan Journal. 10.1007/s11139-018-0046-3. 
 \bibitem{YAMA}
 Yamamoto, Yoshihiko. On unramified Galois extensions of quadratic number fields. Osaka J. Math. 7 (1970), no. 1, 57--76. https://projecteuclid.org/euclid.ojm/1200692686
+\bibitem{BRIN}
+Brink, David. (2010). Remark on infinite unramified extensions of number fields with class number one. Journal of Number Theory - J NUMBER THEOR. 130. 304-306. 10.1016/j.jnt.2009.08.013. 
 \end{thebibliography}
 
 \end{document}
