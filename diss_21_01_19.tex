@@ -1,43 +1,23 @@
-
-%%
-\documentclass[preprint,12pt]{elsarticle}
+\documentclass[preprint,12pt,leqno]{elsarticle}
 \usepackage[left=2cm, right=5cm, top=2cm]{geometry}
-
-
-%% The graphicx package provides the includegraphics command.
 \usepackage{graphicx}
-%% The amssymb package provides various useful mathematical symbols
 \usepackage{amssymb}
 \usepackage{amsfonts}
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}
+ 
 \usepackage{tikz}
-%% The amsthm package provides extended theorem environments
-%% \usepackage{amsthm}
-
-%% The lineno packages adds line numbers. Start line numbering with
-%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
-%% for the whole article with \linenumbers after \end{frontmatter}.
 \usepackage{lineno}
+\usepackage[english]{babel}
 \usepackage{seqsplit}
 \usepackage[nottoc]{tocbibind} 
-
-
-% \biboptions{}
-
+\usepackage[utf8]{inputenc}
 \journal{Part C Dissertation Oxford University}
 \begin{document}
-
 \begin{frontmatter}
-
-%% Title, authors and addresses
-
 \title{Extensions of number fields with small ramification}
-
-
-
 \author{Samuel Bodansky}
-
 \address{Oxford,UK}
-
 \begin{abstract}
 Aim: to construct minimally ramified extensions of number fields.
 \end{abstract}
@@ -65,26 +45,48 @@ Aim: to construct minimally ramified extensions of number fields.
 
 Recall a prime ideal $\mathfrak{p}$ in $\mathcal{O}_K$ factors in an extension L of K as
 \newline
-$\mathfrak{p}\mathcal{O}_L=\mathfrak{B}_1^{e_1}...\mathfrak{B}_m^{e_m}$ where $\mathfrak{B}_i$ are ideals in $\mathcal{O}_L$ intersecting $\mathcal{O}_K$ at $\mathfrak{p}$. Each $e_i\geq1$ and if $e_i>1$ for some i then we say that $\mathfrak{p}$ ramifies in L. If $e_i=1$ for all i then we say $\mathfrak{p}$ splits in L.
+$\mathfrak{p}\mathcal{O}_L=\mathfrak{B}_1^{e_1}...\mathfrak{B}_m^{e_m}$, where $\mathfrak{B}_i$ are ideals in $\mathcal{O}_L$ intersecting $\mathcal{O}_K$ at $\mathfrak{p}$. Each $e_i\geq1$ and if $e_i>1$ for some i then we say that $\mathfrak{p}$ ramifies in L. If $e_i=1$ for all i then we say $\mathfrak{p}$ splits in L.
 \newline
 When L is a Galois extension of K, all of the $e_i$ are equal and in fact split(L:K) determines L.
 \newline
-In fact, if the set of primes that split in L and $\tilde{L}$ then algebraic number theory can show that $split(L:K)=split(L\tilde{L}:K)=split(\tilde{L}:K)$ and indeed $[L:K]=[L\tilde{L}:K]=[\tilde{L}:K]$. 
-\newline
+In fact, if the set of primes that split in L and $\tilde{L}$ then algebraic number theory can show that
+\begin{equation}
+ split(L:K)=split(L\tilde{L}:K)=split(\tilde{L}:K)
+\end{equation}
+ and indeed 
+ \begin{equation}
+ [L:K]=[L\tilde{L}:K]=[\tilde{L}:K].
+ \end{equation}
 A natural question is to determine these sets split(L:K) as L changes over the finite extensions of K, and to determine the sets L corresponding to these extensions.
 \newline
 Let H be a subgroup of the class group C of K. A finite unramified abelian extension L of K is said to be a $\textit{class field}$ for H if the prime ideals of K splitting in L are exactly those in $\tilde{H}$ . The following theorem provides an answer the above question for unramified abelian extensions of K.
-\newline
+\begin{theorem}
 Theorem: A class field exists for each subgroup of C; it is unique, and every finite unramified abelian extension of K is the class group of some subgroup of C. If L is the class field of H, then $\Gamma(L/K)\cong C/H$ and for every prime ideal $\mathfrak{p}$ of K, $f(\mathfrak{p})$ is the order of the image of $\mathfrak{p}$ in the group C/H.
-\newline
-The class field of the trivial subgroup of C is called the Hilbert class field of K. It isthe largest abelian extension, L of K unramified at all primes of K.
-\newline
-For example,if $K=\mathbb{Q}[\sqrt{-5}]$ then take $L=\mathbb{Q}[\sqrt{-1},\sqrt{-5}]$. L is an unramified degree 2 extension of K and so the Hilbert class field of K is $K[\sqrt{-1}]$.
+\end{theorem}
 
+\newline
+\subsection{Hilbert Class Field}
+The class field of the trivial subgroup of C is called the Hilbert class field of K. It is maximal abelian extension, L of K unramified at all primes of K.
+\newline
+For example,if $K=\mathbb{Q}[\sqrt{-5}]$ then take $L=\mathbb{Q}[\sqrt{-1},\sqrt{-5}]$. L is an unramified degree 2 extension of K and so the Hilbert class field of K is $K[\sqrt{-1}]$. Here is a theorem which gives an application of the Hilbert Class Field to Diophantine equations.
+\newline
+
+\begin{theorem}
+Theorem: Let L be the Hilbert class field of $K=\mathbb{Q}(\sqrt{-n})$, where n is squarefree, $n\not\equiv 3(4)$, so that
+\begin{equation}
+    \mathcurs{O}_K=\mathbb{Z}(\sqrt{-n})
+\end{equation}
+Assume that p is an odd prime not dividing n, and that x,y are integers. Then 
+p=x^2+ny^2 \Longleftrightarrow p\:splits\:completely\:in\: L.
+\end{theorem}
+\subsection{BRIN Another Example}
+\cite{BRIN} [1,-1,-6,0,4,1],1531, 71, 'for sure
 \subsection{First results}
 Goal: For a given number field K, what is the maximal unramified extension $K^{ur}$ of K is and also what is the structure of $G_K^{ur}$ is. By Class Field Theory we already know that 
-\[(G_K^{ur})^{ab} = \Gamma(K_1:K)\cong C_K\].
-\newline
+\begin{equation}
+  (G_K^{ur})^{ab} = \Gamma(K_1:K)\cong C_K
+\end{equation}
+
 \subsection{Important Results from Class Field Theory}
 1. \cite{YAMA}[Proposition 1] gives the following classification of polynomials of the form $f(x) = x^n+ax+b \in \mathbb{Z}[x]$, and K is the splitting field of f over $\mathbb{Q}$.
 \newline
@@ -96,35 +98,59 @@ If the following conditions hold:
 \newline
 Then K is an $A_n$-extension of $\mathbb{Q}(\sqrt{\Delta(f)})$ which is unramified at all finite primes. For example, if $f(x) = x^5-x+1$, then $\Delta(f)= 2869$ and write $L = \mathhbb{Q}(\sqrt{2869})$. Then K is unramified over L and $\Gamma(K:L)\cong A_5.$
 
-\subsection{Bounds on Discriminants}
+\section{Bounds on Discriminants}
 Minkowski's theorem bound shows that if K is a number field with $r_1$ real and $2*r_2$ complex conjugate fields, and $n=r_1+2r_2$ is the degree of the field, then 
-\newline 
-\[rd_K\geqslant (\frac{\pi}{4})^{\frac{2r_1}{n}}\frac{n^2}{n!^{\frac{2}{n}}}\]
-\newline
-As $n\rightarrow \infty$, Stirling's formula can give a bound that $rd_K\geqslant e^2 = 7.39$.
-\newline
+\begin{equation}
+rd_K\geqslant (\frac{\pi}{4})^{\frac{2r_1}{n}}\frac{n^2}{n!^{\frac{2}{n}}}
+\end{equation} 
+As $n\rightarrow \infty$, Stirling's formula can give a bound that
+\begin{equation}
+    rd_K\geqslant e^2 = 7.39
+\end{equation}
 Odlyzko's Bound \cite{ODL2} improved on the bounds for Minkowski for the discriminant of a number field. It can be stated as  
-\medskip
-\newline
-\[rd_K\geqslant 60^{(\frac{r_1}{n})}22^{(\frac{r_2}{n})}+o(1)\] as $n\rightarrow \infty$.
-\newline
+\begin{equation}
+rd_K\geqslant 60^{(\frac{r_1}{n})}22^{(\frac{r_2}{n})}+o(1)\:as\:n\rightarrow \infty   
+\end{equation}
 Furthermore, under the assumption of the Generalised Riemann Hypothesis, 
 this bound can be improved by replacing the numbers 60 and 22 by 188 and 41 respectively. 
 \subsection{How to use this bound}
-Following \cite{YAMA}, write this bound function as $B(n,r_1,r_2)$, and let H be a positive integer. Suppose that L is an unramified normal extension of K of degree M. Then if
-\newline{}
-(i) $rd_K<B(H.m.n,H.m.r_1,H.m.r_2)$ then $[K^{ur}:L]<H$ and $h(L)<H$. Indeed if H=2 then $K^{ur}=L$.
-\newline
-(ii) If h(L)=1 and H=60 then again $K^{ur}=L$.
+Following \cite{YAMA}, write this bound function as $B(n,r_1,r_2)$.
+\begin{theorem}
+Suppose that H is a positive integer, and L is an unramified normal extension of K of degree M. Then if
+\begin{enumerate}
+    \item If \begin{equation}
+        rd_K<B(H.m.n,H.m.r_1,H.m.r_2)
+    \end{equation}
+    then $[K^{ur}:L]<H$ and $h(L)<H$. Indeed if H=2 then $K^{ur}=L$.
+
+    \item If
+        $h(L)=1$ and H=60 then again $K^{ur}=L$.
+\end{enumerate}
+\begin{equation}
+
+\end{equation}
+\end{theorem}
+
+
+
 \subsection{Result using Hoelscher}
 
 Using \cite{HOEL} and \cite{JONE}, we see that 
-the prime p=239 is tamely ramified for \[G=S_3,G\textsuperscript{ab} = 2, p_w =3  \] and also 
-\newline
-\[G=D_5,G\textsuperscript{ab} = 2 \]
-This means that we can apply Theorem(1.1) from Hoelscher with \[N = G = D_5, K_0 = \mathbb{Q}\]
-\newline
-Then \[N/p(N) = D_5 \not\subset \mathbb{Z}/(p-1) = \mathbb{Z}_{238}\]
+the prime p=239 is tamely ramified for 
+\begin{equation}
+  G=S_3,G\textsuperscript{ab} = 2, p_w =3  
+\end{equation} and also 
+\begin{equation}
+    G=D_5,G\textsuperscript{ab} = 2 
+\end{equation}
+This means that we can apply Theorem(1.1) from Hoelscher with
+\begin{equation}
+    N = G = D_5, K_0 = \mathbb{Q}
+\end{equation}
+Then 
+\begin{equation}
+N/p(N) = D_5 \not\subset \mathbb{Z}/(p-1) = \mathbb{Z}_{238}
+\end{equation}
 \newline
 We have the field extension diagram
 \bigskip
@@ -161,13 +187,18 @@ The following methodology was implemented  to find suitable polynomials:
     \item Search for primes 3 mod 4 which totally decompose in the splitting field of P. 
 \end{enumerate}
 The following polynomial was found: 
-\newline
-$P(X) = (x^8 - 3x^7 - 16x^6 + 31x^5 + 74x^4 - 40x^3 - 56x^2 + 17x + 3)$,
+\begin{equation}
+    P(X) = (x^8 - 3x^7 - 16x^6 + 31x^5 + 74x^4 - 40x^3 - 56x^2 + 17x + 3)
+
+\end{equation}
 where 
-\newline
-$l = \Delta(P) = 76363470193820546413$. 
-\newline
-Put $q_1 = 219823$, $q_2 = 931363$, $K = split(P, \mathbb{Z}[x])$.
+\begin{equation}
+    l = \Delta(P) = 76363470193820546413
+
+\end{equation}
+Put \begin{equation}
+    q_1 = 219823, q_2 = 931363, K = split(P, \mathbb{Z}[x]).
+\end{equation}
 \newline
 Here $q_1$ and  $q_2$ are totally decomposed in $K/\mathbb{Q}$, the Galois closure of P.
 \newline
@@ -194,21 +225,19 @@ We can now draw the following field diagram, where all extensions are unramified
 \newline
 In fact, $E_2/\mathbb{Q}(\sqrt{l*q_1*q_2})$ is an unramified field extension of degree $2^{\infty}$.
 
-
-
 \section{Trying to recreate Maire's Results}
 In \cite{MAIR}[3.1] I use Maire's method to find a suitable polynomial. 
 Using SYMPY I found the following polynomial:
-\newline
-\begin{equation*}\label{eq:soln mle2}
-  \begin{aligned}
+\begin{equation}
 (x - 306678861179996894)^{2}(x - 157643009028967297)
 (x - 26634967141504290)(x + 28702432430906831)(x + 379563374979692451)(x +389369891119866095)
- \end{aligned}
-\end{equation*}
-\newline
-with discriminant $l = \Delta(P) = 1486256555685463501$.
-\newline
+\end{equation}
+
+with discriminant
+\begin{equation}
+    l = \Delta(P) = 1486256555685463501
+\end{equation}.
+
 \cite{MAIR}[2.1] gives a condition for the p-Hilbert tower of K to be infinite. 
 \newline
 \cite{MAIR}[2.3] says that if P is an irreducible polynomial in $\mathbb{R}[x]$ with squarefree discriminant D(P), and C is its Galois closure, then $C/\mathbb{Q}(\sqrt{\Delta(P)})$ is unramified.
@@ -216,10 +245,9 @@ with discriminant $l = \Delta(P) = 1486256555685463501$.
 Using these two propositions from Maire can give an algorithm to find a field $K=\mathbb{Q}(\sqrt{l_1.l_2.l_3)}$, where $l_1$ is a prime 1 modulo 4, and $l_2$ and $l_3$ are primes 3 modulo 4. 
 \newline
 Here is an example for n= 5:
-$(x^5 + 12x^4 + 20x^3 - 96x^2 - 4399, D=1255760665676742389)$
-
-
-\label{S:2}
+\begin{equation}
+    (x^5 + 12x^4 + 20x^3 - 96x^2 - 4399, D=1255760665676742389)
+\end{equation}
 \subsection{Subsection Three}
 \section{Using Sympy to find Maximal Unramified Extensions}
 Here is an algorithm to find the maximal unramified extension of a number field using Odlyzko's bound and result from Kim \& Koenig and Maire.
@@ -250,7 +278,10 @@ In fact, we can draw the following diagram:
 \newline
 Using Cohn(1955) and verifying with computer search we calculate that a quintic polynomial that satisfies the above conditions, and has minimal absolute discriminant is $f(x) = x^5-2x^3-x^2+1$ which has $\Delta(f) = -4511\equiv1 (mod 4)$.
 This polynomial has root discriminant = 67.16.
-Using the bounds in given in Table(2) of Odlyzko(1990) we find that indeed $K^{ur}\cong A_{5}$. 
+Using the bounds in given in Table(2) of Odlyzko(1990) we find that indeed
+\begin{equation}
+    K^{ur}\cong A_{5}
+\end{equation}
 
 %% The Appendices part is started with the command \appendix;
 %% appendix sections are then done as normal sections
@@ -276,6 +307,8 @@ Kim, Kwang-Seob & Koenig, Joachim. (2017). Some examples of quadratic fields wit
 Yamamoto, Yoshihiko. On unramified Galois extensions of quadratic number fields. Osaka J. Math. 7 (1970), no. 1, 57--76. https://projecteuclid.org/euclid.ojm/1200692686
 \bibitem{BRIN}
 Brink, David. (2010). Remark on infinite unramified extensions of number fields with class number one. Journal of Number Theory - J NUMBER THEOR. 130. 304-306. 10.1016/j.jnt.2009.08.013. 
+\bibitem{DIAZ}
+ F. Diaz Y. Diaz, Tables minorant la racine n-ième du discriminant d'un corps de degré n. Publications Mathématiques d'Orsay 80.06. Université de Paris-Sud, Département de Mathématique, Orsay, (1980). 59 pp. MR 82i:12007.
 \end{thebibliography}
 
 \end{document}
