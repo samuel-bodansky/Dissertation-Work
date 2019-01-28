@@ -5,7 +5,8 @@
 \usepackage{amsfonts}
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}
- 
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}{Corollary}[theorem]
 \usepackage{tikz}
 \usepackage{lineno}
 \usepackage[english]{babel}
@@ -63,8 +64,6 @@ Let H be a subgroup of the class group C of K. A finite unramified abelian exten
 \begin{theorem}
 Theorem: A class field exists for each subgroup of C; it is unique, and every finite unramified abelian extension of K is the class group of some subgroup of C. If L is the class field of H, then $\Gamma(L/K)\cong C/H$ and for every prime ideal $\mathfrak{p}$ of K, $f(\mathfrak{p})$ is the order of the image of $\mathfrak{p}$ in the group C/H.
 \end{theorem}
-
-\newline
 \subsection{Hilbert Class Field}
 The class field of the trivial subgroup of C is called the Hilbert class field of K. It is maximal abelian extension, L of K unramified at all primes of K.
 \newline
@@ -77,8 +76,37 @@ Theorem: Let L be the Hilbert class field of $K=\mathbb{Q}(\sqrt{-n})$, where n 
     \mathcurs{O}_K=\mathbb{Z}(\sqrt{-n})
 \end{equation}
 Assume that p is an odd prime not dividing n, and that x,y are integers. Then 
-p=x^2+ny^2 \Longleftrightarrow p\:splits\:completely\:in\: L.
+$p=x^2+ny^2 \Longleftrightarrow$ p splits completely in L.
 \end{theorem}
+\begin{lemma}
+Let L be the Hilbert Class field of K, and let $\mathfrak{p}$ be a prime ideal of K. Then \newline $\mathfrak{p}$ splits completely in L $\Longleftrightarrow\:\mathfrak{p}$ is a principal ideal.
+\end{lemma}
+\begin{lemma}
+Let L be the Hilbert class field of an imaginary quadratic number field K, and let $\tau$ denote complex conjugation. Then $\tau(L)=L$ whence L is Galois over \mathbb{Q}.
+\end{lemma}
+\begin{proof}
+We have the following equivalences:
+\begin{equation}
+    p=x^2+ny^2\Longleftrightarrow\mathfrak{p}\mathcurs{O}_K=\mathfrak{p}\bar{\mathfrak{p}}; \mathfrak{p}\neq\bar{\mathfrak{p}}; \mathfrak{p}\: principal\:in\: \mathcurs{O}_K
+\end{equation}
+\begin{equation}
+    \Longleftrightarrow\mathfrak{p}\mathcurs{O}_K=\mathfrak{p}\bar{\mathfrak{p}}; \mathfrak{p}\neq\bar{\mathfrak{p}}; \mathfrak{p}\:splits\:completely\:in\:L
+\end{equation}
+\begin{equation}
+    \Longleftrightarrow\:p\:splits\:completely\:in\:L.
+\end{equation}
+The first equivalence comes from the factorisation 
+\begin{equation}
+    p=x^2+ny^2=(x+\sqrt{-ny})(x+\sqrt{ny}).
+\end{equation}
+The second and third equivalences come from the above two lemmas respectively.
+\end{proof}
+\begin{corollary}
+Suppose $K=\mathbb{Q}{\sqrt{-n}}$ n is positive,squarefree, $n\not\equiv 3(4)$, so that $d_K=-4n$. If p is an odd prime not dividing n, then
+\begin{equation} p=x^2+ny^2 \Longleftrightarrow p\:splits\:completely\:in\:the\:Hilbert\:class\:field\:of\:K.
+\end{equation}
+Hence the primes of the form $x^2+ny^2$ characterise the Hilbert Class field of $\mathbb{Q}(\sqrt{-n})$.
+\end{corollary}
 \subsection{BRIN Another Example}
 \cite{BRIN} [1,-1,-6,0,4,1],1531, 71, 'for sure
 \subsection{First results}
@@ -228,16 +256,15 @@ In fact, $E_2/\mathbb{Q}(\sqrt{l*q_1*q_2})$ is an unramified field extension of 
 \section{Trying to recreate Maire's Results}
 In \cite{MAIR}[3.1] I use Maire's method to find a suitable polynomial. 
 Using SYMPY I found the following polynomial:
-\begin{equation}
-(x - 306678861179996894)^{2}(x - 157643009028967297)
-(x - 26634967141504290)(x + 28702432430906831)(x + 379563374979692451)(x +389369891119866095)
-\end{equation}
-
+\begin{equation*}
+      f(x)=(x - 306678861179996894)^{2}\\(x - 157643009028967297)\\
+(x - 26634967141504290)\\(x + 28702432430906831)\\(x + 379563374979692451)\\(x +389369891119866095)
+\end{equation*}
+\newline
 with discriminant
 \begin{equation}
-    l = \Delta(P) = 1486256555685463501
-\end{equation}.
-
+    l = \Delta(P) = 1486256555685463501.
+\end{equation}
 \cite{MAIR}[2.1] gives a condition for the p-Hilbert tower of K to be infinite. 
 \newline
 \cite{MAIR}[2.3] says that if P is an irreducible polynomial in $\mathbb{R}[x]$ with squarefree discriminant D(P), and C is its Galois closure, then $C/\mathbb{Q}(\sqrt{\Delta(P)})$ is unramified.
@@ -246,9 +273,8 @@ Using these two propositions from Maire can give an algorithm to find a field $K
 \newline
 Here is an example for n= 5:
 \begin{equation}
-    (x^5 + 12x^4 + 20x^3 - 96x^2 - 4399, D=1255760665676742389)
+    x^5 + 12x^4 + 20x^3 - 96x^2 - 4399, D=1255760665676742389.
 \end{equation}
-\subsection{Subsection Three}
 \section{Using Sympy to find Maximal Unramified Extensions}
 Here is an algorithm to find the maximal unramified extension of a number field using Odlyzko's bound and result from Kim \& Koenig and Maire.
 \begin{enumerate}
