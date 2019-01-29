@@ -305,7 +305,23 @@ We can now draw the following field diagram, where all extensions are unramified
 \end{center}
 \newline
 In fact, $E_2/\mathbb{Q}(\sqrt{l*q_1*q_2})$ is an unramified field extension of degree $2^{\infty}$.
-
+\section{Kim and Koenig}
+Define $K=\mathbb{Q}(\sqrt{22268})$, $L=split(x^6-10x^4-7x^3+15x^2+14x+3,\mathbb{Q}[x])$. Then $K_1=\mathbb{Q}(\sqrt{76},\sqrt{293})$. Define $M=LK_1$. Then $M=K^{ur}$ and we have the following diagram.
+\begin{center}
+    \begin{tikzpicture}[node distance = 1.8cm, auto]
+      \node (Q) {$\mathbb{Q}$};
+      \node (K) [above of=Q] {K};
+      \node (K1) [above of=K] {$K_1$};
+      \node (M) [above of=K1] {$M=LK_1$};
+      \node (L) [right of=K1] {L};
+    \draw [->,out=180,in=180,looseness=1] (Q.west) to node[above][pos=0.6,left]{$A_5\times V_4$}  (M.west);    
+    \draw [-] (Q) to node [pos=0.1,left]{$C_2$} (K);
+    \draw [-] (K) to node {} (K1);
+    \draw [-] (K1) to node {$A_5$} (M);
+    \draw [-] (Q) to node [pos=0.6,right]{$A_5$} (L);
+    \draw [-] (L) to node [pos=0.1,right,above]{$V_4$} (M);
+      \end{tikzpicture}
+\end{center}
 \section{Yamamura's Results}
 \cite{YAM2} $\mathbb{Q}(\sqrt{-1507})$ is the first imaginary quadratic field with an unramified $A_5$-extension over $\mathbb{Q}$. In fact, defining $L=split(x^5-5x^3+5x^2+24x+5,\mathbb{Q}[x])$ gives such an $A_5$ extension of K. 
 \begin{lemma}
