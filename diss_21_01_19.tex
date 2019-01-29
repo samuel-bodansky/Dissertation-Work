@@ -7,6 +7,7 @@
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{definition}{Definition}
 \usepackage{tikz}
 \usepackage{lineno}
 \usepackage[english]{babel}
@@ -42,7 +43,7 @@ Aim: to construct minimally ramified extensions of number fields.
 \subsection{Jones and Roberts}
 
 \section{Initial Results}
-\subsection{Goal and Background}
+\subsection{Class Field Theory}
 
 Recall a prime ideal $\mathfrak{p}$ in $\mathcal{O}_K$ factors in an extension L of K as
 \newline
@@ -64,6 +65,10 @@ Let H be a subgroup of the class group C of K. A finite unramified abelian exten
 \begin{theorem}
 Theorem: A class field exists for each subgroup of C; it is unique, and every finite unramified abelian extension of K is the class group of some subgroup of C. If L is the class field of H, then $\Gamma(L/K)\cong C/H$ and for every prime ideal $\mathfrak{p}$ of K, $f(\mathfrak{p})$ is the order of the image of $\mathfrak{p}$ in the group C/H.
 \end{theorem}
+We also have this theorem which allows us to define the maximal unramified extension of a number field. 
+\begin{theorem}
+The composite of two finite unramified extensions of K is also unramified, and so the union $K^{ur}$ of all unramified extensions is also an unramified extension of K. The residue field $\tilde{k}$ of $K^{ur}$ is an algebraic closure of the residue field k of K.
+\end{theorem}
 \subsection{Hilbert Class Field}
 The class field of the trivial subgroup of C is called the Hilbert class field of K. It is maximal abelian extension, L of K unramified at all primes of K.
 \newline
@@ -73,7 +78,7 @@ For example,if $K=\mathbb{Q}[\sqrt{-5}]$ then take $L=\mathbb{Q}[\sqrt{-1},\sqrt
 \begin{theorem}
 Theorem: Let L be the Hilbert class field of $K=\mathbb{Q}(\sqrt{-n})$, where n is squarefree, $n\not\equiv 3(4)$, so that
 \begin{equation}
-    \mathcurs{O}_K=\mathbb{Z}(\sqrt{-n})
+    \mathcal{O}_K=\mathbb{Z}(\sqrt{-n})
 \end{equation}
 Assume that p is an odd prime not dividing n, and that x,y are integers. Then 
 $p=x^2+ny^2 \Longleftrightarrow$ p splits completely in L.
@@ -81,16 +86,19 @@ $p=x^2+ny^2 \Longleftrightarrow$ p splits completely in L.
 \begin{lemma}
 Let L be the Hilbert Class field of K, and let $\mathfrak{p}$ be a prime ideal of K. Then \newline $\mathfrak{p}$ splits completely in L $\Longleftrightarrow\:\mathfrak{p}$ is a principal ideal.
 \end{lemma}
+\begin{proof}[Proof of Lemma]
+We know that $\mathfrak{p}$ splits completely in L iff $(L/K)/\mathfrak{p}=1$. The Artin map induces an isomorphism $C(\mathcal{O}_K)\cong\Gamma(L/K)$. Therefore $(L/K)/\mathfrak{p}=1$ iff $\mathfrak{p}$ determines the trivial class of $C(\mathcal{O}_K)$. But the definition of the ideal class group shows that $\mathfrak{p}$ is principal as required.
+\end{proof}
 \begin{lemma}
-Let L be the Hilbert class field of an imaginary quadratic number field K, and let $\tau$ denote complex conjugation. Then $\tau(L)=L$ whence L is Galois over \mathbb{Q}.
+Let L be the Hilbert class field of an imaginary quadratic number field K, and let $\tau$ denote complex conjugation. Then $\tau(L)=L$ whence L is Galois over $\mathbb{Q}$.
 \end{lemma}
 \begin{proof}
 We have the following equivalences:
 \begin{equation}
-    p=x^2+ny^2\Longleftrightarrow\mathfrak{p}\mathcurs{O}_K=\mathfrak{p}\bar{\mathfrak{p}}; \mathfrak{p}\neq\bar{\mathfrak{p}}; \mathfrak{p}\: principal\:in\: \mathcurs{O}_K
+    p=x^2+ny^2\Longleftrightarrow\mathfrak{p}\tmathcal{O}_K=\mathfrak{p}\bar{\mathfrak{p}}; \mathfrak{p}\neq\bar{\mathfrak{p}}; \mathfrak{p}\: principal\:in\: \tmathcal{O}_K
 \end{equation}
 \begin{equation}
-    \Longleftrightarrow\mathfrak{p}\mathcurs{O}_K=\mathfrak{p}\bar{\mathfrak{p}}; \mathfrak{p}\neq\bar{\mathfrak{p}}; \mathfrak{p}\:splits\:completely\:in\:L
+    \Longleftrightarrow\mathfrak{p}\tmathcal{O}_K=\mathfrak{p}\bar{\mathfrak{p}}; \mathfrak{p}\neq\bar{\mathfrak{p}}; \mathfrak{p}\:splits\:completely\:in\:L
 \end{equation}
 \begin{equation}
     \Longleftrightarrow\:p\:splits\:completely\:in\:L.
@@ -107,22 +115,26 @@ Suppose $K=\mathbb{Q}{\sqrt{-n}}$ n is positive,squarefree, $n\not\equiv 3(4)$, 
 \end{equation}
 Hence the primes of the form $x^2+ny^2$ characterise the Hilbert Class field of $\mathbb{Q}(\sqrt{-n})$.
 \end{corollary}
-In fact Bruckner \cite{BRUC} generalises this theorem when L is a \textit{generalised dihedral} extension of K over $\mathbb{Q}$. Suppose K is an imaginary quadratic field and L is an abelian extension of K which is Galois over $\mathbb{Q}$; let $\tau$ represent complex conjugation. We can then write
-\begin{theorem}
-\Gamma(L/\mathbb{Q})\cong \Gamma(L/K)\rtimes(\mathbb{Z}/2\mathbb{Z})
-\end{theorem}
-where the non-identity element of $\mathbb{Z}/2\mathbb{Z}$ acts on $\Gamma(L/K)$ via conjugation with $\tau$. L is \texit{generalised dihedral} over $\mathbb{Q}$ if this action acts as the inverse map on $\Gamma(L/K)$.
+In fact Bruckner \cite{BRUC} generalises this theorem when L is a \textit{generalised dihedral} extension of K over $\mathbb{Q}$. Suppose K is an imaginary quadratic field and L is an abelian extension of K which is Galois over $\mathbb{Q}$; let $\tau$ represent complex conjugation. Write
+\begin{equation}
+   \Gamma(L/\mathbb{Q})\cong \Gamma(L/K)\rtimes(\mathbb{Z}/2\mathbb{Z})
+\end{equation}
+where the non-identity element of $\mathbb{Z}/2\mathbb{Z}$ acts on $\Gamma(L/K)$ via conjugation with $\tau$.
+\begin{definition}
+ We say L is \textbf{generalised dihedral} over $\mathbb{Q}$ if this action acts as the inverse map on $\Gamma(L/K)$.
+\end{definition}
+
 \begin{theorem}
 Let K be an imaginary class field. Then an abelian extension L of K is generalised dihedral over $\mathbb{Q}$ iff L is contained in a ring class field of K.
 \end{theorem}
-\section{BRIN Another Example}
-Suppose K is a class field with trivial class group, i.e. h(K)=1. Then K has no Abelian (and hence no
+\section{Infinite Unramified Extensions}
+Suppose K is a class field with trivial class group, i.e. h(K)=1. Then K has no abelian (and hence no
 solvable) non-trivial unramified Galois extension. Despite this, K may have a non-solvable unramified extension. \cite{BRIN} gives such an example. Suppose
 \begin{equation}
    K=\mathbb{Q}(\sqrt{29},\sqrt{4967}) 
 \end{equation}
 \begin{equation}
-   L=split(x^7 - 11x^5 + 17x^3 - 5x + 1,\mathbb{Q})
+   L=split(x^7 - 11x^5 + 17x^3 - 5x + 1,\mathbb{Q}[x])
 \end{equation}
 Then K has class number 1 and L is a PSL(2, 7)-extension of K.
 \cite{MAIR} showed that there exist biquadratic number fields with class number one with an infinite unramified extension. 
@@ -146,6 +158,8 @@ Let r be the number of primes $\mathfrak{p}$ in L ramified in M, and let $\theta
 \end{equation}
 Write $Z_\mathfrak{B}\subseteq\Gamma(L/\mathbb{Q}) = S_5$; as the decomposition group of $\mathfrak{B}$ where $\mathfrak{B}$ is a prime in L dividing q. q is unramified so this group is cyclic, and \cite{ART1} shows that $Z_\mathfrak{B}$ has order at most 3.  It now follows that L has 120 primes dividing p and at least 40 primes dividing q. Then $r\geq 160$ since they all ramify in M, and the theorem follows.
 \end{proof}
+There are 9 imaginary quadratic fields with class number 1and 47 imaginary biquadratic number fields with class number 1. Odlyzko's bound (even not assuming GRH) show that no imaginary quadratic number field has an infinite unramified extension. Such a method does not work for imaginary biquadratic number fields, by considering the field $K=\mathbb{Q}(\sqrt{-67}\sqrt{-163})$ which has root discriminant approximately 104.5.
+
 Using SageMath, the following polynomial and primes were found:
 \begin{equation}
     f(x)=x^5+4x^4-6x^2-x+1, p=1531,q=71,151,227,\Delta(f)=170701
@@ -265,7 +279,7 @@ where
 
 \end{equation}
 Put \begin{equation}
-    q_1 = 219823, q_2 = 931363, K = split(P, \mathbb{Z}[x]).
+    q_1 = 219823, q_2 = 931363, K = split(P, \mathbb{Q}[x]).
 \end{equation}
 \newline
 Here $q_1$ and  $q_2$ are totally decomposed in $K/\mathbb{Q}$, the Galois closure of P.
@@ -293,6 +307,14 @@ We can now draw the following field diagram, where all extensions are unramified
 \newline
 In fact, $E_2/\mathbb{Q}(\sqrt{l*q_1*q_2})$ is an unramified field extension of degree $2^{\infty}$.
 
+\section{Yamamura's Results}
+\cite{YAM2} $\mathbb{Q}(\sqrt{-1507})$ is the first imaginary quadratic field with an unramified $A_5$-extension over $\mathbb{Q}$. In fact, defining $L=split(x^5-5x^3+5x^2+24x+5,\mathbb{Q}[x])$ gives such an $A_5$ extension of K. 
+\begin{lemma}
+Define $K=\mathbb{Q}(\sqrt{-14731})$, $L=split(x^6+3x^5,5x^4+4x^3+3x^2+2x+1,\mathbb{Q}[x])$. Then L is an unramified $A_6$-extension of K and is an $S_6$ extension of $\mathbb{Q}$.
+\end{lemma}
+\begin{lemma}
+Define $K=\mathbb{Q}(\sqrt{-30759})$, $L=split(x^7+2x^6-3x^4-x^3-x^2-x+2,\mathbb{Q}[x])$. Then L is an unramified PSL(2,7)-extension of K and is an $PSL(2,7)\times C_2$ extension of $\mathbb{Q}$.
+\end{lemma}
 \section{Trying to recreate Maire's Results}
 In \cite{MAIR}[3.1] I use Maire's method to find a suitable polynomial. 
 Using SYMPY I found the following polynomial:
@@ -322,7 +344,7 @@ Here is an algorithm to find the maximal unramified extension of a number field 
   \item Pick f(x) to be a possible quintic polynomial.
   \item Calculate $\Delta(f(x))$ and check it is squarefree.
   \item Check that f(x) has precisely three real roots. 
-  \item Let S be the splitting field of f, and therefore $\Gamma(S:\mathhbb{Q})\cong S_5$
+  \item Let S be the splitting field of f, and therefore $\Gamma(S:\mathbb{Q})\cong S_5$
   \item Define $K=\mathbb{Q}(\sqrt{\Delta})$ and therefore $\Gamma(S:K)\cong A_5$. Note by Proposition 2.3 in Maire, S is an unramified extension of K. 
   \item Calculate the root discriminant of K, $rd_K$.
   \item Use the Odlyzko bound to calculate the degree of the maximal unramified extension. If we can show that $[K^{ur}:K]<120$ and $[K^{ur}:\mathbb{Q}]<240$ by the Tower Law, then indeed $K^{ur} = S$.
@@ -341,8 +363,7 @@ In fact, we can draw the following diagram:
       \draw [-] (S) to node {} (Kur);
       \end{tikzpicture}
 \end{center}
-\newline
-Using Cohn(1955) and verifying with computer search we calculate that a quintic polynomial that satisfies the above conditions, and has minimal absolute discriminant is $f(x) = x^5-2x^3-x^2+1$ which has $\Delta(f) = -4511\equiv1 (mod 4)$.
+Using Cohn(1955) and verifying with computer search we calculate that a quintic polynomial that satisfies the above conditions, and has minimal absolute discriminant is $f(x) = x^5-2x^3-x^2+1$ which has $\Delta(f) = -4511\equiv1(4)$.
 This polynomial has root discriminant = 67.16.
 Using the bounds in given in Table(2) of Odlyzko(1990) we find that indeed
 \begin{equation}
@@ -381,8 +402,10 @@ Brink, David. (2010). Remark on infinite unramified extensions of number fields 
 (1995) 31–36.
 \bibitem{MAR1}
  J. Martinet, Tours de corps de classes et estimations de discriminants, Invent. Math. 44 (1978) 65–73
- \bibitem{ART1}
-  B.L. van der Waerden, Die Zerlegungs- und Trägheitsgruppe als Permutationsgruppen, Math. Ann. 111 (1935) 731–733
+\bibitem{ART1}
+ B.L. van der Waerden, Die Zerlegungs- und Trägheitsgruppe als Permutationsgruppen, Math. Ann. 111 (1935) 731–733
+ \bibitem{YAM2}
+ Yamamura, Ken. Maximal unramified extensions of imaginary quadratic number fields of small conductors. Journal de théorie des nombres de Bordeaux, Volume 9 (1997) no. 2, pp. 405-448.
 \end{thebibliography}
 
 \end{document}
