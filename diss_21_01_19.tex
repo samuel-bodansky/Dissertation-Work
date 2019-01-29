@@ -37,6 +37,7 @@ Aim: to construct minimally ramified extensions of number fields.
     \item $C_K$ is the class field group of K. 
     \item $G^{ab}$ is the abelianisation of a group G, $G/[G,G]$
     \item $K_n$ is the $n_{th}$ term in the sequence defined by $K_0:=K$ and $K_{n+1}$ is the Hilbert class field of $K_n$.
+    \item $K_H=\bigcup_{i}K_{i}$ is the Hilbert tower of K.  
     \item $\zeta_n$ is the $n_{th}$ root of unity. 
 \end{enumerate}
 \section{Summary of Relevant Literature}
@@ -59,6 +60,10 @@ In fact, if the set of primes that split in L and $\tilde{L}$ then algebraic num
  \begin{equation}
  [L:K]=[L\tilde{L}:K]=[\tilde{L}:K].
  \end{equation}
+ The following lemma is a useful result in class field theory:
+ \begin{lemma}[Abhyankar's Lemma]
+    Suppose F is a local field, and $E_1$ and $E_2$ are finite extensions of F with degrees $e_1$ and $e_2$ respectively. In addition, suppose $E_2$ is tamely ramified and $e_2|e_1$. Then $E_1E_2$ is an unramified extension of $E_1$.
+ \end{lemma}
 A natural question is to determine these sets split(L:K) as L changes over the finite extensions of K, and to determine the sets L corresponding to these extensions.
 \newline
 Let H be a subgroup of the class group C of K. A finite unramified abelian extension L of K is said to be a $\textit{class field}$ for H if the prime ideals of K splitting in L are exactly those in $\tilde{H}$ . The following theorem provides an answer the above question for unramified abelian extensions of K.
@@ -158,7 +163,7 @@ Let r be the number of primes $\mathfrak{p}$ in L ramified in M, and let $\theta
 \end{equation}
 Write $Z_\mathfrak{B}\subseteq\Gamma(L/\mathbb{Q}) = S_5$; as the decomposition group of $\mathfrak{B}$ where $\mathfrak{B}$ is a prime in L dividing q. q is unramified so this group is cyclic, and \cite{ART1} shows that $Z_\mathfrak{B}$ has order at most 3.  It now follows that L has 120 primes dividing p and at least 40 primes dividing q. Then $r\geq 160$ since they all ramify in M, and the theorem follows.
 \end{proof}
-There are 9 imaginary quadratic fields with class number 1and 47 imaginary biquadratic number fields with class number 1. Odlyzko's bound (even not assuming GRH) show that no imaginary quadratic number field has an infinite unramified extension. Such a method does not work for imaginary biquadratic number fields, by considering the field $K=\mathbb{Q}(\sqrt{-67},\sqrt{-163})$ which has root discriminant approximately 104.5.
+There are 9 imaginary quadratic fields with class number 1 and 47 imaginary biquadratic number fields with class number 1. Odlyzko's bound (even not assuming GRH) show that no imaginary quadratic number field with trivial class group has an infinite unramified extension. Such a method does not work for imaginary biquadratic number fields with trivial class group, by considering the field $K=\mathbb{Q}(\sqrt{-67},\sqrt{-163})$ which has root discriminant approximately 104.5.
 
 Using SageMath, the following polynomial and primes were found:
 \begin{equation}
@@ -271,7 +276,6 @@ The following methodology was implemented  to find suitable polynomials:
 The following polynomial was found: 
 \begin{equation}
     P(X) = (x^8 - 3x^7 - 16x^6 + 31x^5 + 74x^4 - 40x^3 - 56x^2 + 17x + 3)
-
 \end{equation}
 where 
 \begin{equation}
@@ -304,9 +308,11 @@ We can now draw the following field diagram, where all extensions are unramified
       \end{tikzpicture}
 \end{center}
 \newline
-In fact, $E_2/\mathbb{Q}(\sqrt{l*q_1*q_2})$ is an unramified field extension of degree $2^{\infty}$.
+In fact, $E_2/\mathbb{Q}(\sqrt{l.q_1.q_2})$ is an unramified field extension of degree $2^{\infty}$.
 \section{Kim and Koenig}
-Define $K=\mathbb{Q}(\sqrt{22268})$, $L=split(x^6-10x^4-7x^3+15x^2+14x+3,\mathbb{Q}[x])$. Then $K_1=\mathbb{Q}(\sqrt{76},\sqrt{293})$. Define $M=LK_1$. Then $M=K^{ur}$ and we have the following diagram.
+\begin{theorem}
+ Define $K=\mathbb{Q}(\sqrt{22268})$, $L=split(x^6-10x^4-7x^3+15x^2+14x+3,\mathbb{Q}[x])$. Then $K_1=\mathbb{Q}(\sqrt{76},\sqrt{293})$. Define $M=LK_1$. Then $M=K^{ur}$ and we have the following diagram.   
+\end{theorem}
 \begin{center}
     \begin{tikzpicture}[node distance = 1.8cm, auto]
       \node (Q) {$\mathbb{Q}$};
@@ -322,6 +328,30 @@ Define $K=\mathbb{Q}(\sqrt{22268})$, $L=split(x^6-10x^4-7x^3+15x^2+14x+3,\mathbb
     \draw [-] (L) to node [pos=0.1,right,above]{$V_4$} (M);
       \end{tikzpicture}
 \end{center}
+Now define $K=\mathbb{Q}(\sqrt{-1567})$ and 
+\begin{equation}
+    L=split(x^9-2x^8+10x^7-25x^6+34x^5-40x^4+52x^3-45x^2+20x-4,\mathbb{Q}[x])
+\end{equation}Then
+\begin{theorem}
+    Write $G=PSL_2(\mathbb{F}_8)$. L is a G-extension of $\mathbb{Q}$; 1567 is the only prime in this field which is ramified with index 2. Abhyankar's Lemma shows that LK/K is unramified at every prime. G is a nonabelian simple group and so $L\capK_1=\mathbb{Q}$. Therefore $\Gamma(LK_1/K_1)\cong\Gamma(L/\mathbb{Q})\cong G$. It follows that $\Gamma(LK_1/\mathbb{Q})\cong G\times D_{15}$.
+\end{theorem}
+We have the following diagram:
+\begin{center}
+    \begin{tikzpicture}[node distance = 2cm, auto]
+      \node (Q) {$\mathbb{Q}$};
+      \node (K) [above of=Q] {K};
+      \node (K1) [above of=K] {$K_1$};
+      \node (LK1) [above of=K1] {$LK_1$};
+      \node (L) [right of=K1] {L};
+    \draw [->,out=180,in=180,looseness=1] (Q.west) to node[above][pos=0.6,left]{$G\times D_{15}$}  (LK1.west);
+    \draw [->,out=180,in=180,looseness=1] (Q.west) to node[above][pos=0.6,right]{$D_{15}$}  (K1.west); 
+    \draw [-] (Q) to node [pos=0.4,left]{$C_2$} (K);
+    \draw [-] (Q) to node [pos=0.6,right]{G} (L);
+    \draw [-] (K) to node {} (K1);
+    \draw [-] (K1) to node {G} (LK1);
+    \draw [-] (L) to node [pos=0.5,right]{$D_{15}$} (LK1);
+      \end{tikzpicture}
+\end{center}
 \section{Yamamura's Results}
 \cite{YAM2} $\mathbb{Q}(\sqrt{-1507})$ is the first imaginary quadratic field with an unramified $A_5$-extension over $\mathbb{Q}$. In fact, defining $L=split(x^5-5x^3+5x^2+24x+5,\mathbb{Q}[x])$ gives such an $A_5$ extension of K. 
 \begin{lemma}
@@ -332,18 +362,46 @@ Define $K=\mathbb{Q}(\sqrt{-30759})$, $L=split(x^7+2x^6-3x^4-x^3-x^2-x+2,\mathbb
 \end{lemma}
 \section{Trying to recreate Maire's Results}
 In \cite{MAIR}[3.1] I use Maire's method to find a suitable polynomial.
-TO DO: CHECK MY SOLUTION AND WRITE UP FROM MAIRE
-%a=[1,3,-14,1,17,-5,-3,1]
-%b =8980833629
-%q1 17471
-%q2 443
-% 919
-% 1627
-% 2803
-% 3691
-% 5231
-% 5867
-% 9391
+Firstly, we invoke the following theorem:
+\begin{theorem}[Kummer Theory]
+Suppose $K/\mathbb{Q}$ is a cyclic extension of degree p,unramified at p, and $L/\mathbb{Q}$ is an extension of degree n. Suppose also that for all places $\mathfrak{Q}$ in L, the ramification index of $\mathfrak{Q}$ in $L/\mathbb{Q}$ divides the ramification index of $\mathfrak{q} = \mathbb{Q}\cap\mathfrak{Q}$ in $K/\mathbb{Q}$. \newline
+Then the extension $LK/\mathbb{Q}$ is unramified at all finite places. In particular, $\bar{L}K/K$ is also unramified at all finite places.
+\end{theorem}
+Using SageMath, the following polynomial and primes were found. Define 
+\begin{equation}
+    P(x) = x^7-3x^6-5x^5+17x^4+x^3-14x^2+3x+1, l=\Delta(P)=8980833629
+\end{equation}
+Also define $K=split(P,\mathbb{Q}[x])$. Modulo l,
+\begin{eqnarray*}
+        P(x)&=&(x+2040911047)(x+3097257563)\\ & & {} (x+3210721157)(x+6041496066)\\ & & {}(x+6737752038)(x+7397598321)^2
+\end{eqnarray*}
+Now specify values for $q_1$ and $q_2$:
+\begin{equation}
+    q_1=17471,q_2\in\{443,919,1627,2803,3691,5231,5867,9391\}
+\end{equation}
+Then indeed $q_1\equiv\:q_2\equiv3(4)$.$q_1$ splits completely in K, there are n-1 places lying above $q_2$ in $K/\mathbb{Q}$.
+\newline
+Define $L=\mathbb{Q}(\sqrt{l.q_1.q_2})$, $M=KL$. Using the above theorem, all places lying above $q_1$ and $q_2$, in addition to n-2 places above l are ramified in M/K.  Applying \cite{MAIR}[Proposition 2.2] shows that M/L is nowhere ramified. Thus we get the following field extensions
+\begin{center}
+    \begin{tikzpicture}[node distance = 1cm, auto]
+      \node (L) {L=$\mathbb{Q}(\sqrt{l.q_1.q_2})$};
+      \node (M) [above of=L] {M};
+      \node (M2) [above of=M] {$M_2$};
+      \draw [-] (L) to node {} (M);
+      \draw [-] (M) to node {} (M2);
+      \end{tikzpicture}
+\end{center}
+where $M_2/L$ is an infinite unramified extension. We therefore have the following theorem:
+\begin{theorem}
+    Suppose K is a quadratic field of the form $\mathbb{Q}(\sqrt{8980833629.17471.q_2})$, where 
+    \begin{equation}
+        q_2\in\{443,919,1627,2803,3691,5231,5867,9391\}
+    \end{equation}
+    then \begin{enumerate}
+        \item $K_H/K$ is finite
+        \item $K_\infty/K$ is finite.
+    \end{enumerate}
+\end{theorem}
 \cite{MAIR}[2.1] gives a condition for the p-Hilbert tower of K to be infinite. 
 \newline
 \cite{MAIR}[2.3] says that if P is an irreducible polynomial in $\mathbb{R}[x]$ with squarefree discriminant D(P), and C is its Galois closure, then $C/\mathbb{Q}(\sqrt{\Delta(P)})$ is unramified.
@@ -386,11 +444,6 @@ Using the bounds in given in Table(2) of Odlyzko(1990) we find that indeed
 \begin{equation}
     K^{ur}\cong A_{5}
 \end{equation}
-
-%% The Appendices part is started with the command \appendix;
-%% appendix sections are then done as normal sections
-%% \appendix
-
 \begin{thebibliography}{9}
 \title{References}
 \bibitem{HOEL} 
