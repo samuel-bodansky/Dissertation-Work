@@ -146,17 +146,41 @@ Then K has class number 1 and L is a PSL(2, 7)-extension of K.
 \begin{theorem}
 \cite{BRIN} Suppose that \begin{enumerate}
     \item $f\in \mathbb{Z}[x]$ is an irreducible quintic with five real roots
-    \item $D=\Delta(f)$ is prime and $\mathbb{Q}(\sqrt{L}$ has class number 1
+    \item $D=\Delta(f)$ is prime and $\mathbb{Q}(\sqrt{L})$ has class number 1
     \item p and q are two primes such that $\mathbb{Q}(\sqrt{p.q})$ has class number 1 and $\mathbb{Q}(\sqrt{(D.p.q})$ has class number 2.
     \item f has five simple roots modulo p and f factors modulo q into polynomials of degrees, as a tuple $\mu$ of the form (1,1,1,1,1),(1,1,1,3),(1,2,2) or (1,1,3).
 \end{enumerate}
-Then the field $K=\mathbb{Q}(\sqrt{D},\sqrt{p.q})$ has class number 1 and infinite ramified extension.
+Then the field $L=\mathbb{Q}(\sqrt{D},\sqrt{p.q})$ has class number 1 and infinite unramified extension.
 \end{theorem}
 \begin{proof}
-A result from \cite{KOND} shows that the splitting field L
+A result from \cite{KOND} shows that the splitting field K
 of f is an $S_5$-extension of $\mathbb{Q}$ and an unramified $A_5$-extension of $\mathbb{Q}(\sqrt{D})$. Hence $M=K(\sqrt{p.q})$ is an
-unramified $A_5$-extension of K. It also follows that L has class number 1.
-\smallskip \newline
+unramified $A_5$-extension of L. Furthermore, K has class number 1, as demonstrated in the following diagram.
+\begin{center}
+    \begin{tikzpicture} [align=center]
+  \path  (0, 0)   node(Q)  {$\mathbb{Q}$}
+          +(6, 1)   node(QD) {$\mathbb{Q}(\sqrt{D})$}
+          ++(3,1)   node(Q12) {$\mathbb{Q}(\sqrt{p.q)}$}
+           ++(-5,0)   node(QD12) {$\mathbb{Q}(\sqrt{D.p.q})$}
+           ++(1,2)   node(K) {$K=split(f,\mathbb{Q}[x])$}
+           ++(5,0)   node(L) {$L=\mathbb{Q}(\sqrt{D},\sqrt{p.q})$}
+            ++(-1,2)   node(M) {$M=K(\sqrt{p.q})$};
+    \draw [-] (Q) to node [pos=0.5,above]{} (Q12);
+    \draw [-] (Q) to node [pos=0.8,below]{} (QD12);
+    \draw [-] (Q) to node [pos=0.5,below]{} (QD);
+  \draw [-] (QD12) to node [pos=0.5,left]{$A_5$} (K);
+  \draw [-] (Q) to node [pos=0.5,right]{$S_5$} (K);
+  \draw [-] (Q) to node [pos=0.5,below]{} (L);
+  \draw [-] (Q12) to node [pos=0.5,below]{} (L);
+  \draw [-] (QD) to node [pos=0.5,below]{} (L);
+    \draw [-] (L) to node [pos=0.5,right]{$A_5$} (M);
+     \draw [-] (K) to node [pos=0.5,above]{$C_2$} (M);
+  
+  
+    %   ++(2,-2)   node(Q12) {($\mathbb{QD}(\sqrt{q_1.q_2})$}
+\end{tikzpicture}
+\end{center}
+
 Let r be the number of primes $\mathfrak{p}$ in L ramified in M, and let $\theta$ be a root of f, $T = \mathbb{Q}(\theta)$. \cite{MAR1} shows that M has an infinite 2-class field tower if $r\geq 155$. By assumption p splits completely in T and therefore also in L; furthermore q decomposes in T as $q = \mathfrak{p}_1...\mathfrak{p}_r$, with inertia degrees
 \begin{equation}
     (deg(\mathfrak{p}_1),...deg(\mathfrak{p}_r))=\mu 
@@ -202,7 +226,7 @@ As $n\rightarrow \infty$, Stirling's formula can give a bound that
 \end{equation}
 Odlyzko's Bound \cite{ODL2} improved on the bounds for Minkowski for the discriminant of a number field. It can be stated as  
 \begin{equation}
-rd_K\geqslant 60^{(\frac{r_1}{n})}22^{(\frac{r_2}{n})}+o(1)\:as\:n\rightarrow \infty   
+rd_K\geqslant 60^{\frac{r_1}{n}}22^{\frac{r_2}{n}}+o(1)\:as\:n\rightarrow \infty   
 \end{equation}
 Furthermore, under the assumption of the Generalised Riemann Hypothesis, 
 this bound can be improved by replacing the numbers 60 and 22 by 188 and 41 respectively. 
