@@ -335,8 +335,20 @@ We can now draw the following field diagram, where all extensions are unramified
       \draw [-] (E) to node {} (E2);
       \end{tikzpicture}
 \end{center}
-\newline
-In fact, $E_2/\mathbb{Q}(\sqrt{l.q_1.q_2})$ is an unramified field extension of degree $2^{\infty}$.
+In fact, $E_2/\mathbb{Q}(\sqrt{l.q_1.q_2})$ is an unramified field extension of degree $2^{\infty}$. Furthermore, the choices of $q_1$ and $q_2$ guarantee that the 2-part of $cl(\mathbb{Q}(\sqrt{q_1.q_2}))$ will be cyclic, and that the 2-Hilbert tower stops at the first extension. 
+\begin{theorem}[Cebotarev's Density Criterion]
+Let L/K be a finite extension of
+number fields with Galois group G, and let $\mathcal{C}$ be a conjugacy class in G. Then the set of
+prime ideals of K such that $(\mathfrak{p},L/K)=\mathcal{C}$ has density $|\mathcal{C}|/|G|$ in the set of all prime
+ideals of K. If G is abelian, then, for a fixed $\sigma\in G$, the set of prime ideals $\mathfrak{p}$ of K with $(\mathfrak{p},L/K)=\sigma$  = (G:1).
+\end{theorem}
+\begin{corollary}
+ If a polynomial $f \in K[x]$ splits into linear factors modulo $\mathfrak{p}$ for all but finitely prime ideals $\mathfrak{p}$ in K, then it splits in $K[x]$.
+\end{corollary}
+\begin{proof}
+Apply the theorem to the splitting field of f.
+\end{proof}
+Applying this result to the above proves that if the extension K exists, there are infinitely many such $q_1$ and $q_2$ satisfying the conditions. 
 \section{Kim and Koenig}
 \begin{theorem}
  Define $K=\mathbb{Q}(\sqrt{22268})$, $L=split(x^6-10x^4-7x^3+15x^2+14x+3,\mathbb{Q}[x])$. Then $K_1=\mathbb{Q}(\sqrt{76},\sqrt{293})$. Define $M=LK_1$. Then $M=K^{ur}$ and we have the following diagram.   
