@@ -46,6 +46,11 @@ Aim: to construct minimally ramified extensions of number fields.
 
 \section{Initial Results}
 \subsection{Class Field Theory}
+\subsection{Goal}
+Goal: For a given number field K, what is the maximal unramified extension $K^{ur}$ of K is and also what is the structure of $G_K^{ur}$ is. By Class Field Theory we already know that 
+\begin{equation}
+  (G_K^{ur})^{ab} = \Gamma(K_1:K)\cong C_K
+\end{equation}
 
 Recall a prime ideal $\mathfrak{p}$ in $\mathcal{O}_K$ factors in an extension L of K as
 \newline
@@ -75,7 +80,7 @@ A natural question is to determine these sets split(L:K) as L changes over the f
 \newline
 Let H be a subgroup of the class group C of K. A finite unramified abelian extension L of K is said to be a $\textit{class field}$ for H if the prime ideals of K splitting in L are exactly those in $\tilde{H}$ . The following theorem provides an answer the above question for unramified abelian extensions of K.
 \begin{theorem}
-Theorem: A class field exists for each subgroup of C; it is unique, and every finite unramified abelian extension of K is the class group of some subgroup of C. If L is the class field of H, then $\Gamma(L/K)\cong C/H$ and for every prime ideal $\mathfrak{p}$ of K, $f(\mathfrak{p})$ is the order of the image of $\mathfrak{p}$ in the group C/H.
+A class field exists for each subgroup of C; it is unique, and every finite unramified abelian extension of K is the class group of some subgroup of C. If L is the class field of H, then $\Gamma(L/K)\cong C/H$ and for every prime ideal $\mathfrak{p}$ of K, $f(\mathfrak{p})$ is the order of the image of $\mathfrak{p}$ in the group C/H.
 \end{theorem}
 We also have this theorem which allows us to define the maximal unramified extension of a number field. 
 \begin{theorem}
@@ -88,11 +93,13 @@ The compositum of two finite unramified extensions of K is also unramified, and 
     \end{equation}
     Let $E=E(Q|\mathfrak{p})$ denote the inertia group of $Q$ at $\mathfrak{p}$. Since $\mathfrak{p}$ is unramified in $L$ and $\tilde{L}$, it follows that $Q \cap \mathcal{O}_L$ and $Q \cap \mathcal{O}_\tilde{L}$ are unramified in $L$ and $\tilde{L}$ respectively. But the inertia field $M^E$ is the largest field in which $\mathfrak{p}$ is unramified, so it follows that $L\subseteq M^E$ and $\tilde{L} \subseteq M^E $, whence $L\tilde{L}\subseteq M^E$ and $\mathfrak{p}$ is unramified in $L\tilde{L}$.
 \end{proof}
+
+
+
 \section{Hilbert Class Field and its Applications}
 The class field of the trivial subgroup of C is called the Hilbert class field of K. It is maximal abelian extension, L of K unramified at all primes of K.
 \newline
 For example,if $K=\mathbb{Q}[\sqrt{-5}]$ then take $L=\mathbb{Q}[\sqrt{-1},\sqrt{-5}]$. L is an unramified degree 2 extension of K and so the Hilbert class field of K is $K[\sqrt{-1}]$. Here is a theorem which gives an application of the Hilbert Class Field to Diophantine equations.
-\newline
 
 \begin{theorem}
 Theorem: Let L be the Hilbert class field of $K=\mathbb{Q}(\sqrt{-n})$, where n is squarefree, $n\not\equiv 3(4)$, so that
@@ -146,6 +153,7 @@ where the non-identity element of $\mathbb{Z}/2\mathbb{Z}$ acts on $\Gamma(L/K)$
 \begin{theorem}
 Let K be an imaginary class field. Then an abelian extension L of K is generalised dihedral over $\mathbb{Q}$ iff L is contained in a ring class field of K.
 \end{theorem}
+
 \section{Infinite Unramified Extensions}
 Suppose K is a class field with trivial class group, i.e. h(K)=1. Then K has no abelian (and hence no
 solvable) non-trivial unramified Galois extension. Despite this, K may have a non-solvable unramified extension. \cite{BRIN} gives such an example. Suppose
@@ -207,20 +215,17 @@ Using SageMath, the following polynomial and primes were found:
 \begin{equation}
  f(x)=x^5-4x^4+12x^2-8x+1,p=1987,q=31,107,211,239,\Delta(f)=186037
  \end{equation}
-These satisfy the criteria of the above theorem and therefore describe field with infinite unramified extension. 
+These polynomials satisfy the criteria of the above theorem and therefore describe fields with infinite unramified extensions. 
 %[1,-1,-6,0,4,1],1531, 71, 'for sure
-\subsection{First results}
-Goal: For a given number field K, what is the maximal unramified extension $K^{ur}$ of K is and also what is the structure of $G_K^{ur}$ is. By Class Field Theory we already know that 
-\begin{equation}
-  (G_K^{ur})^{ab} = \Gamma(K_1:K)\cong C_K
-\end{equation}
 
 \subsection{Important Results from Class Field Theory}
-1. \cite{YAMA}[Proposition 1] gives the following classification of polynomials of the form $f(x) = x^n+ax+b \in \mathbb{Z}[x]$, and K is the splitting field of f over $\mathbb{Q}$.
-\newline
+1. \cite{YAMA}[Proposition 1] gives the following classification of polynomials of the form 
+\begin{equation}
+    f(x) = x^n+ax+b \in \mathbb{Z}[x]
+\end{equation}and K is the splitting field of f over $\mathbb{Q}$.
 If the following conditions hold:
 \begin{enumerate}
-    \item (n-1)a and nb are relatively prime 
+    \item $(n-1).a$ and $n.b$ are relatively prime 
     \item $\Gamma(K/\mathbb{Q}) \cong S_n$
 \end{enumerate}
 \newline
@@ -255,7 +260,7 @@ Suppose that H is a positive integer, and L is an unramified normal extension of
         $h(L)=1$ and H=60 then again $K^{ur}=L$.
 \end{enumerate}
 \end{theorem}
-\subsection{Result using Hoelscher}
+\section{Result using Hoelscher}
 
 Using \cite{HOEL} and \cite{JONE}, we see that 
 the prime p=239 is tamely ramified for 
@@ -273,10 +278,7 @@ Then
 \begin{equation}
 N/p(N) = D_5 \not\subset \mathbb{Z}/(p-1) = \mathbb{Z}_{238}
 \end{equation}
-\newline
 We have the field extension diagram
-\bigskip
-\newline
 \begin{center}
     
 \begin{tikzpicture}[node distance = 2cm, auto]
@@ -301,7 +303,6 @@ Where the field extension L is a non-trivial abelian unrafimifed sub-extension o
 \subsection{Maire's Results for infinite non Galois unramified extension}
 Following from \cite{MAIR}[5.1], there exist infinitely many quadratic fields with a finite 2-Hilbert tower, but having an infinite ramified extension of $2^{\infty{}}$. 
 The following methodology was implemented  to find suitable polynomials:
-\newline
 \begin{enumerate}
     \item Pick 8 real numbers close to 0 and define $\tilde{P}(x)$ to be the polynomial with these roots. This is done to increase the probability that P(x) will also have 8 real roots. 
     \item Find a polynomial P(x) which is near to $\tilde{P}(x)$.
@@ -426,7 +427,7 @@ Now specify values for $q_1$ and $q_2$:
 \begin{equation}
     q_1=17471,q_2\in\{443,919,1627,2803,3691,5231,5867,9391\}
 \end{equation}
-Then indeed $q_1\equiv\:q_2\equiv3(4)$.$q_1$ splits completely in K, there are n-1 places lying above $q_2$ in $K/\mathbb{Q}$.
+Then indeed $q_1\equiv\:q_2\equiv3(4)$. Also, $q_1$ splits completely in K, and there are n-1 places lying above $q_2$ in $K/\mathbb{Q}$.
 \newline
 Define $L=\mathbb{Q}(\sqrt{l.q_1.q_2})$, $M=KL$. Using the above theorem, all places lying above $q_1$ and $q_2$, in addition to n-2 places above l are ramified in M/K.  Applying \cite{MAIR}[Proposition 2.2] shows that M/L is nowhere ramified. Thus we get the following field extensions
 \begin{center}
