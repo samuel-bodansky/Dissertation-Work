@@ -79,9 +79,16 @@ Theorem: A class field exists for each subgroup of C; it is unique, and every fi
 \end{theorem}
 We also have this theorem which allows us to define the maximal unramified extension of a number field. 
 \begin{theorem}
-The composite of two finite unramified extensions of K is also unramified, and so the union $K^{ur}$ of all unramified extensions is also an unramified extension of K. The residue field $\tilde{k}$ of $K^{ur}$ is an algebraic closure of the residue field k of K.
+The compositum of two finite unramified extensions of K is also unramified, and so the union $K^{ur}$ of all unramified extensions is also an unramified extension of K. The residue field $\tilde{k}$ of $K^{ur}$ is an algebraic closure of the residue field k of K.
 \end{theorem}
-\subsection{Hilbert Class Field}
+\begin{proof}
+    Suppose K is a number field and $L,\tilde{L}$ are extensions of K. Let $\mathfrak{p}$ be an ideal unramified in $L$ and $\tilde{L}$. Let $P$ be a prime lying over $\mathfrak{p}$ in $L\tilde{L}$. Let $M$ be the minimal normal extension of $L\tilde{L}$, i.e. the normal closure. Suppose $Q$ is a prime in $M$ lying over $P$, then we have 
+    \begin{equation}
+        \mathfrak{p}\subseteq P \subseteq Q
+    \end{equation}
+    Let $E=E(Q|\mathfrak{p})$ denote the inertia group of $Q$ at $\mathfrak{p}$. Since $\mathfrak{p}$ is unramified in $L$ and $\tilde{L}$, it follows that $Q \cap \mathcal{O}_L$ and $Q \cap \mathcal{O}_\tilde{L}$ are unramified in $L$ and $\tilde{L}$ respectively. But the inertia field $M^E$ is the largest field in which $\mathfrak{p}$ is unramified, so it follows that $L\subseteq M^E$ and $\tilde{L} \subseteq M^E $, whence $L\tilde{L}\subseteq M^E$ and $\mathfrak{p}$ is unramified in $L\tilde{L}$.
+\end{proof}
+\section{Hilbert Class Field and its Applications}
 The class field of the trivial subgroup of C is called the Hilbert class field of K. It is maximal abelian extension, L of K unramified at all primes of K.
 \newline
 For example,if $K=\mathbb{Q}[\sqrt{-5}]$ then take $L=\mathbb{Q}[\sqrt{-1},\sqrt{-5}]$. L is an unramified degree 2 extension of K and so the Hilbert class field of K is $K[\sqrt{-1}]$. Here is a theorem which gives an application of the Hilbert Class Field to Diophantine equations.
@@ -348,7 +355,7 @@ ideals of K. If G is abelian, then, for a fixed $\sigma\in G$, the set of prime 
 \begin{proof}
 Apply the theorem to the splitting field of f.
 \end{proof}
-Applying this result to the above proves that if the extension K exists, there are infinitely many such $q_1$ and $q_2$ satisfying the conditions. 
+Applying this result to the above proves that if the extension K exists, there are infinitely many such $q_1$ and $q_2$ satisfying the conditions.
 \section{Kim and Koenig}
 \begin{theorem}
  Define $K=\mathbb{Q}(\sqrt{22268})$, $L=split(x^6-10x^4-7x^3+15x^2+14x+3,\mathbb{Q}[x])$. Then $K_1=\mathbb{Q}(\sqrt{76},\sqrt{293})$. Define $M=LK_1$. Then $M=K^{ur}$ and we have the following diagram.   
