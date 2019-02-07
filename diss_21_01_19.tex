@@ -58,6 +58,17 @@ Goal: For a given number field K, what is the maximal unramified extension $K^{u
 \begin{equation}
   (G_K^{ur})^{ab} = \Gamma(K_1:K)\cong C_K
 \end{equation}
+\begin{theorem}
+ Suppose that K be a field extension of $\mathbb{Q}$ with discriminant D. Then a prime p
+ramifies in K if and only if $p|D$.   
+\end{theorem}
+Note that the discriminant of a number field is nonzero so only finitely many primes ramify over $\mathbb{Q}$. Here is an easy corollary:
+\begin{corollary}
+A field extension K of $\mathbb{Q}$ ramifies at precisely one prime iff the absolute value of disc(K) is a prime power.
+\end{corollary}
+\begin{example}
+    Suppose $f(x)=x^5-5x^4-2x^3+x^2-3x+1$, and K is the splitting field of f over $\mathbb{Q}$. Then $disc(K)=-3442951=151^3$ and so 151 is the only prime which ramifies in K over $\mathbb{Q}$. Note that f(x) is an irreducible quintic with precisely three real roots, meaning that $\Gamma(K/\mathbb{Q})\cong\ S_5$ and K is an unsolvable extension of $\mathbb{Q}$.
+\end{example}
 \section{Class Field Theory}
 Recall a prime ideal $\mathfrak{p}$ in $\mathcal{O}_K$ factors in an extension L of K as
 \par
@@ -106,7 +117,7 @@ The compositum of two finite unramified extensions of K is also unramified, and 
 \section{Hilbert Class Field and its Applications}
 The \textbf{class field} of the trivial subgroup of C is called the Hilbert class field of K. It is maximal abelian extension, L of K unramified at all primes of K. The degree of its extension over K is equal to the class number of K, and its Galois group is isomorphic to the ideal class group of K, taking Frobenius elements as prime ideals of K.\par
 In particular, if K is a unique factorisation domain then K is equal to its own Hilbert class field. For example $\mathbb{Q}$ is its own Hilbert class field. 
-For example,if $K=\mathbb{Q}[\sqrt{-5}]$ then take $L=\mathbb{Q}[\sqrt{-1},\sqrt{-5}]$. L is an unramified degree 2 extension of K and so the Hilbert class field of K is $K[\sqrt{-1}]$. Here is a theorem which gives an application of the Hilbert Class Field to Diophantine equations.
+As a further example,if $K=\mathbb{Q}[\sqrt{-5}]$ then take $L=\mathbb{Q}[\sqrt{-1},\sqrt{-5}]$. L is an unramified degree 2 extension of K and so the Hilbert class field of K is $K[\sqrt{-1}]$. Here is a theorem which gives an application of the Hilbert Class Field to Diophantine equations.
 
 \begin{theorem}
 Theorem: Let L be the Hilbert class field of $K=\mathbb{Q}(\sqrt{-n})$, where n is squarefree, $n\not\equiv 3(4)$, so that
