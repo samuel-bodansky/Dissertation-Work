@@ -246,9 +246,29 @@ Using SageMath, the following polynomial and primes were found:
 \begin{equation}
  f(x)=x^5-4x^4+12x^2-8x+1,p=1987,q=31,107,211,239,\Delta(f)=186037
  \end{equation}
-These polynomials satisfy the criteria of the above theorem and therefore describe fields with infinite unramified extensions. Furthermore, the class number of the splitting fields of each of these polynomials is 1, meaning that they are equal to their own Hilbert class fields. 
-%[1,-1,-6,0,4,1],1531, 71, 'for sure
-
+These polynomials satisfy the criteria of the above theorem and therefore describe fields with infinite unramified extensions. Furthermore, the class number of the splitting fields of each of these polynomials is 1, meaning that they are equal to their own Hilbert class fields. \par
+The following definitions will be useful in analysing the class field of polynomials when the class group of the splitting field is nontrivial.
+2003, 499,[9,8,-24,-20,0,1] using magma, class field isomorphic to V4
+\begin{definition}
+A \textbf{p-group} is a group in which every element has order equal to a power of p.
+\end{definition}
+\begin{definition}
+A \textbf{p-extension} $L$ of a number field $K$ is an extension where the Galois group is a p-group.
+\end{definition}
+\begin{definition}
+A \textbf{Hilbert p-class field} $H_K^{p}$ of a number field $K$ is the maximal unramified abelian p-extension of K.
+\end{definition}
+\begin{definition}
+A \textbf{Hilbert p-class field} $H_K^{p}$ of a number field $K$ is the maximal unramified abelian p-extension of K, with the \textbf{p-class field tower} defined in a similar way to the definition of the Hilbert tower. 
+\end{definition}
+\begin{corollary}
+ A number field K can be embedded into a finite field extension with class number coprime to p iff the Hilbert p-class field tower terminates.
+\end{corollary}
+\begin{corollary}
+If any p-class field tower over K is infinite, then the class field tower is also infinite. If the p-class tower terminates, then $H_{K_\infty}^{p}$ is a finite field extension of K and $\Gamma(H_{K_\infty}^{p}/K)$ is a p-group.
+\end{corollary}
+In fact, since M has a finite 2-Hilbert tower, the class group of M must be a 2-group. 
+% x^5 - 2*x^4 - 20*x^3 + 6*x^2 + 89*x + 67
 \subsection{Important Results from Class Field Theory}
 1. \cite{YAMA}[Proposition 1] gives the following classification of polynomials of the form 
 \begin{equation}
@@ -494,6 +514,7 @@ Define $f(x)=x^6 + x^5 - 6x^4 - 4x^3 + 8x^2 + 3x - 2$. Also define $F=\mathbb{Q}
    f(x)= (x^3 + 9x^2 + 16x + 7)^2\:modulo\:17
 \end{equation}
 By the above lemmas, we see that K is an unramified extension of $\mathbb{Q}(17^3.1597)$. Furthermore, $\Gamma(K/\mathbb{Q})$ is a group of order 72 and is isomorphic to the wreath product of $S_3$ and $C_2$. It follows that $K/\mathbb{Q}(\sqrt{17^3.1597})$ is an unramified extension with Galois group isomorphic to the Frobenius group of order 36.
+Note the polynomial of degree 6 with the smallest absolute discriminant found was $x^6 - 2x^5 + 2x^4 - x + 1$ with absolute discriminant 11691.
 \end{example}
 \begin{example}
  Let \begin{equation}
@@ -509,11 +530,14 @@ is an unramified extension with Galois group isomorphic to $C_7$.
 This shows that K is the absolute class field of $\mathbb{Q}(\sqrt{-71})$, since $h(Q(\sqrt{-71}))=7$.
 \end{example}
 \begin{example}
-    Suppose \begin{equation}
+    Suppose we define the polynomial f with the following properties: \begin{equation}
         f(x) =x^9 - x^8 - 2x^7 + x^6 + 2x^5 + x^3 + x^2 - x - 1
+    \end{equation} \par
+    \begin{equation}
+        d(f)=d(F)=66078977=23^3.5431
     \end{equation} 
-    Then d(f)=d(F)=66078977=23^3.5431 and \begin{equation}
-        f(x)\equiv(x^3 + 8x^2 + 18x + 1)(x^3 + 7x^2 + 3x + 1)^2 mod 23.
+    \begin{equation}
+        f(x)\equiv(x^3 + 8x^2 + 18x + 1)(x^3 + 7x^2 + 3x + 1)^2\:mod\:23.
     \end{equation}
 Therefore  $K/Q(\sqrt{-23})$ is unramified. $\Gamma(K/\mathbb{Q})$ is isomorphic to the wreath product of $S_3$ with itself and has order $1296=6^3$, whence $K/Q(\sqrt{-23})$ has Galois group of order 648.
 \end{example}
