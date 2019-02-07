@@ -186,6 +186,26 @@ Suppose that H is a positive integer, and L is an unramified normal extension of
 
 
 \section{Infinite Unramified Extensions}
+The following definitions and corollaries will be useful in determining the structure of the Hilbert class field. 
+\begin{definition}
+A \textbf{p-group} is a group in which every element has order equal to a power of p.
+\end{definition}
+\begin{definition}
+A \textbf{p-extension} $L$ of a number field $K$ is an extension where the Galois group is a p-group.
+\end{definition}
+\begin{definition}
+A \textbf{Hilbert p-class field} $H_K^{p}$ of a number field $K$ is the maximal unramified abelian p-extension of K.
+\end{definition}
+\begin{definition}
+A \textbf{Hilbert p-class field} $H_K^{p}$ of a number field $K$ is the maximal unramified abelian p-extension of K, with the \textbf{p-class field tower} defined in a similar way to the definition of the Hilbert tower. 
+\end{definition}
+\begin{corollary}
+ A number field K can be embedded into a finite field extension with class number coprime to p iff the Hilbert p-class field tower terminates.
+\end{corollary}
+\begin{corollary}
+If any p-class field tower over K is infinite, then the class field tower is also infinite. If the p-class tower terminates, then $H_{K_\infty}^{p}$ is a finite field extension of K and $\Gamma(H_{K_\infty}^{p}/K)$ is a p-group.
+\end{corollary}
+In fact, since M has a finite 2-Hilbert tower, the class group of M must be a 2-group. 
 Suppose K is a class field with trivial class group, i.e. h(K)=1. Then K has no abelian (and hence no
 solvable) non-trivial unramified Galois extension. Despite this, K may have a non-solvable unramified extension. \cite{BRIN} gives such an example. Suppose
 \begin{equation}
@@ -212,20 +232,20 @@ unramified $A_5$-extension of L. Furthermore, K has class number 1, as demonstra
 \begin{center}
     \begin{tikzpicture} [align=center]
   \path  (0, 0)   node(Q)  {$\mathbb{Q}$}
-          +(6, 1)   node(QD) {$\mathbb{Q}(\sqrt{D})$}
+          +(6, 1)   node(QD12) {$\mathbb{Q}(\sqrt{D.p.q})$}
           ++(3,1)   node(Q12) {$\mathbb{Q}(\sqrt{p.q)}$}
-           ++(-5,0)   node(QD12) {$\mathbb{Q}(\sqrt{D.p.q})$}
+           ++(-5,0)   node(QD) {$\mathbb{Q}(\sqrt{D})$}
            ++(1,2)   node(K) {$K=split(f,\mathbb{Q}[x])$}
            ++(5,0)   node(L) {$L=\mathbb{Q}(\sqrt{D},\sqrt{p.q})$}
             ++(-1,2)   node(M) {$M=K(\sqrt{p.q})$};
     \draw [-] (Q) to node [pos=0.5,above]{} (Q12);
-    \draw [-] (Q) to node [pos=0.8,below]{} (QD12);
-    \draw [-] (Q) to node [pos=0.5,below]{} (QD);
-  \draw [-] (QD12) to node [pos=0.5,left]{$A_5$} (K);
+    \draw [-] (Q) to node [pos=0.8,below]{} (QD);
+    \draw [-] (Q) to node [pos=0.5,below]{} (QD12);
+  \draw [-] (QD) to node [pos=0.5,left]{$A_5$} (K);
   \draw [-] (Q) to node [pos=0.5,right]{$S_5$} (K);
   \draw [-] (Q) to node [pos=0.5,below]{} (L);
   \draw [-] (Q12) to node [pos=0.5,below]{} (L);
-  \draw [-] (QD) to node [pos=0.5,below]{} (L);
+  \draw [-] (QD12) to node [pos=0.5,below]{} (L);
     \draw [-] (L) to node [pos=0.5,right]{$A_5$} (M);
      \draw [-] (K) to node [pos=0.5,above]{$C_2$} (M);
 \end{tikzpicture}
@@ -247,28 +267,18 @@ Using SageMath, the following polynomial and primes were found:
  f(x)=x^5-4x^4+12x^2-8x+1,p=1987,q=31,107,211,239,\Delta(f)=186037
  \end{equation}
 These polynomials satisfy the criteria of the above theorem and therefore describe fields with infinite unramified extensions. Furthermore, the class number of the splitting fields of each of these polynomials is 1, meaning that they are equal to their own Hilbert class fields. \par
-The following definitions will be useful in analysing the class field of polynomials when the class group of the splitting field is nontrivial.
-2003, 499,[9,8,-24,-20,0,1] using magma, class field isomorphic to V4
-\begin{definition}
-A \textbf{p-group} is a group in which every element has order equal to a power of p.
-\end{definition}
-\begin{definition}
-A \textbf{p-extension} $L$ of a number field $K$ is an extension where the Galois group is a p-group.
-\end{definition}
-\begin{definition}
-A \textbf{Hilbert p-class field} $H_K^{p}$ of a number field $K$ is the maximal unramified abelian p-extension of K.
-\end{definition}
-\begin{definition}
-A \textbf{Hilbert p-class field} $H_K^{p}$ of a number field $K$ is the maximal unramified abelian p-extension of K, with the \textbf{p-class field tower} defined in a similar way to the definition of the Hilbert tower. 
-\end{definition}
-\begin{corollary}
- A number field K can be embedded into a finite field extension with class number coprime to p iff the Hilbert p-class field tower terminates.
-\end{corollary}
-\begin{corollary}
-If any p-class field tower over K is infinite, then the class field tower is also infinite. If the p-class tower terminates, then $H_{K_\infty}^{p}$ is a finite field extension of K and $\Gamma(H_{K_\infty}^{p}/K)$ is a p-group.
-\end{corollary}
-In fact, since M has a finite 2-Hilbert tower, the class group of M must be a 2-group. 
-% x^5 - 2*x^4 - 20*x^3 + 6*x^2 + 89*x + 67
+
+\begin{example}
+    Using the notation as defined above, \begin{equation}
+    f(x)=x^5 - 2x^4 - 20x^3 + 6x^2 + 89x + 67
+    \end{equation}
+    \begin{equation}
+        p=2003,q=499, \Delta(f)=4906992917
+    \end{equation}
+    Using Magma, the class group of K is isomorphic to $V_4$. The Fundamental Theorem of Galois Theory states that there must exist an intermediate field 
+\end{example}
+% 
+%4906992917*2003*499
 \subsection{Important Results from Class Field Theory}
 1. \cite{YAMA}[Proposition 1] gives the following classification of polynomials of the form 
 \begin{equation}
