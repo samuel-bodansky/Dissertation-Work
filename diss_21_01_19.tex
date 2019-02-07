@@ -15,6 +15,14 @@
 \usepackage{seqsplit}
 \usepackage[nottoc]{tocbibind} 
 \usepackage[utf8]{inputenc}
+\newenvironment{polynomial}
+  {\par\vspace{\abovedisplayskip}%
+   \setlength{\leftskip}{\parindent}%
+   \setlength{\rightskip}{\leftskip}%
+   \medmuskip=4mu plus 2mu minus 2mu
+   \binoppenalty=0
+   \noindent$\displaystyle}
+  {$\par\vspace{\belowdisplayskip}}
 \journal{Part C Dissertation Oxford University}
 \begin{document}
 \begin{frontmatter}
@@ -275,10 +283,28 @@ These polynomials satisfy the criteria of the above theorem and therefore descri
     \begin{equation}
         p=2003,q=499, \Delta(f)=4906992917
     \end{equation}
-    Using Magma, the class group of K is isomorphic to $V_4$. Due to the Fundamental Theorem of Galois Theory, there must exist an intermediate field isomorphic to $C_2$ between K and its Hilbert class field.
+    Using Magma, the class group of K is isomorphic to $V_4$. Due to the Fundamental Theorem of Galois Theory, there must exist an intermediate field isomorphic to $C_2$ between K and its Hilbert class field. Furthermore, the Hilbert class field of K is isomorphic to the splitting field of \par
+   \begin{polynomial}
+   x^{20} - 2874x^{18} + 2391847x^{16} -
+    471345876x^{14} + 29106648697x^{12} - 550807754260x^{10} +
+    4307861945767x^{8} - 14829016524058x^{6} + 23545104859585x^{4} -
+    16530672769260x^{2} + 4009653817744
+   \end{polynomial}
 \end{example}
-% 
-%4906992917*2003*499
+\begin{example}
+    Using the notation as defined above, \begin{equation}
+    f(x)=x^5-2x^2-20x^3+6x^2+89x+67
+    \end{equation}
+    \begin{equation}
+        p=811,q=59, \Delta(f)=8996154317
+    \end{equation}
+    Using Magma, the class group of K is isomorphic to $C_2$. There is no intermediate field isomorphic to  between K and its Hilbert class field. Furthermore, the Hilbert class field of K is isomorphic to the splitting field of \par
+   \begin{polynomial}
+ x^{10} - 375x^{8} + 5121x^{6} -
+    4084x^{4} + 928x^{2} - 64.
+   \end{polynomial}
+  The splitting field of this polynomial has class group isomorphic to $V_4$.
+\end{example}
 \subsection{Important Results from Class Field Theory}
 1. \cite{YAMA}[Proposition 1] gives the following classification of polynomials of the form 
 \begin{equation}
