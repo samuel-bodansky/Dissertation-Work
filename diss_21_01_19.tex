@@ -490,6 +490,23 @@ Define  \begin{equation}
 Note f has two real and two imaginary roots. Define L as above and then $\Gamma(L/\mathbb{Q})\cong S_4$. By the fundamental theorem of Galois Theory, there exists an intermediate field H corresponding to the normal subgroup $V_4$ of $S_4$. Now $L^H$ is the Hilbert class field of $K= \mathbb{Q}(\sqrt{-283})$ and h(K)=3. Now define a further field extension of L, M such that M is unramified over L (and hence also over K) and M is a Galois extension of $\mathbb{Q}$. Martinet proved that M is the maximal unramifed extension of K, with Galois group isomorphic to $SL_2(F_3)$. of order 24. In addition, the Galois group of M over K is isomorphic to $GL_2(F_3)$.
 %to do: draw diagram
 %to do: talk about ray class field from CNT which is relevant to project
+\section{Lesseni's Results on Degree 9 Number Fields}
+Suppose $K=\mathbb{Q}(\theta)$ is a number field where $\theta$ is a root of an irreducible polynomial of degree 9, and let $L$ represent the Galois closure of K. We have the following theorem: \begin{theorem}
+    Suppose GRH holds. Then L cannot be ramified over K only at p=5. Now suppose GRH doesn't hold. Then $5\mathcal{O}_K$ is equal to one of the following: \begin{itemize}
+        \item $\mathfrak{p}_1^5\mathfrak{p}_2^4$
+        \item $\mathfrak{p}_1^5\mathfrak{p}_2^3\mathfrak{p}_3$
+        \item $\mathfrak{p}_1^5\mathfrak{p}_2^2\mathfrak{p}_3^2$
+        \item  $\mathfrak{p}_1^5\mathfrak{p}_2^2$
+    \end{itemize}
+    whence the discriminant $d_K$ is equal to $5^{11}$ or $5^{12}$. 
+\end{theorem}
+Similar theorems hold for p=3 and p=7.  Using a computer search for primitive number fields defined by a degree 9 polynomial, for a prime $p<11$ there were only 13 distinct number fields found which ramify precisely at 3, and no number fields ramify at 2,5 or 7. However, none of these number fields was primitive, leading to the following conclusion:
+\begin{theorem}
+    There is no primitive degree 9 number field ramified at only one prime p, $p<11$.
+\end{theorem}
+\begin{corollary}
+ Suppose K is a degree 9 number field which is ramified at only one prime p, $p<11$. Then the Galois group of its Galois closure is solvable. 
+\end{corollary}
 \section{Trying to recreate Maire's Results}
 In \cite{MAIR}[3.1] I use Maire's method to find a suitable polynomial.
 Firstly, we invoke the following theorem:
@@ -670,6 +687,7 @@ Brink, David. (2010). Remark on infinite unramified extensions of number fields 
  KONDO, Takeshi. Algebraic number fields with the discriminant equal to that of a quadratic number field. J. Math. Soc. Japan 47 (1995), no. 1, 31--36. doi:10.2969/jmsj/04710031.
  \bibitem{SERR}
  Jean-Pierre Serre, On a theorem of Jordan, Bull. Amer. Math. Soc. (N.S.) 40 
+ \bibitem{LESS}Lesseni, Sylla. Nonsolvable nonic number fields ramified only at one small prime. Journal de théorie des nombres de Bordeaux, Volume 18 (2006) no. 3, pp. 617-625
 \end{thebibliography}
 
 \end{document}
