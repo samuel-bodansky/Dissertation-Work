@@ -39,6 +39,7 @@ Aim: to construct minimally ramified extensions of number fields.
     \item K is a number field, h(K) is its class number and Cl(K) is its ideal class group.
     \item $d_K$ is the discriminant of K.
     \item $K^{ur}$ is the maximally unramified extension of K.
+    \item $K^{tur}$ is the maximal tamely unramified extension of K.
     \item $n_K$ is the degree of the extension $K:\mathbb{Q}$.
     \item $\bar{K}$ denotes the Galois closure of K.
     \item KL denotes the compositum of two number fields K and L.
@@ -108,7 +109,22 @@ By Eisenstein's criterion with p, f is irreducible, whence $G=\Gamma([\mathbb{Q}
 \begin{equation}
     \sigma \longmapsto N(\sigma), \sigma\zeta=\zeta^{N(\zeta)}
 \end{equation}
-This map is bijective, since both groups have the same order. 
+This map is bijective, since both groups have the same order. Now applying the norm to $1-\zeta$ gives \begin{equation}
+    N_{[\mathbb{Q}_{p}(\zeta):\mathbb{Q}_{p}]}(1-\zeta) = \prod_{\sigma}(1-\sigma\zeta)=f(1)=p
+\end{equation}
+Define $\tilde{c}_{p}$ to be the extension of the valuation on $\mathbb{Q}_{p}$. Then \begin{equation}
+    \phi(p^{m-1})\tilde{v}_{p}(\zeta-1) = v_{p}(p)=1
+\end{equation}
+Hence $\mathbb{Q}_{p}(\zeta)$ is a totally ramified extension of $\mathbb{Q}_p$ with prime element $\zeta-1$, and (3) follows immediately. 
+\end{proof}
+Suppose now that $\zeta$ is a primitive n-th root of unity, with $n=kp^{m}$ where k is prime to p. We have the following inclusions:\begin{equation}
+    \mathbb{Q}_{p}=K\subseteq K^{tur}=K(\zeta_k)\subseteq K^{ur} = K^{tur}(\zeta_{p})\subseteq K(\zeta_n)
+\end{equation}
+One important result about p-adic fields is the following \begin{theorem}
+    Let $K=\mathbb{Q}_p$. Then $K^{ur}$ is K adjoined with all roots of unity with order prime to p. 
+\end{theorem}
+\begin{proof}
+If gcd(p,n)=1, then $\mathbb{Q}_{p}(\zeta_n)$ is unramified. So it follows that the compositum is unramified. The algebraic closure of $\bar{\mathbb{F}_{p}}$ is formed by adjoining the $p^(m-1)-th$ roots of unity to $\mathbb{F}_p$. By Hensel's lemma, $K^{ur}$ is also formed by adjoining these roots of unity to $K$. 
 \end{proof}
 \section{Class Field Theory}
 Recall a prime ideal $\mathfrak{p}$ in $\mathcal{O}_K$ factors in an extension L of K as
@@ -212,8 +228,6 @@ where the non-identity element of $\mathbb{Z}/2\mathbb{Z}$ acts on $\Gamma(L/K)$
 \begin{theorem}
 Let K be an imaginary class field. Then an abelian extension L of K is generalised dihedral over $\mathbb{Q}$ iff L is contained in a ring class field of K.
 \end{theorem}
-
-
 \section{Bounds on Discriminants}
 Minkowski's theorem bound shows that if K is a number field with $r_1$ real and $2r_2$ complex conjugate fields, and $n=r_1+2r_2$ is the degree of the field, then 
 \begin{equation}
