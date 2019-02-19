@@ -123,8 +123,14 @@ Suppose now that $\zeta$ is a primitive n-th root of unity, with $n=kp^{m}$ wher
 One important result about p-adic fields is the following \begin{theorem}
     Let $K=\mathbb{Q}_p$. Then $K^{ur}$ is K adjoined with all roots of unity with order prime to p. 
 \end{theorem}
+\begin{lemma}
+Suppose p is a prime and gcd(n,p)=1. Then there exists $m\in\mathbb{N}$ such that $n|p^m-1$.
+\end{lemma}
+\begin{proof}[Proof of Lemma]
+Suppose for contradiction that for $1\leq i \leq n$, $p^i-1\not \equiv 0\: mod \: n$. Then by the pigeonhole principle, there exist $1\leq j < k \leq n $ with $p^j-1 \equiv p^k-1 \: mod \: n$. But then $(p^j-1)-(p^k-1)=p^j(p^{k-j}-1)\equiv 0\:mod\:n$. Since m and p are coprime, this is a contradiction and so such an m exists. 
+\end{proof}
 \begin{proof}
-If gcd(p,n)=1, then $\mathbb{Q}_{p}(\zeta_n)$ is unramified. So it follows that the compositum is unramified. The algebraic closure of $\bar{\mathbb{F}_{p}}$ is formed by adjoining the $p^(m-1)-th$ roots of unity to $\mathbb{F}_p$. By Hensel's lemma, $K^{ur}$ is also formed by adjoining these roots of unity to $K$. 
+If gcd(p,n)=1, then $\mathbb{Q}_{p}(\zeta_n)$ is unramified. So it follows that the compositum is unramified. The algebraic closure of $\bar{\mathbb{F}}_{p}$ is formed by adjoining the $p^{(m-1)}-th$ roots of unity to $\mathbb{F}_p$. By Hensel's lemma, $K^{ur}$ is also formed by adjoining these roots of unity to $K$. By the above lemma, indeed these roots of unity are contained within the roots of unity of order coprime to p. 
 \end{proof}
 \section{Class Field Theory}
 Recall a prime ideal $\mathfrak{p}$ in $\mathcal{O}_K$ factors in an extension L of K as
