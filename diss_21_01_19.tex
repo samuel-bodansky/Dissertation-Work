@@ -80,7 +80,36 @@ Let $f(x)$ be the minimal polynomial of $\zeta$ in K, and so $\bar{f}(x)$, its r
 \end{equation}
 Now $x^n-1$ splits into distinct linear factors in $\mathcal{O}_L$ over $\lambda$ since n and p are coprime. Thus $\lambda$ contains the group of units $\mu_n$. So f is indeed the smallest number such that $n|q^f-1$. 
 \end{proof}
-
+\subsection{Cyclotomic Fields with p-adics}
+\begin{theorem}
+    Let $\zeta$ denote the $p^m-th$ root of unity, 
+    Then we have the following results:
+    \begin{enumerate}
+        \item $[\mathbb{Q}_{p}(\zeta):\mathbb{Q}_p]$ is totally ramified with degree $(p-1)p^{m-1}$
+        \item $\Gamma(\mathbb{Q}_{p}(\zeta):\mathbb{Q}_p)\cong (\mathbb{Z}/p^{m}\mathbb{Z})^{*}$
+        \item $\mathbb{Z}_{p}(\zeta)$ is the valuation ring of $\mathbb{Q}_{p}(\zeta)$
+        \item $1-\zeta$ is a prime element of $\mathbb{Z}_{p}(\zeta)$ with $N(1-\zeta)=p$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+Let $\nu = \zeta^{p^{m-1}}$, so $\nu$ is a primitive p-th root of unity. We have the following equations: 
+\begin{equation}
+    \nu^{p-1}+\nu^{p-2}...+1=0
+\end{equation}
+\begin{equation}
+   f(\zeta)= \zeta^{(p-1)p^{m-1}}+\zeta^{(p-2)p^{m-1}}+...+1=0
+\end{equation}
+It is immediate that $\zeta-1$ is a root of f(x+1). Now f(1)=p and \begin{equation}
+    f(x)\equiv \frac{x^{p^{m}}-1}{x^{p^{m-1}}-1} \equiv (x-1)^{(p-1)p^{m-1}} mod\:p
+\end{equation}
+By Eisenstein's criterion with p, f is irreducible, whence $G=\Gamma([\mathbb{Q}_{p})\zeta):\mathbb{Q}_{p})$ has degree $\phi(p^{m})$. Take the map \begin{equation}
+    G\longrightarrow (\mathbb{Z}/p^{m}\mathbb{Z})^{*}
+\end{equation}
+\begin{equation}
+    \sigma \longmapsto N(\sigma), \sigma\zeta=\zeta^{N(\zeta)}
+\end{equation}
+This map is bijective, since both groups have the same order. 
+\end{proof}
 \section{Class Field Theory}
 Recall a prime ideal $\mathfrak{p}$ in $\mathcal{O}_K$ factors in an extension L of K as
 \par
