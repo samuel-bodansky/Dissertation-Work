@@ -285,8 +285,22 @@ A \textbf{Hilbert p-class field} $H_K^{p}$ of a number field $K$ is the maximal 
 \begin{corollary}
 If any p-class field tower over K is infinite, then the class field tower is also infinite. If the p-class tower terminates, then $H_{K_\infty}^{p}$ is a finite field extension of K and $\Gamma(H_{K_\infty}^{p}/K)$ is a p-group.
 \end{corollary}
-In fact, since M has a finite 2-Hilbert tower, the class group of M must be a 2-group. 
-Suppose K is a class field with trivial class group, i.e. h(K)=1. Then K has no abelian (and hence no
+Note that the converse to the first part of corollary 12.2 needn't hold; take $\mathbb{Q}(\sqrt{-239},\sqrt{4049})$. Then this biquadratic field extension of $\mathbb{Q}$ has an infinite class field tower, but all p-class field towers are finite. 
+\par
+We have the theorem of Golod and Shafaverich:\begin{theorem}
+    Let G be a finite p-group, and define $d=dim_{\mathbb{F}_{p}}H^1(G,\mathbb{F}_p)$, $r=dim_{\mathbb{F}_{p}}H^2(G,\mathbb{F}_p)$. 
+    Then $r>d^2/4$.
+\end{theorem}
+We also have the following theoreom from Shafaverich,1963:\begin{theorem}
+    Let $G = \Gamma(H_{K_{\infty}}^{p}/K)$ where K is an imaginary quadratic number field. If G is finitely generated as a pro-p group, then
+$r-d\leq 1 $. If p is an odd prime, r=d.
+\end{theorem}
+The above inequalities give a contradiction for $d \geq 5$ if all such G are assumed to be finite p-groups. Hence there must be a number field with an infinite 2-class field tower, so not all number fields have a finite field extension with class number 1. Here is an example:
+\begin{example}
+    Define $K=\mathbb{Q}(\sqrt{-3.5.7.11.19.23})$. Then 6 odd primes ramify in K over $\mathbb{Q}$, and so K has an infinite 2-class field tower. 
+\end{example}
+\par
+Suppose now that K is a class field with trivial class group, i.e. h(K)=1. Then K has no abelian (and hence no
 solvable) non-trivial unramified Galois extension. Despite this, K may have a non-solvable unramified extension. \cite{BRIN} gives such an example. Suppose
 \begin{equation}
    K=\mathbb{Q}(\sqrt{29},\sqrt{4967}) 
@@ -308,7 +322,7 @@ Then the field $L=\mathbb{Q}(\sqrt{D},\sqrt{p.q})$ has class number 1 and infini
 \begin{proof}
 A result from \cite{KOND} shows that the splitting field K
 of f is an $S_5$-extension of $\mathbb{Q}$ and an unramified $A_5$-extension of $\mathbb{Q}(\sqrt{D})$. Hence $M=K(\sqrt{p.q})$ is an
-unramified $A_5$-extension of L. Furthermore, K has class number 1, as demonstrated in the following diagram.
+unramified $A_5$-extension of L.In fact, since M has a finite 2-Hilbert tower, the class group of M must be a 2-group.  Furthermore, K has class number 1, as demonstrated in the following diagram.
 \begin{center}
     \begin{tikzpicture} [align=center]
   \path  (0, 0)   node(Q)  {$\mathbb{Q}$}
@@ -749,6 +763,9 @@ Brink, David. (2010). Remark on infinite unramified extensions of number fields 
  \bibitem{SERR}
  Jean-Pierre Serre, On a theorem of Jordan, Bull. Amer. Math. Soc. (N.S.) 40 
  \bibitem{LESS}Lesseni, Sylla. Nonsolvable nonic number fields ramified only at one small prime. Journal de théorie des nombres de Bordeaux, Volume 18 (2006) no. 3, pp. 617-625
+ \bibitem{GOLO}
+E. S. Golod, I. R. Shafarevich, On the class field tower, Izv.
+Akad. Nauk SSSR Ser. Mat., 1964, Volume 28, Issue 2, 261–272
 \end{thebibliography}
 
 \end{document}
