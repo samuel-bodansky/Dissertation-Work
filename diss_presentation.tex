@@ -40,19 +40,27 @@
 % or whatever
 
 \usepackage{times}
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usepackage{lineno}
+\usepackage[english]{babel}
+\usepackage{seqsplit}
+\usepackage[nottoc]{tocbibind} 
+\usepackage[utf8]{inputenc}
 %\usepackage[T1]{fontenc}
 % Or whatever. Note that the encoding and the font should match. If T1
 % does not look nice, try deleting the line with the fontenc.
 
 
-\title[Title to appear at the bottom] % (optional, use only with long paper titles)
-{The actual title of the presentation}
+\title[Part C Dissertation] % (optional, use only with long paper titles)
+{Extensions of number fields with small ramification}
 
 \subtitle
 {}
 
 \author % (optional, use only with lots of authors)
-{Name of the author}
+{Samuel Bodansky}
 % - Give the names in the same order as the appear in the paper.
 % - Use the \inst{?} command only if the authors have different
 %   affiliation.
@@ -104,7 +112,12 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
-
+% \newtheorem{theorem}{Theorem}
+% \newtheorem{lemma}[theorem]{Lemma}
+% \newtheorem{corollary}{Corollary}[theorem]
+% \newtheorem{definition}{Definition}
+% \newtheorem{proposition}{Proposition}
+% \newtheorem{example}{Example}
 
 \begin{document}
 
@@ -139,42 +152,42 @@
 %*********************************************************
 %*********************************************************
 %*********************************************************
-\section{Title of section 1}
-\subsection{Title of subsection}
+\section{Goal}
+\subsection{Goal}
 %*********************************************************
-\begin{frame}{This is a frame title}
-The details come here. This could be plain text. 
-\begin{enumerate}
-\item or could come
-\item in an enumerate
-\end{enumerate}
+\begin{frame}{Aim of Project}
+Goal: For a given number field K, what is the maximal unramified extension $K^{ur}$ of K is and also what is the structure of $G_K^{ur}$ is.
+% \begin{enumerate}
+% \item or could come
+% \item in an enumerate
+% \end{enumerate}
 
-\begin{block}{To highlight parts}
-Use blocks like this one.
-\end{block}
+% \begin{block}{To highlight parts}
+% Use blocks like this one.
+% \end{block}
 
 \end{frame}
 %*********************************************************  
 
 %*********************************************************  
 %*********************************************************  
-\begin{frame}{Using pause}
-
-You can control the appearance of items of a frame by teh command pause. For example:
-\pause
-\begin{block}{}
-\begin{enumerate}
-\pause
-\item First item
-\pause
-\item Second item
-\pause
-\item third item
-\item and fourth item togehter
-\end{enumerate}
-\end{block}
-\pause
-Further items. 
+\begin{frame}{Notation}
+Here is a summary of relevant notation for this talk. 
+% You can control the appearance of items of a frame by the command pause. For example:
+% \pause
+% \begin{block}{}
+% \begin{enumerate}
+% \pause
+% \item First item
+% \pause
+% \item Second item
+% \pause
+% \item third item
+% \item and fourth item togehter
+% \end{enumerate}
+% \end{block}
+% \pause
+% Further items. 
 \end{frame}
 %*********************************************************  
 
