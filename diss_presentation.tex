@@ -2,25 +2,6 @@
 
 \documentclass[10pt]{beamer}
 
-% This file is a solution template for:
-
-% - Talk at a conference/colloquium.
-% - Talk length is about 20min.
-% - Style is ornate.
-
-
-
-% Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
-%
-% In principle, this file can be redistributed and/or modified under
-% the terms of the GNU Public License, version 2.
-%
-% However, this file is supposed to be a template to be modified
-% for your own needs. For this reason, if you use this file as a
-% template and not specifically distribute it as part of a another
-% package/program, I grant the extra permission to freely copy and
-% modify this file as you see fit and even to delete this copyright
-% notice. 
 
 
 \mode<presentation>
@@ -48,67 +29,6 @@
 \usepackage{seqsplit}
 \usepackage[nottoc]{tocbibind} 
 \usepackage[utf8]{inputenc}
-%\usepackage[T1]{fontenc}
-% Or whatever. Note that the encoding and the font should match. If T1
-% does not look nice, try deleting the line with the fontenc.
-
-
-\title[Part C Dissertation] % (optional, use only with long paper titles)
-{Extensions of number fields with small ramification}
-
-\subtitle
-{}
-
-\author % (optional, use only with lots of authors)
-{Samuel Bodansky}
-% - Give the names in the same order as the appear in the paper.
-% - Use the \inst{?} command only if the authors have different
-%   affiliation.
-
-\institute % (optional, but mostly needed)
-{
-  University of Oxford
-  }
-% - Use the \inst command only if there are several affiliations.
-% - Keep it simple, no one is interested in your street address.
-
-\date % (optional, should be abbreviation of conference name)
-{12 July, 2010}
-% - Either use conference name or its abbreviation.
-% - Not really informative to the audience, more for people (including
-%   yourself) who are reading the slides online
-
-%\subject{Theoretical Computer Science}
-% This is only inserted into the PDF information catalog. Can be left
-% out. 
-
-
-
-% If you have a file called "university-logo-filename.xxx", where xxx
-% is a graphic format that can be processed by latex or pdflatex,
-% resp., then you can add a logo as follows:
-
-%\pgfdeclareimage[height=1.5cm]{university-logo}{ox_man_logo}
-%\logo{\pgfuseimage{university-logo}}
-
-
-
-% Delete this, if you do not want the table of contents to pop up at
-% the beginning of each subsection:
-%\AtBeginSubsection[]
-%{
-%  \begin{frame}<beamer>{Outline}
-%    \tableofcontents[currentsection,currentsubsection]
-%  \end{frame}
-%}
-
-
-% If you wish to uncover everything in a step-wise fashion, uncomment
-% the following command: 
-
-%\beamerdefaultoverlayspecification{<+->}
-
-
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
@@ -119,39 +39,33 @@
 % \newtheorem{proposition}{Proposition}
 % \newtheorem{example}{Example}
 
+\title[Part C Dissertation] % (optional, use only with long paper titles)
+{Extensions of number fields with small ramification}
+
+\subtitle
+{}
+
+\author % (optional, use only with lots of authors)
+{Samuel Bodansky}
+
+
+\institute % (optional, but mostly needed)
+{
+  University of Oxford
+  }
+.
+
+\date % (optional, should be abbreviation of conference name)
+{February 2019}
+
+
 \begin{document}
 
 \begin{frame}
   \titlepage
 \end{frame}
 
-%\begin{frame}{Outline}
-%  \tableofcontents
-  % You might wish to add the option [pausesections]
-%\end{frame}
 
-
-% Structuring a talk is a difficult task and the following structure
-% may not be suitable. Here are some rules that apply for this
-% solution: 
-
-% - Exactly two or three sections (other than the summary).
-% - At *most* three subsections per section.
-% - Talk about 30s to 2min per frame. So there should be between about
-%   15 and 30 frames, all told.
-
-% - A conference audience is likely to know very little of what you
-%   are going to talk about. So *simplify*!
-% - In a 20min talk, getting the main ideas across is hard
-%   enough. Leave out details, even if it means being less precise than
-%   you think necessary.
-% - If you omit details that are vital to the proof/implementation,
-%   just say so once. Everybody will be happy with that.
-
-
-%*********************************************************
-%*********************************************************
-%*********************************************************
 \section{Goal}
 \subsection{Goal}
 %*********************************************************
@@ -163,9 +77,37 @@ Goal: For a given number field K, what is the maximal unramified extension $K^{u
 \begin{frame}{Notation}
 Here is a summary of relevant notation for this talk. 
 \end{frame}
-%*********************************************************  
-\section{Initial Examples}
-%*********************************************************  
+\section{Class Field Theory}
+\begin{frame}{CFT Definitions}
+    \begin{definition}
+    A prime ideal $\mathfrak{p}$ in $\mathcal{O}_K$ factors in an extension L of K as
+\par
+$\mathfrak{p}\mathcal{O}_L=\mathfrak{B}_1^{e_1}...\mathfrak{B}_m^{e_m}$, where $\mathfrak{B}_i$ are ideals in $\mathcal{O}_L$ intersecting $\mathcal{O}_K$ at $\mathfrak{p}$. Each $e_i\geq1$ and if $e_i>1$ for some i then we say that $\mathfrak{p}$ ramifies in L. If $e_i=1$ for all i then we say $\mathfrak{p}$ splits in L.
+    \end{definition}
+    \begin{definition}
+    Let H be a subgroup of the class group C of K. A finite unramified abelian extension L of K is said to be a $\textit{class field}$ for H if the prime ideals of K splitting in L are exactly those in $\tilde{H}$.
+    \end{definition}
+    
+\end{frame}
+\begin{frame}{Key Result about Unramified Extensions}
+The following theorem will allow us to define $K^{ur}$:
+    \begin{theorem}
+The compositum of two finite unramified extensions of K is also unramified, and so the union $K^{ur}$ of all unramified extensions is also an unramified extension of K. The residue field $\tilde{k}$ of $K^{ur}$ is an algebraic closure of the residue field k of K.
+\end{theorem}
+
+\end{frame}
+\begin{frame}{Proof of Theorem}
+    \begin{proof}
+    Suppose K is a number field and $L,\tilde{L}$ are extensions of K. Let $\mathfrak{p}$ be an ideal unramified in $L$ and $\tilde{L}$. Let $P$ be a prime lying over $\mathfrak{p}$ in $L\tilde{L}$. Let $M$ be the minimal normal extension of $L\tilde{L}$, i.e. the normal closure. Suppose $Q$ is a prime in $M$ lying over $P$, then we have 
+    \begin{equation}
+        \mathfrak{p}\subseteq P \subseteq Q
+    \end{equation}
+    Let $E=E(Q|\mathfrak{p})$ denote the inertia group of $Q$ at $\mathfrak{p}$. Since $\mathfrak{p}$ is unramified in $L$ and $\tilde{L}$, it follows that $Q \cap \mathcal{O}_L$ and $Q \cap \mathcal{O}_\tilde{L}$ are unramified in $L$ and $\tilde{L}$ respectively. But the inertia field $M^E$ is the largest field in which $\mathfrak{p}$ is unramified, so it follows that $L\subseteq M^E$ and $\tilde{L} \subseteq M^E $, whence $L\tilde{L}\subseteq M^E$ and $\mathfrak{p}$ is unramified in $L\tilde{L}$.
+\end{proof}
+
+\end{frame}
+\section{$\mathbb{Q}$,P-adics and Cyclotomics}
+\subsection{Examples in $\mathbb{Q}$}
 \begin{frame}{Extensions of $\mathbb{Q}$}
     \begin{theorem}
      Suppose that K be a field extension of $\mathbb{Q}$ with discriminant D. Then a prime p
@@ -178,7 +120,42 @@ A field extension K of $\mathbb{Q}$ ramifies at precisely one prime iff the abso
     Suppose $f(x)=x^5-5x^4-2x^3+x^2-3x+1$, and K is the splitting field of f over $\mathbb{Q}$. Then $disc(K)=-3442951=151^3$ and so 151 is the only prime which ramifies in K over $\mathbb{Q}$. Note that f(x) is an irreducible quintic with precisely three real roots, meaning that $\Gamma(K/\mathbb{Q})\cong\ S_5$ and K is an unsolvable extension of $\mathbb{Q}$.
 \end{example}
 \end{frame}
-\subsection{Hilbert Class Field}
+\subsection{P-adics and Cyclotomics}
+\begin{frame}{P-adics results}
+\begin{block}{P-adics}
+Suppose $\zeta$ is an $n_{th}$ root of unity. Let K be a number field, $L=K(\zeta)$. Let $\mathcal{O}_L,\mathcal{O}_K$ be their respective valuation rings and $\lambda,\kappa$ be their respective residue class fields. \begin{proposition}
+L is a degree n unramified extension of K.
+\end{proposition}
+
+Suppose now that $\zeta$ is a primitive n-th root of unity, with $n=kp^{m}$ where k is prime to p. We have the following inclusions:
+\end{block}
+\begin{example}[Field Inclusions]
+      $\mathbb{Q}_{p}=K\subseteq K^{tur}=K(\zeta_k)\subseteq K^{ur} = K^{tur}(\zeta_{p})\subseteq K(\zeta_n)$
+\end{example}
+\end{frame}
+\begin{frame}{Maximal Unramified Extension of P-adic}
+    We first use the following lemma 
+    \begin{lemma}
+Suppose p is a prime and gcd(n,p)=1. Then there exists $m\in\mathbb{N}$ such that $n|p^m-1$.
+\end{lemma}
+We then have the following:  \begin{theorem}
+    Let $K=\mathbb{Q}_p$. Then $K^{ur}$ is K adjoined with all roots of unity with order prime to p. 
+\end{theorem}
+
+\end{frame}
+\begin{frame}{Cyclotomics Results}
+    \begin{theorem}
+    Let $\zeta$ denote the $p^m-th$ root of unity, 
+    Then we have the following results:
+    \begin{enumerate}
+        \item $[\mathbb{Q}_{p}(\zeta):\mathbb{Q}_p]$ is totally ramified with degree $(p-1)p^{m-1}$
+        \item $\Gamma(\mathbb{Q}_{p}(\zeta):\mathbb{Q}_p)\cong (\mathbb{Z}/p^{m}\mathbb{Z})^{*}$
+        \item $\mathbb{Z}_{p}(\zeta)$ is the valuation ring of $\mathbb{Q}_{p}(\zeta)$
+        \item $1-\zeta$ is a prime element of $\mathbb{Z}_{p}(\zeta)$ with $N(1-\zeta)=p$
+    \end{enumerate}
+\end{theorem}
+\end{frame}
+\section{Hilbert Class Field}
 \begin{frame}{Definition of Hilbert Class Field}
     \begin{definition}
 The \textbf{class field} of the trivial subgroup of C(K) is called the Hilbert class field of K. 
@@ -190,13 +167,35 @@ The \textbf{class field} of the trivial subgroup of C(K) is called the Hilbert c
     \item If K is a unique factorisation domain then K is equal to its own Hilbert class field. 
 \end{enumerate}
 \end{frame}
-\begin{frame}{Examples}
+\begin{frame}{Examples of Hilbert Class Fields}
     \begin{example}
     Suppose K=$\mathbb{Q}$. Then K is its own Hilbert class field. 
 \end{example}
 \begin{example}
     Suppose $K=\mathbb{Q}[\sqrt{-5}]$, and take $L=\mathbb{Q}[\sqrt{-1},\sqrt{-5}]$. L is an unramified degree 2 extension of K and so the Hilbert class field of K is $K[\sqrt{-1}]$.
 \end{example}
+\begin{example}[Hasse]
+    Suppose $K=\mathbb{Q}[\sqrt{-31}]$ with class number 3. Let L be its Hilbert class field. Then L is defined by a root of the polynomial \begin{equation}
+        x^3+\frac{3+\sqrt{-31}}{2}x^2+\frac{-3+\sqrt{-31}}{2}x -1 =0.
+    \end{equation}
+\end{example}
 \end{frame}
-
+\begin{frame}{Hilbert Class Field Applications Theorem}
+    \begin{theorem}
+Theorem: Let L be the Hilbert class field of $K=\mathbb{Q}(\sqrt{-n})$, where n is squarefree, $n\not\equiv 3(4)$, so that
+\begin{equation}
+    \mathcal{O}_K=\mathbb{Z}(\sqrt{-n})
+\end{equation}
+Assume that p is an odd prime not dividing n, and that x,y are integers. Then
+$p=x^2+ny^2 \Longleftrightarrow$ p splits completely in L.
+\end{theorem}
+\end{frame}
+\begin{frame}{Primes of the form $x^2+ny^2$}
+    \begin{corollary}
+Suppose $K=\mathbb{Q}{\sqrt{-n}}$ n is positive,squarefree, $n\not\equiv 3(4)$, so that $d_K=-4n$. If p is an odd prime not dividing n, then
+\begin{equation} p=x^2+ny^2 \Longleftrightarrow p\:splits\:completely\:in\:the\:Hilbert\:class\:field\:of\:K.
+\end{equation}
+Hence the primes of the form $x^2+ny^2$ characterise the Hilbert Class field of $\mathbb{Q}(\sqrt{-n})$.
+\end{corollary}
+\end{frame}
 \end{document}
