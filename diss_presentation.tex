@@ -6,7 +6,7 @@
 
 \mode<presentation>
 {
-  \usetheme{Warsaw}
+  \usetheme{Berkeley}
   % or ...
 
   \setbeamercovered{transparent}
@@ -57,18 +57,21 @@
 
 \date % (optional, should be abbreviation of conference name)
 {February 2019}
-
+\setbeamertemplate{sidebar right}{}
+\setbeamertemplate{footline}{%
+\hfill\usebeamertemplate***{navigation symbols}
+\hspace{1cm}\insertframenumber{}/\inserttotalframenumber}
 
 \begin{document}
 
 \begin{frame}
   \titlepage
 \end{frame}
-
+\begin{frame}{Contents}
+\tableofcontents
+\end{frame}
 
 \section{Goal}
-\subsection{Goal}
-%*********************************************************
 \begin{frame}{Aim of Project}
 Goal: For a given number field K, what is the maximal unramified extension $K^{ur}$ of K is and also what is the structure of $G_K^{ur}$ is.
 
@@ -198,4 +201,134 @@ Suppose $K=\mathbb{Q}{\sqrt{-n}}$ n is positive,squarefree, $n\not\equiv 3(4)$, 
 Hence the primes of the form $x^2+ny^2$ characterise the Hilbert Class field of $\mathbb{Q}(\sqrt{-n})$.
 \end{corollary}
 \end{frame}
+\section{Bounds on Discriminants}
+\begin{frame}{Minkowski Bounds}
+Minkowski's theorem bound shows that if K is a number field with $r_1$ real and $2r_2$ complex conjugate fields, and $n=r_1+2r_2$ is the degree of the field, then 
+\begin{equation}
+rd_K\geqslant (\frac{\pi}{4})^{\frac{2r_1}{n}}\frac{n^2}{n!^{\frac{2}{n}}}
+\end{equation} 
+As $n\rightarrow \infty$, Stirling's formula can give a bound that
+\begin{equation}
+    rd_K\geqslant e^2 = 7.39
+\end{equation}
+\end{frame}
+\begin{frame}{Odlyzko's Bounds}
+    Odlyzko's Bound improved on the bounds for Minkowski for the discriminant of a number field. It can be stated as  
+\begin{equation}
+rd_K\geqslant 60^{\frac{r_1}{n}}22^{\frac{r_2}{n}}+o(1)\:as\:n\rightarrow \infty   
+\end{equation}
+Furthermore, under the assumption of the Generalised Riemann Hypothesis, 
+this bound can be improved by replacing the numbers 60 and 22 by 188 and 41 respectively. 
+\end{frame}
+\begin{frame}{Using these Bounds}
+Following Yamamura write this bound function as $B(n,r_1,r_2)$.
+\begin{theorem}
+Suppose that H is a positive integer, and L is an unramified normal extension of K of degree M. Here are two possible cases that can occur:
+\begin{enumerate}
+    \item If \begin{equation}
+        rd_K<B(H.m.n,H.m.r_1,H.m.r_2)
+    \end{equation}
+    then $[K^{ur}:L]<H$ and $h(L)<H$. Indeed if H=2 then $K^{ur}=L$.
+
+    \item If
+        $h(L)=1$ and H=60 then again $K^{ur}=L$.
+\end{enumerate}
+\end{theorem}
+\end{frame}
+\section{Infinite Unramified Extensions}
+\begin{frame}{The Hilbert p-class Field: Definitions}
+    \begin{definition}
+A \textbf{p-group} is a group in which every element has order equal to a power of p.
+\end{definition}
+\begin{definition}
+A \textbf{Hilbert p-class field} $H_K^{p}$ of a number field $K$ is the maximal unramified abelian p-extension of K.
+\end{definition}
+\begin{definition}
+A \textbf{Hilbert p-class field} $H_K^{p}$ of a number field $K$ is the maximal unramified abelian p-extension of K, with the \textbf{p-class field tower} defined in a similar way to the definition of the Hilbert tower. 
+\end{definition}
+\end{frame}
+\begin{frame}{The Hilbert p-class Field and Finite Extensions}
+    \begin{Theorem}
+If any p-class field tower over K is infinite, then the class field tower is also infinite. If the p-class tower terminates, then $H_{K_\infty}^{p}$ is a finite field extension of K and $\Gamma(H_{K_\infty}^{p}/K)$ is a p-group.
+\end{Theorem}
+Note that the converse to the first part of the above needn't hold; take $\mathbb{Q}(\sqrt{-239},\sqrt{4049})$. Then this biquadratic field extension of $\mathbb{Q}$ has an infinite class field tower, but all p-class field towers are finite. 
+\end{frame}
+\begin{frame}{Golod and Shafaverich}
+    \begin{theorem}
+    Let G be a finite p-group, and define $d=dim_{\mathbb{F}_{p}}H^1(G,\mathbb{F}_p)$, $r=dim_{\mathbb{F}_{p}}H^2(G,\mathbb{F}_p)$. 
+    Then $r>d^2/4$.
+\end{theorem}
+\begin{theorem}
+    Let $G = \Gamma(H_{K_{\infty}}^{p}/K)$ where K is an imaginary quadratic number field. If G is finitely generated as a pro-p group, then
+$r-d\leq 1 $. If p is an odd prime, r=d.
+\end{theorem}
+The above inequalities give a contradiction for $d \geq 5$ if all such G are assumed to be finite p-groups.
+\end{frame}
+\begin{frame}{Infinite p-class Tower Examples}
+\begin{example}
+    Define $K=\mathbb{Q}(\sqrt{-3.5.7.11.19.23})$. Then 6 odd primes ramify in K over $\mathbb{Q}$, and so K has an infinite 2-class field tower. 
+\end{example}
+\begin{example}[Schoof]
+$\mathbb{Q}(\sqrt{-191.773})$ has an infinite 2-class field tower. There are infinitely many real quadratic number fields of the form $\mathbb{Q}(\sqrt{p_1.p_2})$ with $p_1$ and $p_2$ prime, possessing infinite class field towers. 
+\end{example}
+\end{frame}
+\section{Infinite unramified extensions}
+\begin{frame}{Example of Unsolvable Unramified Extension}
+Let K be a class field with trivial class group, i.e. h(K)=1. Then K has no abelian (and hence no
+solvable) non-trivial unramified Galois extension. Despite this, K may have a non-solvable unramified extension. Brink gives 
+\begin{equation}
+   K=\mathbb{Q}(\sqrt{29},\sqrt{4967}) 
+\end{equation}
+\begin{equation}
+   L=split(x^7 - 11x^5 + 17x^3 - 5x + 1,\mathbb{Q}[x])
+\end{equation}
+Then K has class number 1 and L is a PSL(2, 7)-extension of K.
+Maire showed that there exist biquadratic number fields with class number one with an infinite unramified extension.
+\end{frame}
+\begin{frame}{Finding a Field with Class Number 1 and Infinite Unramified Extension}
+    \begin{theorem}[Brink]
+Suppose that \begin{enumerate}
+    \item $f\in \mathbb{Z}[x]$ is an irreducible quintic with five real roots
+    \item $D=\Delta(f)$ is prime and $\mathbb{Q}(\sqrt{L})$ has class number 1
+    \item p and q are two primes such that $\mathbb{Q}(\sqrt{p.q})$ has class number 1 and $\mathbb{Q}(\sqrt{(D.p.q})$ has class number 2.
+    \item f has five simple roots modulo p and f factors modulo q into polynomials of degrees, as a tuple $\mu$ of the form (1,1,1,1,1),(1,1,1,3),(1,2,2) or (1,1,3).
+\end{enumerate}
+Then the field $L=\mathbb{Q}(\sqrt{D},\sqrt{p.q})$ has class number 1 and infinite unramified extension.
+\end{theorem}
+\end{frame}
+\begin{frame}{Field Extension Diagram}
+  \begin{center}
+    \begin{tikzpicture} [align=center]
+  \path  (0, 0)   node(Q)  {$\mathbb{Q}$}
+          +(6, 1)   node(QD12) {$\mathbb{Q}(\sqrt{D.p.q})$}
+          ++(3,1)   node(Q12) {$\mathbb{Q}(\sqrt{p.q)}$}
+           ++(-5,0)   node(QD) {$\mathbb{Q}(\sqrt{D})$}
+           ++(1,2)   node(K) {$K=split(f,\mathbb{Q}[x])$}
+           ++(5,0)   node(L) {$L=\mathbb{Q}(\sqrt{D},\sqrt{p.q})$}
+            ++(-1,2)   node(M) {$M=K(\sqrt{p.q})$};
+    \draw [-] (Q) to node [pos=0.5,above]{} (Q12);
+    \draw [-] (Q) to node [pos=0.8,below]{} (QD);
+    \draw [-] (Q) to node [pos=0.5,below]{} (QD12);
+  \draw [-] (QD) to node [pos=0.5,left]{$A_5$} (K);
+  \draw [-] (Q) to node [pos=0.5,right]{$S_5$} (K);
+  \draw [-] (Q) to node [pos=0.5,below]{} (L);
+  \draw [-] (Q12) to node [pos=0.5,below]{} (L);
+  \draw [-] (QD12) to node [pos=0.5,below]{} (L);
+    \draw [-] (L) to node [pos=0.5,right]{$A_5$} (M);
+     \draw [-] (K) to node [pos=0.5,above]{$C_2$} (M);
+\end{tikzpicture}
+\end{center}  
+\end{frame}
+
+\begin{frame}{Examples of Suitable Polynomials and Primes}
+  Using SageMath, the following polynomial and primes were found:
+\begin{example}
+$f(x)=x^5+4x^4-6x^2-x+1, p=1531,q=71,151,227,\Delta(f)=170701$
+\end{example}
+    \begin{example}
+$ f(x)=x^5-4x^4+12x^2-8x+1,p=1987,q=31,107,211,239,\Delta(f)=186037$
+\end{example}
+These polynomials satisfy the criteria of the above theorem and therefore describe fields with infinite unramified extensions. Furthermore, the class number of the splitting fields of each of these polynomials is 1, meaning that they are equal to their own Hilbert class fields.  
+\end{frame}
+
 \end{document}
