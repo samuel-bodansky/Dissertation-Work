@@ -299,6 +299,7 @@ The above inequalities give a contradiction for $d \geq 5$ if all such G are ass
 \begin{example}
     Define $K=\mathbb{Q}(\sqrt{-3.5.7.11.19.23})$. Then 6 odd primes ramify in K over $\mathbb{Q}$, and so K has an infinite 2-class field tower. 
 \end{example}
+Furthermore, \cite{SCHO} shows that $\mathbb{Q}(\sqrt{-191.773})$ has an infinite 2-class field tower, and that there are infinitely many real quadratic number fields of the form $\mathbb{Q}(\sqrt{p_1.p_2}$ with $p_1$ and $p_2$ prime, possessing infinite class field towers. 
 \par
 Suppose now that K is a class field with trivial class group, i.e. h(K)=1. Then K has no abelian (and hence no
 solvable) non-trivial unramified Galois extension. Despite this, K may have a non-solvable unramified extension. \cite{BRIN} gives such an example. Suppose
@@ -557,12 +558,39 @@ Define $K=\mathbb{Q}(\sqrt{-30759})$, $L=split(x^7+2x^6-3x^4-x^3-x^2-x+2,\mathbb
 Consider the polynomial \begin{equation}
  f(x)=x^3-x-1, \Delta(f)=-23
 \end{equation}
-Note f has one real root and two imaginary roots. Let L denote its splitting field. Then $\Gamma(L/\mathbb{Q})\cong S_3$ and it is a degree three extension of the quadratic field $K= \mathbb{Q}(\sqrt{-23})$. Now h(K)=3 so L is the maximal unramified abelian extension of K. Furthermore, using Odlyzko's bounds shows that L is the maximal unramified extension of L. 
+Note f has one real root and two imaginary roots. Let L denote its splitting field. Then $\Gamma(L/\mathbb{Q})\cong S_3$ and it is a degree three extension of the quadratic field $K= \mathbb{Q}(\sqrt{-23})$. Now h(K)=3 so L is the maximal unramified abelian extension of K. Furthermore, using Odlyzko's bounds shows that L is the maximal unramified extension of L. Here is a diagram:
+\begin{center}
+    \begin{tikzpicture}[node distance = 1.8cm, auto]
+      \node (Q) {$\mathbb{Q}$};
+      \node (K) [above of=Q] {K};
+      \node (L) [above of=K] {$L=K^{ur}$};
+    \draw [->,out=180,in=180,looseness=1] (Q.west) to node[above][pos=0.6,left]{$S_3$}  (L.west);    
+    \draw [-] (Q) to node [pos=0.5,right]{$C_2$} (K);
+        \draw [-] (K) to node [pos=0.1,left]{} (L);
+      \end{tikzpicture}
+\end{center}
 \subsection{Quartic Example}
 Define  \begin{equation}
     f(x)=x^4-x-1, \Delta(f)=-283
 \end{equation}
-Note f has two real and two imaginary roots. Define L as above and then $\Gamma(L/\mathbb{Q})\cong S_4$. By the fundamental theorem of Galois Theory, there exists an intermediate field H corresponding to the normal subgroup $V_4$ of $S_4$. Now $L^H$ is the Hilbert class field of $K= \mathbb{Q}(\sqrt{-283})$ and h(K)=3. Now define a further field extension of L, M such that M is unramified over L (and hence also over K) and M is a Galois extension of $\mathbb{Q}$. Martinet proved that M is the maximal unramifed extension of K, with Galois group isomorphic to $SL_2(F_3)$. of order 24. In addition, the Galois group of M over K is isomorphic to $GL_2(F_3)$.
+Note f has two real and two imaginary roots. Define L as above and then $\Gamma(L/\mathbb{Q})\cong S_4$. By the fundamental theorem of Galois theory, there exists an intermediate field H corresponding to the normal subgroup $V_4$ of $S_4$. Now $L^H$ is the Hilbert class field of $K= \mathbb{Q}(\sqrt{-283})$ and h(K)=3. Now define a further field extension of L, M such that M is unramified over L (and hence also over K) and M is a Galois extension of $\mathbb{Q}$. Martinet proved that M is the maximal unramified extension of K, with Galois group isomorphic to $SL_2(F_3)$ of order 24. In addition, the Galois group of M over $\mathbb{Q}$ is isomorphic to $GL_2(F_3)$. 
+\begin{center}
+    \begin{tikzpicture} [align=center]
+  \path  (0, 0)   node(Q)  {$\mathbb{Q}$}
+          +(4, 1)   node(H) {H}
+          +(4,3)   node(L) {L}
+          ++(0,6)   node(M) {M}
+            +(-4,-3)   node(K) {K};
+    \draw [-] (Q) to node [pos=0.5,below]{$A_3$} (H);
+    \draw [-] (H) to node [pos=0.5,below]{} (L);
+    \draw [-] (Q) to node [pos=0.5,below]{$C_2$} (K);
+    \draw [-] (L) to node [pos=0.5,below]{} (M);
+    \draw [-] (Q) to node [pos=0.5,below]{$S_4$} (L);
+    \draw [-] (Q) to node [pos=0.5,right]{$GL_2(F_3)$} (M);
+    \draw [-] (K) to node [pos=0.5,left]{$SL_2(F_3)$} (M);
+
+\end{tikzpicture}
+\end{center}
 %to do: draw diagram
 %to do: talk about ray class field from CNT which is relevant to project
 \section{Lesseni's Results on Degree 9 Number Fields}
@@ -766,6 +794,7 @@ Brink, David. (2010). Remark on infinite unramified extensions of number fields 
  \bibitem{GOLO}
 E. S. Golod, I. R. Shafarevich, On the class field tower, Izv.
 Akad. Nauk SSSR Ser. Mat., 1964, Volume 28, Issue 2, 261–272
+\bibitem{SCHO}Schoof, René. "Infinite class field towers of quadratic fields.." Journal für die reine und angewandte Mathematik 372 (1986): 209-220
 \end{thebibliography}
 
 \end{document}
