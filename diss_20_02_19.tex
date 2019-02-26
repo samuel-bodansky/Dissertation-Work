@@ -277,24 +277,29 @@ Odlyzko's Bound \cite{ODL2} improved on the bounds for Minkowski for the discrim
 \begin{equation}
 rd_K\geqslant 60^{\frac{r_1}{n}}22^{\frac{r_2}{n}}+o(1)\:as\:n\rightarrow \infty   
 \end{equation}
+Moreno writes this bound explicitly as 
+\begin{equation}
+rd_K\geqslant 60^{\frac{r_1}{n}}22^{\frac{r_2}{n}}e^\frac{-8.6}{n^(2/3)}
+\end{equation}
 Furthermore, under the assumption of the Generalised Riemann Hypothesis, 
 this bound can be improved by replacing the numbers 60 and 22 by 188 and 41 respectively. 
-\subsection{How to use this bound}
+\subsection{Using Odlyzko's Bound}
 Following \cite{YAM2}, write this bound function as $B(n,r_1,r_2)$.
 \begin{theorem}
-Suppose that H is a positive integer, and L is an unramified normal extension of K of degree M. Here are two possible cases that can occur:
-\begin{enumerate}
-    \item If \begin{equation}
-        rd_K<B(H.m.n,H.m.r_1,H.m.r_2)
+Suppose that H is a positive integer, and L is an unramified normal extension of K of degree M. Here are two possible cases that can occur: Suppose L is an unramified degree m  normal extension of K with h(L)=1, and 
+\begin{equation}
+        rd_K<B(60mn_K,60mr_1,60mr_2)
     \end{equation}
-    then $[K^{ur}:L]<H$ and $h(L)<H$. Indeed if H=2 then $K^{ur}=L$.
-
-    \item If
-        $h(L)=1$ and H=60 then again $K^{ur}=L$.
-\end{enumerate}
+and  then $K^{ur}=L$.
 \end{theorem}
-
-
+\begin{proof}
+Let M be an unramified normal extension of K. Since the compositum retains closure and unramified extensions, LM is a normal unramified extension of L. Define $G=\Gamma(LM:L)$ with $|G|=a$. If G had a normal subgroup H, the FTGT would imply that G/H would correspond to an Abelian unramified extension of L, contradicting h(L)=1. Hence G is unsolvable. This immediately implies that $a\geqslant 60$ because $A_5$ is the 
+smallest unsolvable group. Since LM is an unramified extension of K, we have \begin{equation}
+    rd_{LM}=rd_{K}\ < B(60mn_K,60mr_1,60mr_2)\leq  B(amn_K,amr_1,amr_2)
+\end{equation} 
+However, the degree of LM over $\mathbb{Q}$ is $amn_K$, with $amr_1$ real places and $amr_2$ pairs of complex places over $\mathbb{Q}$. Therefore L contains all unramified extensions of K, and $L=K^{ur}$
+\end{proof}
+This allows us to check whether a field has no unsolvable unramified extensions. 
 \section{Infinite Unramified Extensions}
 The following definitions and corollaries will be useful in determining the structure of the Hilbert class field. 
 \begin{definition}
@@ -577,7 +582,7 @@ We have the following diagram:
       \end{tikzpicture}
 \end{center}
 \section{Yamamura's Results}
-\cite{YAM2} defines the structure of $\Gamma(K_{ur}/K$ where K is an imaginary quadratic number field with small conductors. Note that for all number fields with conductor $<1000$, $K_{ur}$ is one of $K_1$, $K_2$ and $K_3$. 
+\cite{YAM2} defines the structure of $\Gamma(K_{ur}/K)$ where K is an imaginary quadratic number field with small conductors. Note that for all number fields with conductor $<1000$, $K_{ur}$ is one of $K_1$, $K_2$ and $K_3$. 
 $\mathbb{Q}(\sqrt{-1507})$ is the first imaginary quadratic field with an unramified $A_5$-extension over $\mathbb{Q}$. In fact, defining $L=split(x^5-5x^3+5x^2+24x+5,\mathbb{Q}[x])$ gives such an $A_5$ extension of K. 
 \begin{lemma}
 Define $K=\mathbb{Q}(\sqrt{-14731})$, $L=split(x^6+3x^5,5x^4+4x^3+3x^2+2x+1,\mathbb{Q}[x])$. Then L is an unramified $A_6$-extension of K and is an $S_6$ extension of $\mathbb{Q}$.
@@ -585,6 +590,15 @@ Define $K=\mathbb{Q}(\sqrt{-14731})$, $L=split(x^6+3x^5,5x^4+4x^3+3x^2+2x+1,\mat
 \begin{lemma}
 Define $K=\mathbb{Q}(\sqrt{-30759})$, $L=split(x^7+2x^6-3x^4-x^3-x^2-x+2,\mathbb{Q}[x])$. Then L is an unramified PSL(2,7)-extension of K and is an $PSL(2,7)\times C_2$ extension of $\mathbb{Q}$.
 \end{lemma}
+\section{Results on General Cubics}
+In this section, let $K=\mathbb{Q}(\theta)$ where $\theta$ is the root of a cubic polynomial 
+f. If $\Gamma(K/\mathbb{Q}_\cong A_3$, call K a  \textbf{cyclic cubic field}.
+\begin{proposition}[Galois Theory]
+Then K is a cyclic cubic field iff disc(f) is a square. 
+\end{proposition} If K is a totally real cubic number field, the (un)conditional bound for the root discriminat given by Odlyzko and published by Martinet is (46.42)72.55. Wong tabulates the all cyclic cubic fields ramified at one prime with trivial class group. 
+\begin{example}
+    Let $f=x^3-x^2-2x+1$. Then disc(K)=$7^2$, $rd_{k}=3.66$ and h(K)=1. Then unconditionally, K does not have an unsolvable unramified extension. 
+\end{example}
 \section{Serre's Results for Cubic and Quartic}
 \subsection{Cubic Example}
 Consider the polynomial \begin{equation}
