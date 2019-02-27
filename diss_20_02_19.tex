@@ -597,7 +597,26 @@ f. If $\Gamma(K/\mathbb{Q}_\cong A_3$, call K a  \textbf{cyclic cubic field}.
 Then K is a cyclic cubic field iff disc(f) is a square. 
 \end{proposition} If K is a totally real cubic number field, the (un)conditional bound for the root discriminat given by Odlyzko and published by Martinet is (46.42)72.55. Wong tabulates the all cyclic cubic fields ramified at one prime with trivial class group. 
 \begin{example}
-    Let $f=x^3-x^2-2x+1$. Then disc(K)=$7^2$, $rd_{k}=3.66$ and h(K)=1. Then unconditionally, K does not have an unsolvable unramified extension. 
+    Let $f=x^3-x^2-2x+1$. Then disc(K)=$7^2$, $rd_{k}=3.66$ and h(K)=1. Then unconditionally, K does not have an unsolvable unramified extension, $\Gamma(K:\mathbb{Q})\cong C_3$
+\end{example}
+\begin{example}
+    $f(x)=x^3 + 10x^2 - 9x - 7$, disc(K)=49033,$rd_{K}=36.60$, then unconditionally, K does not have an unsolvable unramified extension, $\Gamma(K:\mathbb{Q})\cong S_3$.
+\end{example}
+
+Wong now gives examples of how to calculate the maximal unramified extension of a cyclic cubic field with nontrivial class number. \begin{example}
+    $f-x^3-x^2-54x+169$, disc(K)=$163^2$, $rd_{k}=29.84$. Here we have h(K)=4. Define $g(x)=x^6-3x^5-11x^4+27x^3-3x^2-11x+1$. Then John Jones' website gives $L = split(g,\mathbb{Q})$ with $\Delta(K_1)=163^4$. Firstly $\Gamma(L/\mathbb{Q}) \cong A_4$, and 163 is unramified in $L/K$. Hence indeed $L=K_1$. We know that $\Gamma(L/K)\cong V_4$ which is a normal subgroup of $A_4$. Now h(L)=1 and $rd_K < 54.62$ which is the lower bound for the root discriminant of totally real fields of degree 720, certainly $\Gamma(K^{ur}/K) \cong V_4$ and $\Gamma(K^{ur}/\mathbb{Q}) \cong A_4$. 
+\end{example}
+
+Finally consider the results of Golod and Shafarevich as written above. We wish to find a cyclic cubic field with infinite class field tower and infinite unramified extension. Use the following sharp result from Roquette:
+\begin{theorem}
+    Suppose K is a normal degree n number field, r is the number of infinite places over K, and e(p) be the nonzero exponent of a prime p in the factorisation of n. Let $t_p$ be the number of primes ramified in K with p dividing their ramification index, and $\delta_p$ is 1 if the p-th roots of unity are in K, and 0 otherwise. Then K has an infinite class tower if \begin{equation}
+        t_p\geqslant 2 + e(p)\delta_p + \frac{r-1}{p-1} + 2 \sqrt{r+\delta_p}
+    \end{equation}
+ If K is a cyclic cubic field,  n=r=p=3, e(p)=1, $\delta_3 = 0$. Therefore K has an infinite class tower if $t_3 \geq 3 + 2\sqrt{3} = 6.46$. 
+\end{theorem}
+Hence we need K to have 7 ramified primes. Here is such an example:
+\begin{example}
+    Suppose we want K to have discriminant $(3^4)(373^2)(463^2)(547^2)(607^2)(877^2)(997^2)$. Then define $f(x) = x^3 -451235335661981991x-583367691097731940739787$ for $u=12928236$ gives a cyclic cubic field K with 7 ramified primes. Therefore K has an infinite class field tower and infinite unramified extension. 
 \end{example}
 \section{Serre's Results for Cubic and Quartic}
 \subsection{Cubic Example}
