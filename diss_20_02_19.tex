@@ -606,7 +606,12 @@ Then K is a cyclic cubic field iff disc(f) is a square.
 Wong now gives examples of how to calculate the maximal unramified extension of a cyclic cubic field with nontrivial class number. \begin{example}
     $f-x^3-x^2-54x+169$, disc(K)=$163^2$, $rd_{k}=29.84$. Here we have h(K)=4. Define $g(x)=x^6-3x^5-11x^4+27x^3-3x^2-11x+1$. Then John Jones' website gives $L = split(g,\mathbb{Q})$ with $\Delta(K_1)=163^4$. Firstly $\Gamma(L/\mathbb{Q}) \cong A_4$, and 163 is unramified in $L/K$. Hence indeed $L=K_1$. We know that $\Gamma(L/K)\cong V_4$ which is a normal subgroup of $A_4$. Now h(L)=1 and $rd_K < 54.62$ which is the lower bound for the root discriminant of totally real fields of degree 720, certainly $\Gamma(K^{ur}/K) \cong V_4$ and $\Gamma(K^{ur}/\mathbb{Q}) \cong A_4$. 
 \end{example}
-
+\begin{example}
+K is the cyclic cubic field defined by $x^3-x^2-104x-371$ with $d_K = 313^2$
+and $rd_{K} = 46.10$. Now h(K)=7. Define $g(x) = x^7-x^6-15x^5+20x^4+33x^3-22x^2-32x+8$. We can calculate that $K_1=split($g,\mathbb{Q}) with field discriminant $313^4$. Since $h(K_1) = 1$ and $rd_K = 46.10 < 56.47$ and 56.47 is the lower
+bound for totally real fields of degree 1260, we have $K^{ur}=K_1$ In this
+case, we have $\Gamma(K^{ur}/K) \cong C_7$ and $\Gamma(K^{ur}/\mathbb{Q}) \cong F_{21} $.  
+\end{example}
 Finally consider the results of Golod and Shafarevich as written above. We wish to find a cyclic cubic field with infinite class field tower and infinite unramified extension. Use the following sharp result from Roquette:
 \begin{theorem}
     Suppose K is a normal degree n number field, r is the number of infinite places over K, and e(p) be the nonzero exponent of a prime p in the factorisation of n. Let $t_p$ be the number of primes ramified in K with p dividing their ramification index, and $\delta_p$ is 1 if the p-th roots of unity are in K, and 0 otherwise. Then K has an infinite class tower if \begin{equation}
