@@ -71,6 +71,9 @@ A field extension K of $\mathbb{Q}$ ramifies at precisely one prime iff the abso
 \begin{example}
     Suppose $f(x)=x^5-5x^4-2x^3+x^2-3x+1$, and K is the splitting field of f over $\mathbb{Q}$. Then $disc(K)=-3442951=151^3$ and so 151 is the only prime which ramifies in K over $\mathbb{Q}$. Note that f(x) is an irreducible quintic with precisely three real roots, meaning that $\Gamma(K/\mathbb{Q})\cong\ S_5$ and K is an unsolvable extension of $\mathbb{Q}$.
 \end{example}
+We need to find the Galois closure of a number field K:  this is the smallest extension field, in terms of inclusion, which contains K and is Galois over $\mathbb{Q}$. Galois theory has this theorem: \begin{theorem}
+  Suppose $K=\mathbb{Q}(\alpha)$, where $\alpha$ is a root of an irreducible polynomial $f(x) \in \mathbb{Q}[x]$, then $\bar{K} = split(f(x),\mathbb{Q})$.
+\end{theorem}
 \section{P-adics and Cyclotomic Fields}
 Suppose $\zeta$ is an $n_{th}$ root of unity. Let K be a number field, $L=K(\zeta)$. Let $\mathcal{O}_L,\mathcal{O}_K$ be their respective valuation rings and $\lambda,\kappa$ be their respective residue class fields. \begin{proposition}
 L is a degree n unramified extension of K.
@@ -286,7 +289,7 @@ this bound can be improved by replacing the numbers 60 and 22 by 188 and 41 resp
 \subsection{Using Odlyzko's Bound}
 Following \cite{YAM2}, write this bound function as $B(n,r_1,r_2)$.
 \begin{theorem}
-Suppose that H is a positive integer, and L is an unramified normal extension of K of degree M. Here are two possible cases that can occur: Suppose L is an unramified degree m  normal extension of K with h(L)=1, and 
+Suppose that H is a positive integer, and L is an unramified normal extension of K of degree M. The following theorem can be used to verify that an unramified extension is maximal. Suppose L is an unramified degree m  normal extension of K with h(L)=1, and 
 \begin{equation}
         rd_K<B(60mn_K,60mr_1,60mr_2)
     \end{equation}
