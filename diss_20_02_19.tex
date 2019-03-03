@@ -10,6 +10,7 @@
 \newtheorem{definition}{Definition}
 \newtheorem{proposition}{Proposition}
 \newtheorem{example}{Example}
+\newcommand{\q}{\mathbb{Q}}
 \usepackage{tikz}
 \usepackage{lineno}
 \usepackage[english]{babel}
@@ -135,7 +136,35 @@ Suppose for contradiction that for $1\leq i \leq n$, $p^i-1\not \equiv 0\: mod \
 \begin{proof}
 If gcd(p,n)=1, then $\mathbb{Q}_{p}(\zeta_n)$ is unramified. So it follows that the compositum is unramified. The algebraic closure of $\bar{\mathbb{F}}_{p}$ is formed by adjoining the $p^{(m-1)}-th$ roots of unity to $\mathbb{F}_p$. By Hensel's lemma, $K^{ur}$ is also formed by adjoining these roots of unity to $K$. By the above lemma, indeed these roots of unity are contained within the roots of unity of order coprime to p. 
 \end{proof}
-\subsection{}
+\subsection{A family of unramified cyclic quintic extensions of imaginary quadratic number fields}
+These results are due to \cite{KISH}. For this subsection let $F_n$ denote the n-th Fibonacci number, and $L_n$ the n-th Lucas number. For a non-negative integer m, define $k_m = \q(\sqrt{-F_{2m+1}})$ and \begin{equation}
+    g_m(x) = x^5 - 10x^3  -20x^2 + 
+    5(20F^2_{2m+1} - 3)x
+    + 40F^2_{2m+1}(-1^{m}L_{2m+1} + 1)- 4
+\end{equation} 
+Also define \begin{equation}
+    \delta_m = 1+\phi^m(\sqrt{-F_{2m+1}})(\zeta-\zeta^{-1})
+\end{equation} where $\zeta = e^{\frac{2\pi}{5}}$ and $\phi = \frac{1+\sqrt{5}}{2}$. There exists a unique proper subextension, M, of the bicyclic biquadratic
+extension $k(\zeta)/\q(\sqrt{5})$ which is not equal to $k(\sqrt{5})$ or $\q(\zeta)$. We denote it by M. Then M is a cyclic quartic field. Define $NT(\alpha) = N_{\q(\sqrt{5})}(\alpha)Tr_{M/\q(\sqrt{5})}(\alpha)$. Also define $\tau$ to be the generator of $\Gamma(k(\zeta)/k)$ with $\zeta^2=\zeta^\tau$.
+Now for $\gamma \in M$, define the polynomial \begin{equation}
+    f_\gamma(x) = x^5 - 10N_M(\gamma)x^3 - 5N_M(\gamma)NT (\gamma)x^2
++ 5N_M(\gamma)(N_M(\gamma) - NT(\gamma^{1+\tau})x - N_M(\gamma)NT(\gamma^{2+\tau}) 
+.
+\end{equation}
+We have the following theoreom: \begin{theorem}
+    Let m be a non-negative integern and define $E = split(g_m,\q)$.Then E is a $D_5$-extension
+of $\q$ containing $k_m$. Furthermore, if $m \equiv 12 \:(mod\:52$), then E is an unramified cyclic quintic extension of $k_m$. Therefore, putting $m = 25s + 12$, 5 divides the class number of the quadratic field $\q(\sqrt{-F_{50s+25}})$.
+\end{theorem}
+\begin{proof}
+Using the result that \begin{equation}
+    F_{m+1}= \frac{F_m + L_m}{2}
+\end{equation}
+we can prove that $f_{\delta_m}(x) = g_m(x)$. Using the fact that $k_m(\zeta)$ is normal over $\q$, $E\subset k_m(\zeta)$. Now define  \begin{equation}
+    \mathcal{M}(k)=\{\gamma \in k(\zeta)^{\times}|\gamma^{3+4\tau+2\tau^{2}+\tau^3}\notin k(\zeta)^5\}
+\end{equation}
+It thereford holds that $delta_m \in \mathcal{M}(k_m)$ iff $g_m(x)$ is irreducible over $\q$. Now both the $\{F_n\}$ and $\{L_n\}$ have periods of length 50 modulo 151. For $m\equiv12 \: mod \: 25$ then 
+$g_m(x) \equiv x^5 − 10x^3 − 20x^2 + 65x + 28\:(mod \:151)$ which is irreducible over $\q$. Let $\theta$ be a root of this polynomial. By a result by Sase, no primes are totally ramified over $\q(\theta)$. Therefore $E/k_m$ is an unramified cyclic quintic extension. 
+\end{proof}
 \section{Class Field Theory}
 Recall a prime ideal $\mathfrak{p}$ in $\mathcal{O}_K$ factors in an extension L of K as
 \par
