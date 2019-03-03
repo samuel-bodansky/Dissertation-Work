@@ -11,6 +11,9 @@
 \newtheorem{proposition}{Proposition}
 \newtheorem{example}{Example}
 \newcommand{\q}{\mathbb{Q}}
+\newcommand{\lb}{\left(}
+\newcommand{\rb}{\right)}
+\newcommand{\murgg}{$\Gamma(K^{ur}/K)$}
 \usepackage{tikz}
 \usepackage{lineno}
 \usepackage[english]{babel}
@@ -162,8 +165,9 @@ Using the result that \begin{equation}
 we can prove that $f_{\delta_m}(x) = g_m(x)$. Using the fact that $k_m(\zeta)$ is normal over $\q$, $E\subset k_m(\zeta)$. Now define  \begin{equation}
     \mathcal{M}(k)=\{\gamma \in k(\zeta)^{\times}|\gamma^{3+4\tau+2\tau^{2}+\tau^3}\notin k(\zeta)^5\}
 \end{equation}
-It thereford holds that $delta_m \in \mathcal{M}(k_m)$ iff $g_m(x)$ is irreducible over $\q$. Now both the $\{F_n\}$ and $\{L_n\}$ have periods of length 50 modulo 151. For $m\equiv12 \: mod \: 25$ then 
-$g_m(x) \equiv x^5 − 10x^3 − 20x^2 + 65x + 28\:(mod \:151)$ which is irreducible over $\q$. Let $\theta$ be a root of this polynomial. By a result by Sase, no primes are totally ramified over $\q(\theta)$. Therefore $E/k_m$ is an unramified cyclic quintic extension. 
+It thereford holds that $\delta_m \in \mathcal{M}(k_m)$ iff $g_m(x)$ is irreducible over $\q$. Now both the $\{F_n\}$ and $\{L_n\}$ have periods of length 50 modulo 151. For $m\equiv12 \: mod \: 25$ then \begin{equation}
+    g_m(x) \equiv x^5 - 10x^3 - 20x^2 + 65x + 28\:(mod \:151)
+\end{equation} which is irreducible over $\q$. Let $\theta$ be a root of this polynomial. By a result by Sase, no primes are totally ramified over $\q(\theta)$. Therefore $E/k_m$ is an unramified cyclic quintic extension. 
 \end{proof}
 \section{Class Field Theory}
 Recall a prime ideal $\mathfrak{p}$ in $\mathcal{O}_K$ factors in an extension L of K as
@@ -472,7 +476,7 @@ If the following conditions hold:
     \item $(n-1).a$ and $n.b$ are relatively prime 
     \item $\Gamma(K/\mathbb{Q}) \cong S_n$
 \end{enumerate}\par
-Then K is an $A_n$-extension of $\mathbb{Q}(\sqrt{\Delta(f)})$ which is unramified at all finite primes. For example, if $f(x) = x^5-x+1$, then $\Delta(f)= 2869$ and write $L = \mathhbb{Q}(\sqrt{2869})$. Then K is unramified over L and $\Gamma(K:L)\cong A_5.$
+Then K is an $A_n$-extension of $\mathbb{Q}\lb\sqrt{\Delta(f)}\rb$ which is unramified at all finite primes. For example, if $f(x) = x^5-x+1$, then $\Delta(f)= 2869$ and write $L = \mathhbb{Q}(\sqrt{2869})$. Then K is unramified over L and $\Gamma(K:L)\cong A_5.$
 
 \section{Result using Hoelscher}
 
@@ -615,8 +619,18 @@ We have the following diagram:
       \end{tikzpicture}
 \end{center}
 \section{Yamamura's Results}
-\cite{YAM2} defines the structure of $\Gamma(K_{ur}/K)$ where K is an imaginary quadratic number field with small conductors. Note that for all number fields with conductor $<1000$, $K_{ur}$ is one of $K_1$, $K_2$ and $K_3$. 
-$\mathbb{Q}(\sqrt{-1507})$ is the first imaginary quadratic field with an unramified $A_5$-extension over $\mathbb{Q}$. In fact, defining $L=split(x^5-5x^3+5x^2+24x+5,\mathbb{Q}[x])$ gives such an $A_5$ extension of K. 
+\cite{YAM2} defines the structure of $\Gamma(K_{ur}/K)$ where K is an imaginary quadratic number field with small conductors. Note that for all number fields with conductor $<1000$, $K_{ur}$ is one of $K_1$, $K_2$ and $K_3$. \par 
+Let $K=\q(\sqrt{d})$ for some integer d. Using Odlyzko's bound as above, the degree $[K^{ur}:K]$ is finite for $|d|\leq 499$, and assuming GRH, replace 499 with 2003. We know that if $[K^{ur}:K_H]<60$, then $K^{ur}=K_H$. However this is difficult to prove; for example for d=-423, $K_H=K_1$. It is necessary to find the degree $[K_H:\q]$. One way is to use the tower law from Galois theory. Suppose $\Delta(K)=d_1d_2...d_n$, where $\Delta(K)$ is the discriminant of K, then the genus field of K satisfies $K_g=\q(\sqrt{d_1},\sqrt{d_2},...\sqrt{d_n})$. We have the list of inclusions \begin{equation}
+    \q \subseteq K \subseteq K_g \subseteq K_1 \subseteq (K_g)_1 \subseteq K_2
+\end{equation} and the tower law gives \begin{equation}
+    [K_2:q] = [K_2:(K_g)_1]h(K_g)[(K_g)_1:\q]
+\end{equation}\par
+Here is an explicit example. Let  $d=-1*5*51=-255\equiv \: 1\:mod\:4$. Therefore $|\Delta(K)|=|d|=255$, and $K_g = \q(\sqrt(5),\sqrt(51)$. Computer verification gives that $h(K_g)=2$, and so \begin{equation}
+     [K_2:q] = [K_2:(K_g)_1]h(K_g)[(K_g)_1:\q]= 3*2*4=24
+\end{equation}
+For d=-255, $K_H=K_2$. We have $cl(K)\equiv C_6\times C_2$, $K_1 = K\lb\sqrt{5},\sqrt[3]{(9+\sqrt{85})/2}\rb$, and $K_2 = K_1\lb\sqrt{2+\sqrt{5}\lb5+2\sqrt{-3}}\rb\rb$. Here $\murgg \cong Q_8 \times C_3$.
+\par
+$\mathbb{Q}(\sqrt{-1507})$ is the first imaginary quadratic field with an unramified $A_5$-extension over $\mathbb{Q}$. In fact, defining $L=split\lb x^5-5x^3+5x^2+24x+5,\q\rb$ gives such an $A_5$ extension of K. 
 \begin{lemma}
 Define $K=\mathbb{Q}(\sqrt{-14731})$, $L=split(x^6+3x^5,5x^4+4x^3+3x^2+2x+1,\mathbb{Q}[x])$. Then L is an unramified $A_6$-extension of K and is an $S_6$ extension of $\mathbb{Q}$.
 \end{lemma}
@@ -637,7 +651,7 @@ Then K is a cyclic cubic field iff disc(f) is a square.
 \end{example}
 
 Wong now gives examples of how to calculate the maximal unramified extension of a cyclic cubic field with nontrivial class number. \begin{example}
-    $f-x^3-x^2-54x+169$, disc(K)=$163^2$, $rd_{k}=29.84$. Here we have h(K)=4. Define $g(x)=x^6-3x^5-11x^4+27x^3-3x^2-11x+1$. Then John Jones' website gives $L = split(g,\mathbb{Q})$ with $\Delta(K_1)=163^4$. Firstly $\Gamma(L/\mathbb{Q}) \cong A_4$, and 163 is unramified in $L/K$. Hence indeed $L=K_1$. We know that $\Gamma(L/K)\cong V_4$ which is a normal subgroup of $A_4$. Now h(L)=1 and $rd_K < 54.62$ which is the lower bound for the root discriminant of totally real fields of degree 720, certainly $\Gamma(K^{ur}/K) \cong V_4$ and $\Gamma(K^{ur}/\mathbb{Q}) \cong A_4$. 
+    $f=x^3-x^2-54x+169$, disc(K)=$163^2$, $rd_{k}=29.84$. Here we have h(K)=4. Define $g(x)=x^6-3x^5-11x^4+27x^3-3x^2-11x+1$. Then John Jones' website gives $L = split(g,\mathbb{Q})$ with $\Delta(K_1)=163^4$. Firstly $\Gamma(L/\mathbb{Q}) \cong A_4$, and 163 is unramified in $L/K$. Hence indeed $L=K_1$. We know that $\Gamma(L/K)\cong V_4$ which is a normal subgroup of $A_4$. Now h(L)=1 and $rd_K < 54.62$ which is the lower bound for the root discriminant of totally real fields of degree 720, certainly $\Gamma(K^{ur}/K) \cong V_4$ and $\Gamma(K^{ur}/\mathbb{Q}) \cong A_4$. 
 \end{example}
 \begin{example}
 K is the cyclic cubic field defined by $x^3-x^2-104x-371$ with $d_K = 313^2$
