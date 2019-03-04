@@ -32,12 +32,8 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
-% \newtheorem{theorem}{Theorem}
-% \newtheorem{lemma}[theorem]{Lemma}
-% \newtheorem{corollary}{Corollary}[theorem]
-% \newtheorem{definition}{Definition}
-% \newtheorem{proposition}{Proposition}
-% \newtheorem{example}{Example}
+\theoremstyle{plain} % insert bellow all blocks you want in italic
+
 
 \title[Part C Dissertation] % (optional, use only with long paper titles)
 {Extensions of number fields with small ramification}
@@ -73,19 +69,36 @@
 
 \section{Goal}
 \begin{frame}{Aim of Project}
-Goal: For a given number field K, what is the maximal unramified extension $K^{ur}$ of K is and also what is the structure of $G_K^{ur}$ is.
+Goal: For a given number field K, what is the maximal unramified extension $K^{ur}$ of K is and also to calculate $\Gamma(K^{ur}:K)$
 
 \end{frame}
 
 \section{Class Field Theory}
 
-\begin{frame}{Key Result about Unramified Extensions}
+\begin{frame}{Motivation}
+\begin{definition}
+A prime ideal $\mathfrak{p}$ in $\mathcal{O}_K$ factors in an extension L of K as
+$\mathfrak{p}\mathcal{O}_L=\mathfrak{B}_1^{e_1}...\mathfrak{B}_m^{e_m}$, where $\mathfrak{B}_i$ are ideals in $\mathcal{O}_L$ intersecting $\mathcal{O}_K$ at $\mathfrak{p}$. Note ach $e_i\geq1$ and if $e_i>1$ for some i then we say that $\mathfrak{p}$ ramifies in L. If $e_i=1$ for all i then we say $\mathfrak{p}$ splits in L.
+\end{definition}
     \begin{theorem}
 The compositum of two finite unramified extensions of K is also unramified, and so the union $K^{ur}$ of all unramified extensions is also an unramified extension of K.
 \end{theorem}
+\begin{definition}
+h(K) is the \textbf{Hilbert class field} of K. It is maximal abelian extension, L of K unramified at all primes of K. The degree of its extension over K is equal to the class number of K, and its Galois group is isomorphic to the ideal class group of K.
+\end{definition}
+\end{frame}
+\begin{frame}{Hilbert Class Fields}
+  \begin{definition}
+The \textbf{Hilbert Class Tower} is $K_H=\bigcup_{i}K_{i}$. It is often very useful to consider when this tower ends. If K is a UFD, then K is equal to its own Hilbert class field.  
+\end{definition}
+    \begin{example}
+    Suppose K=$\mathbb{Q}$. Then K is its own Hilbert class field. 
+\end{example}
+\begin{example}
+    Suppose $K=\mathbb{Q}[\sqrt{-5}]$, and take $L=\mathbb{Q}[\sqrt{-1},\sqrt{-5}]$. L is an unramified degree 2 extension of K and so the Hilbert class field of K is $K[\sqrt{-1}]$.
+\end{example}
 
 \end{frame}
-
 \section{$\mathbb{Q}$,P-adics and Cyclotomics}
 \subsection{Examples in $\mathbb{Q}$}
 \begin{frame}{Extensions of $\mathbb{Q}$}
@@ -102,47 +115,74 @@ A field extension K of $\mathbb{Q}$ ramifies at precisely one prime iff the abso
 \end{frame}
 \subsection{P-adics and Cyclotomics}
 \begin{frame}{P-adics results}
-\begin{block}{P-adics}
-Suppose $\zeta$ is an $n^{th}$ root of unity. Let K be a number field, $L=K(\zeta)$. Let $\mathcal{O}_L,\mathcal{O}_K$ be their respective valuation rings and $\lambda,\kappa$ be their respective residue class fields. \begin{proposition}
-L is a degree n unramified extension of K.
-\end{proposition}
 
-Suppose now that $\zeta$ is a primitive n-th root of unity, with $n=kp^{m}$ where k is prime to p. We have the following inclusions:
-\end{block}
+\begin{theorem}
+   Suppose $\zeta$ is an $n^{th}$ root of unity. Let K be a number field, $L=K(\zeta)$. 
+L is a degree n unramified extension of K. 
+\end{theorem}
+
+Let $\zeta$ be a primitive n-th root of unity, with $n=kp^{m}$, (k,p)=1.
 \begin{example}[Field Inclusions]
       $\mathbb{Q}_{p}=K\subseteq K^{tur}=K(\zeta_k)\subseteq K^{ur} = K^{tur}(\zeta_{p})\subseteq K(\zeta_n)$
 \end{example}
+\begin{lemma}
+Suppose p is a prime and gcd(n,p)=1. Then there exists $m\in\mathbb{N}$ such that $n|p^m-1$.
+\end{lemma}
 \begin{theorem}
     Let $K=\mathbb{Q}_p$. Then $K^{ur}$ is K adjoined with all roots of unity with order prime to p. 
 \end{theorem}
 
 \end{frame}
-
-\begin{frame}{Cyclotomics Results}
-    \begin{theorem}
-    Let $\zeta$ denote the $p^m-th$ root of unity, 
-    Then we have the following results:
-    \begin{enumerate}
-        \item $[\mathbb{Q}_{p}(\zeta):\mathbb{Q}_p]$ is totally ramified with degree $(p-1)p^{m-1}$
-        \item $\Gamma(\mathbb{Q}_{p}(\zeta):\mathbb{Q}_p)\cong (\mathbb{Z}/p^{m}\mathbb{Z})^{*}$
-        \item $\mathbb{Z}_{p}(\zeta)$ is the valuation ring of $\mathbb{Q}_{p}(\zeta)$
-        \item $1-\zeta$ is a prime element of $\mathbb{Z}_{p}(\zeta)$ with $N(1-\zeta)=p$
-    \end{enumerate}
-\end{theorem}
-\end{frame}
-\section{Hilbert Class Field}
-\begin{frame}{Examples of Hilbert Class Fields}
-  \begin{definition}
-The \textbf{class field} of the trivial subgroup of C(K) is called the Hilbert class field of K. It is maximal abelian extension, L of K unramified at all primes of K.
+\begin{frame}{Odlyzko's Bounds}
+\begin{definition}
+$rd_K$ is the root discriminant of K, $|d_K|^\frac{1}{n_K}$
 \end{definition}
-    \begin{example}
-    Suppose K=$\mathbb{Q}$. Then K is its own Hilbert class field. 
-\end{example}
+\begin{lemma}
+ If L is an unramified extension of K, then L and K have the same root discriminant.
+\end{lemma}
+    Odlyzko's Bound improved on the bounds for Minkowski for the discriminant of a number field. Moreno states it as  
+\begin{equation}
+rd_K\geqslant 60^{\frac{r_1}{n}}22^{\frac{r_2}{n}}e^\frac{-8.6}{n^(2/3)}\end{equation}
+Furthermore, under the assumption of the Generalised Riemann Hypothesis, 
+this bound can be improved by replacing the numbers 60 and 22 by 188 and 41 respectively. 
+\end{frame}
+\begin{frame}{Quadratic Number Fields}
+    Let $K=\mathbb{Q}(\sqrt{d})$. Using Odlyzko's bound and the above lemma, for $|d|<499(2003)$, we have $[K^{ur}:K]$ is finite. If $[K^{ur}:K_H]<60$, then $K^{ur}=K_H$.\par
+    Yamamura  calculates $\Gamma(K^{ur}:K)$ for $|d|<719$ when $K^{ur}\neq K_1$.\par
+    Sometimes to calculate higher up the tower we can use the tower law where $K_g$ is the genus field of K: \begin{equation}
+    [K_2:\mathbb{Q}] = [K_2:(K_g)_1]h(K_g)[(K_g)_1:\mathbb{Q}]
+\end{equation}\par
 \begin{example}
-    Suppose $K=\mathbb{Q}[\sqrt{-5}]$, and take $L=\mathbb{Q}[\sqrt{-1},\sqrt{-5}]$. L is an unramified degree 2 extension of K and so the Hilbert class field of K is $K[\sqrt{-1}]$.
+For d=-255, $K_H=K_2$. We have $cl(K)\equiv C_6\times C_2$, $K_1 = K\lb\sqrt{5},\sqrt[3]{(9+\sqrt{85})/2}\rb$, and $K_2 = K_1\lb\sqrt{2+\sqrt{5}\lb5+2\sqrt{-3}}\rb\rb$. Here $\murgg \cong Q_8 \times C_3$.
 \end{example}
 
 \end{frame}
+\begin{frame}{Cubic Extensions (Wong) }
+ $K=\mathbb{Q}(\theta)$ where $\theta$ is a root of a cubic
+f(x). If $\Gamma(K/\mathbb{Q}) \cong C_3$, call K a  \textbf{cyclic cubic field}.
+\begin{theorem}[Galois Theory]
+Then K is a cyclic cubic field iff disc(f) is a square. 
+\end{theorem}
+\begin{example}
+    Let $f=x^3-x^2-2x+1$. Then disc(K)=$7^2$, $rd_{k}=3.66$ and h(K)=1. Unconditionally, K does not have an unsolvable unramified extension, $\Gamma(K:\mathbb{Q})\cong C_3$
+\end{example}
+\end{frame}
+\begin{frame}{Cubic Calculation Example}
+    Wong now gives examples of how to calculate the maximal unramified extension of a cyclic cubic field with nontrivial class number. \begin{example}
+    $f=x^3-x^2-54x+169$, disc(K)=$163^2$, $rd_{k}=29.84$. Here we have h(K)=4.\par Define $g(x)=x^6-3x^5-11x^4+27x^3-3x^2-11x+1$. Then John Jones' website gives $L = split(g,\mathbb{Q})$ with $\Delta(K_1)=163^4$.\par Firstly $\Gamma(L/\mathbb{Q}) \cong A_4$, and 163 is unramified in $L/K$. Hence indeed $L=K_1$.\par  We know that $\Gamma(L/K)\cong V_4$ which is a normal subgroup of $A_4$. \par Now h(L)=1 and $rd_K < 54.62$ which is the lower bound for the root discriminant of totally real fields of degree 720, so $\Gamma(K^{ur}/K) \cong V_4$ and $\Gamma(K^{ur}/\mathbb{Q}) \cong A_4$. 
+\end{example}
+\end{frame}
+
+\begin{frame}{Serre: Quartic Number Field}
+Define  \begin{equation}
+    f(x)=x^4-x-1, \Delta(f)=-283
+\end{equation}
+Note f has two real and two imaginary roots. Let  L be the splitting field of f and $\Gamma(L/\mathbb{Q})\cong S_4$.\par
+By the FTGT, there exists an intermediate field H corresponding to the normal subgroup $V_4$ of $S_4$. \par 
+Now $L^H$ is the Hilbert class field of $K= \mathbb{Q}(\sqrt{-283})$ and h(K)=3. Now define a further field extension of L, M such that M is unramified over L (and hence also over K) and M is a Galois extension of $\mathbb{Q}$.  
+\par Martinet proved that M is the maximal unramified extension of K, $\Gamma(M/K)\cong SL_2(F_3)$ of order 24. In addition, $\Gamma(M/\mathbb{Q})\cong GL_2(F_3)$. 
+\end{frame}
+
 \begin{frame}{Primes of the form $x^2+ny^2$}
     \begin{corollary}
 Suppose $K=\mathbb{Q}{\sqrt{-n}}$ n is positive,squarefree, $n\not\equiv 3(4)$, so that $d_K=-4n$. If p is an odd prime not dividing n, then
@@ -207,14 +247,7 @@ Maire showed that there exist biquadratic number fields with class number one wi
 \end{center}  
 \end{frame}
 \section{Bounds on Discriminants}
-\begin{frame}{Odlyzko's Bounds}
-    Odlyzko's Bound improved on the bounds for Minkowski for the discriminant of a number field. It can be stated as  
-\begin{equation}
-rd_K\geqslant 60^{\frac{r_1}{n}}22^{\frac{r_2}{n}}+o(1)\:as\:n\rightarrow \infty   
-\end{equation}
-Furthermore, under the assumption of the Generalised Riemann Hypothesis, 
-this bound can be improved by replacing the numbers 60 and 22 by 188 and 41 respectively. 
-\end{frame}
+
 
 \begin{frame}{Examples of Suitable Polynomials and Primes}
 Using Odlyzko's bounds and computer search, we find 
@@ -255,14 +288,7 @@ $f(x) = x^5-x+1$, then $\Delta(f)= 2869$, $L = \mathhbb{Q}(\sqrt{2869})$. Then K
       \end{tikzpicture}
 \end{center}
 \end{frame}
-\begin{frame}{Serre: Quartic Number Field}
- \begin{equation}
-    f(x)=x^4-x-1, \Delta(f)=-283
-\end{equation}
-f has two real and two imaginary roots. \par Define L as above and then $\Gamma(L/\mathbb{Q})\cong S_4$. \par FTGT: intermediate field corresponding to the normal subgroup $V_4$ of $S_4$. \par Now $L^H$ is the HCF of $K= \mathbb{Q}(\sqrt{-283})$ and h(K)=3. \par
-Martinet: $M=K^{ur}$
-$\Gamma(M:K)\cong SL_2(F_3)$ of order 24. $\Gamma(M:\mathbb{Q})\cong GL_2(F_3)$. 
-\end{frame}
+
 \begin{frame}{Kondo}
     \begin{theorem}
    F is a degree n number field with squarefree discriminant.  d(F) of degree n, Galois closure K. Then \begin{enumerate}
