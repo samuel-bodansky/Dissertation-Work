@@ -154,8 +154,8 @@ Now for $\gamma \in M$, define the polynomial \begin{equation}
 + 5N_M(\gamma)(N_M(\gamma) - NT(\gamma^{1+\tau})x - N_M(\gamma)NT(\gamma^{2+\tau}) 
 .
 \end{equation}
-We have the following theoreom: \begin{theorem}
-    Let m be a non-negative integern and define $E = split(g_m,\q)$.Then E is a $D_5$-extension
+We have the following theorem: \begin{theorem}
+    Let m be a non-negative integer and define $E = split(g_m,\q)$.Then E is a $D_5$-extension
 of $\q$ containing $k_m$. Furthermore, if $m \equiv 12 \:(mod\:52$), then E is an unramified cyclic quintic extension of $k_m$. Therefore, putting $m = 25s + 12$, 5 divides the class number of the quadratic field $\q(\sqrt{-F_{50s+25}})$.
 \end{theorem}
 \begin{proof}
@@ -165,7 +165,7 @@ Using the result that \begin{equation}
 we can prove that $f_{\delta_m}(x) = g_m(x)$. Using the fact that $k_m(\zeta)$ is normal over $\q$, $E\subset k_m(\zeta)$. Now define  \begin{equation}
     \mathcal{M}(k)=\{\gamma \in k(\zeta)^{\times}|\gamma^{3+4\tau+2\tau^{2}+\tau^3}\notin k(\zeta)^5\}
 \end{equation}
-It thereford holds that $\delta_m \in \mathcal{M}(k_m)$ iff $g_m(x)$ is irreducible over $\q$. Now both the $\{F_n\}$ and $\{L_n\}$ have periods of length 50 modulo 151. For $m\equiv12 \: mod \: 25$ then \begin{equation}
+It therefore holds that $\delta_m \in \mathcal{M}(k_m)$ iff $g_m(x)$ is irreducible over $\q$. Now both the $\{F_n\}$ and $\{L_n\}$ have periods of length 50 modulo 151. For $m\equiv12 \: mod \: 25$ then \begin{equation}
     g_m(x) \equiv x^5 - 10x^3 - 20x^2 + 65x + 28\:(mod \:151)
 \end{equation} which is irreducible over $\q$. Let $\theta$ be a root of this polynomial. By a result by Sase, no primes are totally ramified over $\q(\theta)$. Therefore $E/k_m$ is an unramified cyclic quintic extension. 
 \end{proof}
@@ -625,7 +625,7 @@ Let $K=\q(\sqrt{d})$ for some integer d. Using Odlyzko's bound as above, the deg
 \end{equation} and the tower law gives \begin{equation}
     [K_2:q] = [K_2:(K_g)_1]h(K_g)[(K_g)_1:\q]
 \end{equation}\par
-Here is an explicit example. Let  $d=-1*5*51=-255\equiv \: 1\:mod\:4$. Therefore $|\Delta(K)|=|d|=255$, and $K_g = \q(\sqrt(5),\sqrt(51)$. Computer verification gives that $h(K_g)=2$, and so \begin{equation}
+Here is an explicit example. Let  $d=-1*5*51=-255\equiv \: 1\:mod\:4$. Therefore $|\Delta(K)|=|d|=255$, and $K_g = \q(\sqrt{5},\sqrt{51}$. Computer verification gives that $h(K_g)=2$, and so \begin{equation}
      [K_2:q] = [K_2:(K_g)_1]h(K_g)[(K_g)_1:\q]= 3*2*4=24
 \end{equation}
 For d=-255, $K_H=K_2$. We have $cl(K)\equiv C_6\times C_2$, $K_1 = K\lb\sqrt{5},\sqrt[3]{(9+\sqrt{85})/2}\rb$, and $K_2 = K_1\lb\sqrt{2+\sqrt{5}\lb5+2\sqrt{-3}}\rb\rb$. Here $\murgg \cong Q_8 \times C_3$.
@@ -637,9 +637,26 @@ Define $K=\mathbb{Q}(\sqrt{-14731})$, $L=split(x^6+3x^5,5x^4+4x^3+3x^2+2x+1,\mat
 \begin{lemma}
 Define $K=\mathbb{Q}(\sqrt{-30759})$, $L=split(x^7+2x^6-3x^4-x^3-x^2-x+2,\mathbb{Q}[x])$. Then L is an unramified PSL(2,7)-extension of K and is an $PSL(2,7)\times C_2$ extension of $\mathbb{Q}$.
 \end{lemma}
+\subsection{Unramified Galois Extensions of Real Quadratic Number Fields}
+In \cite{YAM2}, we have the following theorem:
+\begin{theorem}
+    Suppose $S_1$ and $S_2$ are finite sets of primes satisfying $S_1 \cap S_2 \neq \emptyset$ and $2,5 \notin S_2$. Then there exist infinitely many real quadratic number fields with the following properties \begin{enumerate}
+        \item F is a strictly unramified $A_5$ extension.
+        \item All primes in $S_1$ are ramified in F.
+        \item All primes in $S_2$ are ramified in F.
+    \end{enumerate}
+\end{theorem}
+To prove this theorem, Yamamura gives five conditions for a quintic polynomial of the form \begin{equation}
+    f(x)=x^5-2ax^3+bx+c, a,b,c \in \mathbb{Z}
+\end{equation}. \begin{lemma}
+Suppose f is as above and the five conditions hold. Then $\q(\sqrt{\Delta(f)})$ is a real quadratic number field and its splitting field is a strictly unramified $A_5$-extension. 
+\end{lemma}
+\begin{example}
+    Take a=6,b=-3,c=-7. 
+\end{example}
 \section{Results on General Cubics}
-In this section, let $K=\mathbb{Q}(\theta)$ where $\theta$ is the root of a cubic polynomial 
-f. If $\Gamma(K/\mathbb{Q}_\cong A_3$, call K a  \textbf{cyclic cubic field}.
+In this section, let $K=\q(\theta)$ where $\theta$ is the root of a cubic polynomial 
+f. If $\Gamma(K/\q) \cong A_3$, call K a  \textbf{cyclic cubic field}.
 \begin{proposition}[Galois Theory]
 Then K is a cyclic cubic field iff disc(f) is a square. 
 \end{proposition} If K is a totally real cubic number field, the (un)conditional bound for the root discriminat given by Odlyzko and published by Martinet is (46.42)72.55. Wong tabulates the all cyclic cubic fields ramified at one prime with trivial class group. 
@@ -914,6 +931,8 @@ Akad. Nauk SSSR Ser. Mat., 1964, Volume 28, Issue 2, 261–272
 \bibitem{SCHO}Schoof, René. "Infinite class field towers of quadratic fields.." Journal für die reine und angewandte Mathematik 372 (1986): 209-220
 \bibitem{KISH}Kishi, Yasuhiro. (2008). A new family of imaginary quadratic fields whose class number is divisible by five. Journal of Number Theory - J NUMBER THEOR. 128. 2450-2458. 10.1016/j.jnt.2008.02.016. 
 \bibitem{WONG}Wong, Ka Lun, "Maximal Unramified Extensions of Cyclic Cubic Fields" (2011). All Theses and Dissertations. 2781. 
+\bibitem{YAM2}
+YAMAMURA, Ken. On infinite unramified Galois extensions of algebraic number fields with many primes decomposing almost completely. J. Math. Soc. Japan 38 (1986), no. 4, 599--605
 \end{thebibliography}
 
 \end{document}
