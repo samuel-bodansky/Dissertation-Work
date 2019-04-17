@@ -15,7 +15,6 @@
 \usepackage[top=1 in,bottom=1in, left=1 in, right=1 in]{geometry}
 \usepackage{tikz}
 \usepackage{lineno}
-\usepackage{hyperref}
 \usepackage[english]{babel}
 \usepackage{seqsplit}
 \usepackage[nottoc]{tocbibind} 
@@ -121,7 +120,7 @@ Often it is important to find the Galois Closure of a number field $K$;  this is
 
 \section{Class Field Theory}
 Recall that a prime ideal $\mathfrak{p}$ in $\mathcal{O}_K$ factors in an extension L of K as
-$\mathfrak{p}\mathcal{O}_L=\mathfrak{B}_1^{e_1}...\mathfrak{B}_m^{e_m}$, where $\mathfrak{B}_i$ are ideals in $\mathcal{O}_L$ intersecting $\mathcal{O}_K$ at $\mathfrak{p}$. Each $e_i\geq1$ and if $e_i>1$ for some i then we say that $\mathfrak{p}$ \textbf{ramifies} in L and is unramified otherwise. If $e_i=1$ for all i then we say $\mathfrak{p}$ \textbf{splits} in L. If there exists a unique prime $\mathfrak{B}$ lying over $\mathfrak{p}$ with inertial degree 1, then $\mathfrak{p}$ is \textbf{totally ramified} in $L$. For an extension $L/K$, an infinite prime $\mathfrak{p}$ in $K$ is ramified in $L$ if it is real but has a complex extension to $L$. $L/K$ is an \textbf{unramified extension} if all primes in unramified, finite or not. 
+$\mathfrak{p}\mathcal{O}_L=\mathfrak{B}_1^{e_1}...\mathfrak{B}_m^{e_m}$, where $\mathfrak{B}_i$ are ideals in $\mathcal{O}_L$ intersecting $\mathcal{O}_K$ at $\mathfrak{p}$. Each $e_i\geq1$ and if $e_i>1$ for some i then we say that $\mathfrak{p}$ \textbf{ramifies} in L. If $e_i=1$ for all i then we say $\mathfrak{p}$ \textbf{splits} in L.
 \par
 The following theorem  motivates the definition of the maximal unramified extension of a number field. 
 \begin{theorem}
@@ -362,107 +361,8 @@ These polynomials satisfy the criteria of the above theorem and therefore descri
   The splitting field of this polynomial has class group isomorphic to $V_4$.
 \end{example}
 \subsection{Important Results from Class Field Theory}
-\cite{uchida1970} gives the following theorem relating to trinomials:
-\begin{theorem}
-Suppose $K$ is a number field of finite degree with integers $a$ and $b$, $f(x) = x^n-ax+b$ and $L$ is the splitting field of $f(x)$ over $K$. If $(n-1)a$ and $nb$ are relatively prime, the ramification index of any prime ideal of $L$ over $K$ is either 1 or 2. 
-\end{theorem}
 
-This theorem has the following easy corollary:
-\begin{corollary}
-Suppose $f(x) \in \Q[x]$, with discriminant $D$, and every prime factor in the factorisation of D appears odd times, and let $K$ be the splitting field of $f(x)$ over $\Q$. Then $K/\Q\left(\sqrt{D}\right)$ is unramified.
-\end{corollary}
-\begin{proof}
-Suppose $p$ is a rational prime ramified in $K/\Q$. Then $p|D$. However, $p$ ramifies in $\Q(\sqrt{D})/\Q$, with ramification index 2. Therefore $p$ is unramified in $K/\Q(\sqrt{D})$. 
-\end{proof}
-\cite{uchida1970} also gives the following examples of unramified extensions of quadratic number fields with Galois group isomorphic to $A_n$.
-It is useful to give the following lemma:
-\begin{lemma}
-Suppose $n$ is prime, and G is a transitive permutation group on $n$ letters , containing a transposition. Then $G$ is a symmetric group.
-\end{lemma}
-
-\begin{example}
-Define $f_n(x) = x^n-x+1$ with discriminant $D_n$.First note that for all $n \in \mathbb{Z}$. Results from Galois theory show that in the general case, $disc(x^n-ax+n) = n^nb^{n-1}-(n-1)^{n-1}a^n$, and so $D_n = n^n-(n-1)^{n-1}$. For $n$ = 5,6,7, $D_n$ is either prime or the product of two primes, hence $f_n(x)$ satisfies the criteria of the above theorem.  Now 
-\begin{equation}
-x^5 - x+1 = (x^2 - x +1)(x^3 +x^2 +1) (mod 2)
-\end{equation}
-hence the Galois group defined by this $f_5(x)$ is symmetric. Similarly arguments hold for n=6 and n=7. Therefore there exist unramified extensions of quadratic number fields with $D_5$, $D_6$, $D_7$ or $S_5$, $S_6$, $S_7$ as Galois groups. 
-\end{example}
-
-
-Now define $g_n(x) = x^n-x-1$ for $ n \in \mathbb{N}$ with discriminant $D_n'$. \cite{SELMER} shows that for $n>1$, $g_n(x)$ is always irreducible. Furthermore, by the above, $D_n'= (-(n-1))^{n-1} - (-n)^{n}$. 
-Using Sagemath, the factorisation of $D_n'$ is calculated for $2 \leq n \leq 30$. Define $G_n$ be the Galois group defined by $g_n(x)$. Using the Magma package available at \url{http://magma.maths.usyd.edu.au/calc/}, the Galois group $S_n$ is calculated and all the data is presented in the following table:
-\begin{center}
- \begin{tabular}{||c | c | c | c||} 
- \hline
- n & ((n-1)a,nb) & $G_n$ & Factorisation of $D_n'$ \\ [0.5ex] 
- \hline\hline
-2 & 1 & $S_{2}$ & 5 \\
-\hline
-3 & 1 & $S_{3}$ & 23 \\
-\hline
-4 & 1 & $S_{4}$ & 283 \\
-\hline
-5 & 1 & $S_{5}$ & 19*151 \\
-\hline
-6 & 1 & $S_{6}$ & 67*743 \\
-\hline
-7 & 1 & $S_{7}$ & 776887 \\
-\hline
-8 & 1 & $S_{8}$ & 11*1600069 \\
-\hline
-9 & 1 & $S_{9}$ & 7*11*13*43*79*109 \\
-\hline
-10 & 1 & $S_{10}$ & 173*60042893 \\
-\hline
-11 & 1 & $S_{11}$ & 275311670611 \\
-\hline
-12 & 1 & $S_{12}$ & 1237*7438489991 \\
-\hline
-13 & 1 & $S_{13}$ & 28201*10423708597 \\
-\hline
-14 & 1 & $S_{14}$ & 31*59*1279*4879633159 \\
-\hline
-15 & 1 & $S_{15}$ & 52489*418511*19428121 \\
-\hline
-16 & 1 & $S_{16}$ & 227*246027323*338142271 \\
-\hline
-17 & 1 & $S_{17}$ & 808793517812627212561 \\
-\hline
-18 & 1 & $S_{18}$ & 773*1153064743*45072130459 \\
-\hline
-19 & 1 & $S_{19}$ & 5*659*588489604729898953429 \\
-\hline
-20 & 1 & $S_{20}$ & 47*233*443*22022174223585405703 \\
-\hline
-21 & 1 & $S_{21}$ & 1137694897331*5043293621028391 \\
-\hline
-22 & 1 & $S_{22}$ & 5*69454092876521107983605569601 \\
-\hline
-23 & 1 & $S_{23}$ & 29*53264767*13296646221023838475181 \\
-\hline
-24 & 1 & $S_{24}$ & 101*2347*5714547093403974893094772369 \\
-\hline
-25 & 1 & $S_{25}$ & 10667*282401201*925997749*31362479733103 \\
-\hline
-26 & 1 & $S_{26}$ & 73*181*2385857*32375941061*6118709648547401 \\
-\hline
-27 & 1 & $S_{27}$ & 23*3539*535391*10033918834509020645502251401 \\
-\hline
-28 & 1 & $S_{28}$ & 349*14769635993383*6516302002526983353692617 \\
-\hline
-29 & 1 & $S_{29}$ & 41393681953973*61230132484136034758796880121 \\
-\hline
-30 & 1 & $S_{30}$ & 4421*22659339443160463*2080906233684319160584903 \\
-\hline
-
-
-\end{tabular}
-\end{center}
-
-Hence for $2 \leq n \leq 30$, the criteria given in the above theorem are fulfilled, and there exist unramified extensions of quadratic number fields with Galois groups isomorphic to $A_n$ or $S_n$ for all such n.  \par
-
-
-\cite{YAMA1970} gives the following classification of trinomials of the form 
+1. \cite{YAMA1970} gives the following classification of trinomials of the form 
 \begin{equation}
     f(x) = x^n+ax+b \in \mathbb{Z}[x]
 \end{equation}and K is the splitting field of f over $\Q$.
@@ -471,7 +371,7 @@ If the following conditions hold:
     \item $(n-1).a$ and $n.b$ are relatively prime 
     \item $\Gamma(K/\mathbb{Q}) \cong S_n$
 \end{enumerate}\par
-Then K is an $A_n$-extension of $\Q\left( \sqrt{\Delta(f)}\right)$ which is unramified at all finite primes.
+Then K is an $A_n$-extension of $\Q\left( \sqrt{\Delta(f)}\right)$ which is unramified at all finite primes. For example, if $f(x) = x^5-x+1$, then $\Delta(f)= 2869$ and write $L = \Q(\sqrt{2869})$. Then K is unramified over L and $\Gamma(K:L)\cong A_5.$
 \begin{lemma}
 Suppose $f(x)$ is of the form above, a degree $n$ trinomial If there exist primes $p_1,p_2,p_3$ such that \begin{itemize}
 \item $f(x)$ is irreducible modulo $p_1$
@@ -481,26 +381,19 @@ Suppose $f(x)$ is of the form above, a degree $n$ trinomial If there exist prime
 Then the Galois group defined by the splitting field of $f$ is isomorphic to $S_n$.
 \end{lemma}
 \begin{example}
-Set $f(x)= x^5+51x-95$ with discriminant $D$, then $f(x)$ is irreducible modulo 1979, i.e. $f(x)= x^5+51x-95 $ mod 1979, 
-$f(x)=(x + 357)(x^4 + 1642x^3 + 1512 x^2 + 1945x + 1338)$ mod 1999, $f(x)=(
-x + 194)(x + 384)(x + 1332)(x^2 + 1832x + 950)$ mod 1871. Let $L$ be the splitting field of $f$, and $K = \Q(\sqrt{D(f)})$.    
-Note that ((n-1)(a),nb) = (204,-475)=1 and $D = 342859667381 = 7^3 \cdot 11 \cdot 1567 \cdot 57991$. Therefore $\Gamma(L,\Q) \cong S_5$ and $L$ is an $A_5$-extension of $K$ unramified at all finite primes.
+Set $f(x)= x^5+2x+1$, then $f(x)= (x+1)(x^4+x^3+x^2+x+1)$ mod 2, 
+$f(x)=x^5+2x+1$ mod 3, $f(x)=(x^2+9x+10)(x^3+8x^2+3x+12)$ mod 17. Let $K$ be the splitting field of $F$, and $F = \Q(\sqrt{D(F)})$. Then $K$ is unramified at all finite prime spots of $K$. 
 \end{example}
-
-% ([1979, 1999, 1871], [-95, 51, 0, 0, 0, 1])
-% sage: load("p5.sage")
-% ([1999, 1987, 1861], [-58, -23, 0, 0, 0, 0, 1])
-% sage: load("p5.sage")
-% sage: load("p5.sage")
-% ([1999, 1901, 1607], [-60, 114, 0, 0, 0, 0, 0, 1])
-
-Using SageMath, additional examples for degrees 5 and 6 were found:
+Using SageMath, several more examples were found. 
+Here is a sextic example:
 \begin{example}
-Set $f(x)= x^6-23x-58$ with $D$, $K$ and $L$ as above, and $p_1,p_2,p_3$ are equal to 1999,1987,1861 respectively. ((n-1)a,nb) = (-115,-324)=1, $f(x)$ is irreducible mod 1999, $f(x)=(x + 1818)(x^5 + 169x^4 + 743x^3+386x^2+1650x+647)$ mod 1987, $f(x)=(x + 37)(x + 406)(x + 1265)(x+1396)(x^2 + 618 + 1485)$ mod 1861. Also $D = 31085593520933 = 7 \cdot 617 \cdot 7197405307$. Therefore, $\Gamma(L,\Q) \cong S_6$ and $L$ is an $A_6$-extension of $K$ unramified at all finite primes.
+Suppose $f(x)=x^6+10x-2$ and $p_1,p_2,p_3$ are equal to 89, 79, 41 respectively. 
+Then $\Gamma(split(f),\Q) \cong S_6$.
 \end{example}
-
+\begin{example}
+As above with $f(x)=x^6+14x-11$ and $p_1,p_2,p_3$ are equal to 199,163,107 respectively. 
+\end{example}
 \section{Yamamura's Results}
-%todo check this 
 \cite{} defines the structure of $\Gamma(K_{ur}/K)$ where K is an imaginary quadratic number field with small conductors. Note that for all number fields with conductor $<1000$, $K_{ur}$ is one of $K_1$, $K_2$ and $K_3$. \par 
 Let $K=\Q(\sqrt{d})$ for some integer d. Using Odlyzko's bound as above, the degree $[K^{ur}:K]$ is finite for $|d|\leq 499$, and assuming GRH, replace 499 with 2003. We know that if $[K^{ur}:K_H]<60$, then $K^{ur}=K_H$. However this is difficult to prove; for example for d=-423, $K_H=K_1$. It is necessary to find the degree $[K_H:\Q]$. One way is to use the tower law from Galois theory. Suppose $\Delta(K)=d_1d_2...d_n$, where $\Delta(K)$ is the discriminant of K, then the genus field of K satisfies $K_g=\Q(\sqrt{d_1},\sqrt{d_2},...\sqrt{d_n})$. We have the list of inclusions \begin{equation}
     \Q \subseteq K \subseteq K_g \subseteq K_1 \subseteq (K_g)_1 \subseteq K_2
@@ -566,7 +459,7 @@ As can be see by Hunter, the minimum possible discriminant a quintic fields with
 Taking $K=\Q(\sqrt{1609})$, $h^{+}(K)=1$ and $K$ has a weakly unramified $A_5$ extension
 \end{example}
 \begin{example}
-Suppose $K=\Q(\sqrt{592661})$, then $K$ has a strictly ramified $A_6$ extension, defined by the splitting field of  $x^6 - x^5 - 5x^4 + 4x^3 + 5x^2 - 2^x - 1$. This polynomial is found by using the database of number fields maintained by Jones and Roberts at \cite{JONE2}
+Suppose $K=\Q(\sqrt{592661})$, then $K$ has a strictly ramified $A_6$ extension, defined by the splitting field of  $x^6 - x^5 - 5x^4 + 4x^3 + 5x^2 - 2^x - 1$. This polynomial is found by using the database of number fields maintained by Jones and Roberts.
 %todo find citation and add to bib
 \end{example}
 
@@ -993,7 +886,7 @@ Using the bounds in given in Table(2) of Odlyzko(1990) we find that indeed
 \begin{equation}
     \Gamma(K^{ur}:K)\cong A_{5}
 \end{equation}
-\section{Examples of Maximal Unramified Extension for Quadratic Number Fields}
+\section{Examples of $K^{ur}$ for Quadratic Number Fields}
 In this section, GRH is assumed. 
 Begin with some definitions:
 \begin{definition}

@@ -34,7 +34,7 @@
 \usepackage{amsthm}
 \newcommand{\q}{\mathbb{Q}}
 \newcommand{\lb}{\left(}
-\newcommand{\rb}{\right)}
+\newcommand{\rb}{\right)}å
 \newcommand{\murgg}{$\Gamma(K^{ur}/K)$}
 \theoremstyle{plain} % insert bellow all blocks you want in italic
 
@@ -80,88 +80,132 @@ Goal: For a given number field K, what is the maximal unramified extension $K^{u
 \section{Class Field Theory}
 
 \begin{frame}{Motivation}
+\pause
+
 \begin{definition}[Ramification]
 A prime ideal $\mathfrak{p}$ in $\mathcal{O}_K$ factors in an extension L of K as
 $\mathfrak{p}\mathcal{O}_L=\mathfrak{B}_1^{e_1}...\mathfrak{B}_m^{e_m}$, where $\mathfrak{B}_i$ are ideals in $\mathcal{O}_L$ intersecting $\mathcal{O}_K$ at $\mathfrak{p}$. Note each $e_i\geq1$ and if $e_i>1$ for some i then we say that $\mathfrak{p}$ ramifies in L. If $i=1$ for all i then we say $\mathfrak{p}$ \textbf{splits} in L.
 \end{definition}
+\pause
 \begin{theorem}
   Suppose $K=\mathbb{Q}(\alpha)$, where $\alpha$ is a root of an irreducible polynomial $f(x) \in \mathbb{Q}$. Then $\bar{K} = split(f(x),\mathbb{Q})$.
 \end{theorem}
+\pause
     \begin{theorem}
 The compositum of two finite unramified extensions of K is also unramified, and so the union $K^{ur}$ of all unramified extensions is also an unramified extension of K.
 \end{theorem}
-
 \end{frame}
+
 \begin{frame}{Hilbert Class Fields}
+\pause
+
 \begin{definition}[Hilbert Class Field]
 Defined as $K_1$, the maximal unramified abelian extension of K. $[K_1:K]=h(K)$, $\Gamma(K_1/K)\cong Cl(K)$
 \end{definition}
+\pause
   \begin{definition}[Hilbert Class Tower]
 Defined as $K_H=\bigcup_{i}K_{i}$. It is often very useful to consider when this tower ends. If K is a UFD, then K is equal to its own Hilbert class field.  
 \end{definition}
+\pause
+
     \begin{example}
     Suppose K=$\mathbb{Q}$. Then K is its own Hilbert class field. 
 \end{example}
+\pause
 \begin{example}
     Suppose $K=\mathbb{Q}[\sqrt{-5}]$, and take $L=\mathbb{Q}[\sqrt{-1},\sqrt{-5}]$. L is an unramified degree 2 extension of K and so the Hilbert class field of K is $K[\sqrt{-1}]$.
 \end{example}
 
 \end{frame}
+
 \section{Examples in $\mathbb{Q}$}
+
 \begin{frame}{Extensions of $\mathbb{Q}$}
+\pause
+
     \begin{theorem}
      Suppose that K be a field extension of $\mathbb{Q}$ with discriminant D. Then a prime p
 ramifies in K if and only if $p|D$.   
     \end{theorem}
+    \pause
+
     \begin{corollary}
 A field extension K of $\mathbb{Q}$ ramifies at precisely one prime iff the absolute value of disc(K) is a prime power.
 \end{corollary}
+\pause
+
 \begin{example}
     Suppose $f(x)=x^5-5x^4-2x^3+x^2-3x+1$, and K is the splitting field of f over $\mathbb{Q}$. \par Then $disc(K)=-3442951=-151^3$ and so 151 is the only prime which ramifies in K over $\mathbb{Q}$. \par Note f(x) is an irreducible quintic with precisely three real roots, so $\Gamma(K/\mathbb{Q})\cong\ S_5$ and K is an unsolvable extension of $\mathbb{Q}$.
 \end{example}
 \end{frame}
+
 \section{P-adics and Cyclotomics}
+
 \begin{frame}{P-adics results}
+\pause
 
 \begin{theorem}
    Suppose $\zeta$ is an $n^{th}$ root of unity. Let K be a number field, $L=K(\zeta)$. 
 L is a degree n unramified extension of K. 
 \end{theorem}
+\pause
 
 Now let $\zeta_n$ be a primitive n-th root of unity, with $n=kp^{m}$, (k,p)=1.
+\pause
 \begin{example}[Field Inclusions]
       $\mathbb{Q}_{p}=K\subseteq K^{tur}=K(\zeta_k)\subseteq K^{ur} = K^{tur}(\zeta_{p})\subseteq K(\zeta_n)$
 \end{example}
+\pause
+
 \begin{lemma}
 Suppose p is a prime and gcd(n,p)=1. Then there exists $m\in\mathbb{N}$ such that $n|p^m-1$.
 \end{lemma}
+\pause
+
 \begin{theorem}
     Let $K=\mathbb{Q}_p$. Then $K^{ur}$ is K adjoined with all roots of unity with order prime to p. 
 \end{theorem}
 
 \end{frame}
+
 \section{Discriminant Bounds}
+
 \begin{frame}{Odlyzko's Bounds}
+\pause
+
 \begin{definition}[Root Discriminant]
 $rd_K$ is the root discriminant of K, $|d_K|^\frac{1}{n_K}$
 \end{definition}
+\pause
+
 \begin{lemma}
  If L is an unramified extension of K, then L and K have the same root discriminant.
 \end{lemma}
+\pause
+
     Odlyzko's Bound improved on the bounds for Minkowski for the discriminant of a number field. Moreno states it as  
 \begin{equation}
 rd_K\geqslant 60^{\frac{r_1}{n}}22^{\frac{r_2}{n}}e^\frac{-8.6}{n^{2/3}}
 \end{equation}
+\pause
+
 Furthermore, under the assumption of the Generalised Riemann Hypothesis, 
 this bound can be improved by replacing the numbers 60 and 22 by 188 and 41 respectively. 
 \end{frame}
 \section{Quadratic Extensions}
 \begin{frame}{Quadratic Number Fields}
+\pause
+
     Let $K=\mathbb{Q}(\sqrt{d})$. Using Odlyzko's bound and the above lemma, for $|d|<499(2003)$, we have $[K^{ur}:K]$ is finite. If $[K^{ur}:K_H]<60$, then $K^{ur}=K_H$.\par
     Yamamura  calculates $\Gamma(K^{ur}:K)$ for $|d|<719$ when $K^{ur}\neq K_1$.\par
+    
+    \pause
+
     Sometimes to calculate higher up the tower we can use the tower law where $K_g$ is the genus field of K: \begin{equation}
     [K_2:\mathbb{Q}] = [K_2:(K_g)_1]h(K_g)[(K_g)_1:\mathbb{Q}]
 \end{equation}\par
+\pause
+
 \begin{example}
 For d=-255, $K_H=K_2$. We have $cl(K)\cong C_6\times C_2$, $K_1 = K\lb\sqrt{5},\sqrt[3]{(9+\sqrt{85})/2}\rb$, and $K_2 = K_1\lb\sqrt{2+\sqrt{5}\lb5+2\sqrt{-3}}\rb\rb$. Here $\Gamma(K^{ur}/K) \cong Q_8 \times C_3$.
 \end{example}
@@ -169,16 +213,21 @@ For d=-255, $K_H=K_2$. We have $cl(K)\cong C_6\times C_2$, $K_1 = K\lb\sqrt{5},\
 \end{frame}
 
 \begin{frame}{Class Number 1, Infinite Unramified Extension}
+\pause
+
 K is a number field with h(K)=1. Then all abelian unramified Galois extensions are trivial. However,K may have a non-solvable unramified extension.
+\pause
+
 \begin{example}[Brink]
 \begin{equation}
-   K=\mathbb{Q}(\sqrt{29},\sqrt{4967}) 
-\end{equation}
-\begin{equation}
+   K=\mathbb{Q}(\sqrt{29},\sqrt{4967}) ,
    L=split(x^7 - 11x^5 + 17x^3 - 5x + 1,\mathbb{Q})
 \end{equation}
+
 Then K has class number 1 and L is a PSL(2, 7)-extension of K.
 \end{example}
+\pause
+
 Maire, Brink: There exist biquadratic number fields with class number one and infinite unramified extension.
 \begin{example}[Computed through Sagemath]
 \begin{equation}
@@ -213,7 +262,11 @@ p=1531,q=71,151,227,\Delta(f)=170701
 \end{center}
 \end{frame}
 \begin{frame}{Odlyzko with Imaginary Number Fields}
+\pause
+
     There are 9 imaginary quadratic fields with class number 1 and 47 imaginary biquadratic number fields with class number 1. \par Odlyzko's bound (even without GRH) shows that no imaginary quadratic number field with trivial class group has an infinite unramified extension. 
+    \pause
+
     \begin{example}
           \begin{equation}
         K=\q(\sqrt{-67},\sqrt{-163})
@@ -224,31 +277,56 @@ p=1531,q=71,151,227,\Delta(f)=170701
 \end{frame}
 \section{Cubic Extensions}
 \begin{frame}{Cubic Extensions (Wong) }
+\pause
+
  $K=\mathbb{Q}(\theta)$ where $\theta$ is a root of a cubic
 f(x). If $\Gamma(K/\mathbb{Q}) \cong C_3$, call K a  \textbf{cyclic cubic field}.
+\pause
+
 \begin{theorem}[Galois Theory]
 Then K is a cyclic cubic field iff disc(f) is a square. 
 \end{theorem}
+\pause
+
 \begin{example}
     Let $f=x^3-x^2-2x+1$. Then disc(K)=$7^2$, $rd_{k}=3.66$ and h(K)=1. Unconditionally, K does not have an unsolvable unramified extension, $\Gamma(K:\mathbb{Q})\cong C_3$. Hence $\Gamma(K^{ur}:K) $ is trivial.
 \end{example}
 \end{frame}
 
 \begin{frame}{Calculating $K^{ur}$ for a Cyclic Cubic Field}
-    Wong now gives examples of how to calculate the maximal unramified extension of a cyclic cubic field with nontrivial class number. \begin{example}
-    $f=x^3-x^2-54x+169$, disc(K)=$163^2$, $rd_{k}=29.84$. Here we have h(K)=4.\par Define $g(x)=x^6-3x^5-11x^4+27x^3-3x^2-11x+1$. Then John Jones' website gives $L = split(g,\mathbb{Q})$ with $\Delta(K_1)=163^4$.\par Firstly $\Gamma(L/\mathbb{Q}) \cong A_4$, and 163 is unramified in $L/K$. Hence indeed $L=K_1$.\par  We know that $\Gamma(L/K)\cong V_4$ which is a normal subgroup of $A_4$. \par Now h(L)=1 and $rd_K < 54.62$ which is the lower bound for the root discriminant of totally real fields of degree 720, so $\Gamma(K^{ur}/K) \cong V_4$ and $\Gamma(K^{ur}/\mathbb{Q}) \cong A_4$. 
+\pause
+
+    Wong now gives examples of how to calculate the maximal unramified extension of a cyclic cubic field with nontrivial class number.
+    \pause
+\begin{example}
+\pause
+    $f=x^3-x^2-54x+169$, disc(K)=$163^2$, $rd_{k}=29.84$. Here we have h(K)=4.\par \pause
+
+    
+    Define $g(x)=x^6-3x^5-11x^4+27x^3-3x^2-11x+1$. Then John Jones' website gives $L = split(g,\mathbb{Q})$ with $\Delta(K_1)=163^4$.\par \pause
+ Firstly $\Gamma(L/\mathbb{Q}) \cong A_4$, and 163 is unramified in $L/K$. Hence indeed $L=K_1$.\par \pause
+ We know that $\Gamma(L/K)\cong V_4$ which is a normal subgroup of $A_4$. \par \pause
+Now h(L)=1 and $rd_K < 54.62$ which is the lower bound for the root discriminant of totally real fields of degree 720, so $\Gamma(K^{ur}/K) \cong V_4$ and $\Gamma(K^{ur}/\mathbb{Q}) \cong A_4$. 
 \end{example}
 \end{frame}
 \section{Quartic Extensions}
 \begin{frame}{Serre: Quartic Number Field}
+\pause
+
 \begin{block}{Example of Maximal Unramified Extension of Quartic }
 Let f be the following polynomial with precisely two real roots: \begin{equation}
     f(x)=x^4-x-1, \Delta(f)=-283
 \end{equation}
+\pause
+
 Let  L be the splitting field of f and $\Gamma(L/\mathbb{Q})\cong S_4$.\par
 By the FTGT, there exists an intermediate field H corresponding to the normal subgroup $V_4$ of $S_4$. \par 
 Now $L^H$ is the Hilbert class field of $K= \mathbb{Q}(\sqrt{-283})$ and h(K)=3. Now define M as certain unramified extension over L (and hence also over K).
-\par M is a Galois extension of $\mathbb{Q}$.  
+\pause
+
+\par M is a Galois extension of $\mathbb{Q}$. 
+\pause
+
 \par Martinet proved that M is the maximal unramified extension of K, $\Gamma(M/K)\cong SL_2(F_3)$ of order 24. In addition, $\Gamma(M/\mathbb{Q})\cong GL_2(F_3)$. 
 \end{block}
 \end{frame}
@@ -272,39 +350,58 @@ Now $L^H$ is the Hilbert class field of $K= \mathbb{Q}(\sqrt{-283})$ and h(K)=3.
 \end{center}  
 \end{frame}
 \section{Quintic Extensions}
+
 \begin{frame}{Strictly Unramified $A_5$-Extensions (Yamamura)}
+\pause
+
     \begin{theorem}
     Suppose $S_1$ and $S_2$ are finite sets of primes satisfying $S_1 \cap S_2 \neq \emptyset$ and $2,5 \notin S_2$. Then there exist infinitely many real quadratic number fields with the following properties \begin{enumerate}
         \item F is a strictly unramified $A_5$ extension.
         \item All primes in $S_1$ are ramified in F.
         \item All primes in $S_2$ are ramified in F.
     \end{enumerate}
-\end{theorem}\begin{example}[Strictly Unramified $A_5$-Extension]
+\end{theorem}
+\pause
+
+\begin{example}[Strictly Unramified $A_5$-Extension]
 \begin{equation}
     f(x)=x^5-2ax^3+bx+c, a,b,c \in \mathbb{Z}
 \end{equation} is a polynomial, and Yamamura's five conditions hold. Then $\q\lb\sqrt{\Delta\lb f\rb}\rb$ is a real quadratic number field and its splitting field is a strictly unramified $A_5$-extension. Example: a=6,b=-3,c=-7.
 \end{example}
 \end{frame}
 \begin{frame}{Polynomials of the form $x^n+ax+b$ (Yamamoto)}
+\pause
+
 Define $ f(x) = x^n+ax+b \in \mathbb{Z}[x]$,
 $K=split(f,\mathbb{Q})$. 
+\pause
+
 Suppose
 \begin{enumerate}
     \item $(n-1).a$ and $n.b$ are relatively prime 
     \item $\Gamma(K/\mathbb{Q}) \cong S_n$
 \end{enumerate}\par
-Then K is an $A_n$-extension of $\mathbb{Q}(\sqrt{\Delta(f)})$ which is unramified at all finite primes. \begin{example}
+\pause
+
+Then K is an $A_n$-extension of $\mathbb{Q}(\sqrt{\Delta(f)})$ which is unramified at all finite primes. 
+\pause
+
+\begin{example}
 $f(x) = x^5-x+1$, then $\Delta(f)= 2869$, $L = \mathhbb{Q}(\sqrt{2869})$. Then L is unramified over  and $\Gamma(K:L)\cong A_5.$
 \end{example}  
 \end{frame}
 \section{Sextic Extensions}
 \begin{frame}{Kondo}
+\pause
+
     \begin{theorem}
    F is a degree n number field with squarefree discriminant.  d(F) of degree n, Galois closure K. Then \begin{enumerate}
         \item $\Gamma(K:\mathbb{Q})\cong S_n$
         \item $K/\mathbb{Q}(\sqrt{d(F)})$ is an unramified extension.
     \end{enumerate}
 \end{theorem}
+\pause
+
 \begin{lemma}
 Suppose $d(F)\notin \mathbb{Q}^2$. TFAE:
 \begin{enumerate}
@@ -313,18 +410,27 @@ Suppose $d(F)\notin \mathbb{Q}^2$. TFAE:
 \end{enumerate}
 \end{lemma} 
 \end{frame}
-\begin{frame}{Example}
+\begin{frame}{Unramified Extension with Galois Group Isomorphic to $ S_3 \wr C_2$}
+\pause
+
 \begin{example}
- $f(x)=x^6 + x^5 - 6x^4 - 4x^3 + 8x^2 + 3x - 2$. Also define $F=\mathbb{Q}(\theta)$, where $\theta$ is a root of f, $K=split(f,\mathbb{Q})$. Then we get $d(f)=\Delta(F)=7846061=17^3.1597$. 
+ $f(x)=x^6 + x^5 - 6x^4 - 4x^3 + 8x^2 + 3x - 2$. Also define $F=\mathbb{Q}(\theta)$, where $\theta$ is a root of f, $K=split(f,\mathbb{Q})$. Then we get $d(f)=\Delta(F)=7846061=17^3.1597$. \pause
+
 \begin{equation}
    f(x)= (x^3 + 9x^2 + 16x + 7)^2\:modulo\:17
 \end{equation}
+\pause
+
 By the above, we see that K is an unramified extension of $\mathbb{Q}(\sqrt{17^3.1597})$. Also, $\Gamma(K/\mathbb{Q})\cong S_3 \wr C_2$. Furthermore $K/\mathbb{Q}(\sqrt{17^3.1597})$ is unramified with Galois group isomorphic to the Frobenius group of order 36.
 \end{example}    
 \end{frame}
 \section{Nonic Extensions}
 \begin{frame}{Lesseni's Results on Nonic Number Fields}
-   Suppose $K=\mathbb{Q}(\theta)$ is a number field where $\theta$ is a root of an irreducible polynomial of degree 9, with splitting field L. \begin{theorem}
+\pause
+
+   Suppose $K=\mathbb{Q}(\theta)$ is a number field where $\theta$ is a root of an irreducible polynomial of degree 9, with splitting field L.
+   \pause
+\begin{theorem}
     Suppose GRH holds. Then L cannot be ramified over K only at p=5. Now suppose GRH doesn't hold. Then $5\mathcal{O}_K$ is equal to one of the following: \begin{itemize}
         \item $\mathfrak{p}_1^5\mathfrak{p}_2^4$
         \item $\mathfrak{p}_1^5\mathfrak{p}_2^3\mathfrak{p}_3$
@@ -333,13 +439,21 @@ By the above, we see that K is an unramified extension of $\mathbb{Q}(\sqrt{17^3
     \end{itemize}
     whence the discriminant $d_K$ is equal to $5^{11}$ or $5^{12}$. 
 \end{theorem} 
+\pause
+
 Similar results hold for p=3,7. 
 \end{frame}
 \begin{frame}{Conclusion of Lesseni}
+\pause
+
     A computer search checks all primitive nonic number fields which ramify at precisely one of 2,3,5,7. We have the following result:
+    \pause
+
     \begin{theorem}
     There is no primitive degree 9 number field ramified at only one prime p, $p<11$.
 \end{theorem}
+\pause
+
 \begin{corollary}
  Suppose K is a degree 9 number field which is ramified at only one prime p, $p<11$. Then the Galois group of its Galois closure is solvable. 
 \end{corollary}
@@ -425,9 +539,15 @@ Similar results hold for p=3,7.
 % \end{frame}
 \section{Summary}
 \begin{frame}{Summary}
+\pause
+
     \begin{enumerate}
         \item The theory of maximal unramified extensions is fairly well understood for p-adics and cyclotomics, as well as many quadratic number fields
+        \pause
+
          \item Odlyzko's bounds can show strong results about imaginary quadratic number fields, and some biquadratic number fields. They can also be applied for some number fields defined by polynomials. 
+         \pause
+
          \item Serre gives some examples for calculating $K^{ur}$ in some specific situations but there is no general formula. 
     \end{enumerate}
 \end{frame}
