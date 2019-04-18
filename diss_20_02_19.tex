@@ -104,6 +104,11 @@
 \section{Goal}
 Goal: For a given number field K, what is the maximal unramified extension $K^{ur}$ of K and also the structure of $G_K^{ur}$. \par
 The following theorems from Algebraic Number Theory are very important in this topic:
+
+Often it is important to find find unsolvable extensions of number fields. Useful is the following result from Group Theory:
+\begin{theorem}
+Suppose $n \geq 5$. Then $A_n$ and $S_n$ are not solvable. 
+\end{theorem}
 \begin{theorem}
  Suppose that K be a field extension of $\mathbb{Q}$ with discriminant D. Then a prime p
 ramifies in K if and only if $p|D$.   
@@ -115,6 +120,7 @@ A field extension K of $\Q$ ramifies at precisely one prime iff the absolute val
 \begin{example}
     Suppose $f(x)=x^5-5x^4-2x^3+x^2-3x+1$, and K is the splitting field of f over $\Q$. Then $disc(K)=-3442951=151^3$ and so 151 is the only prime which ramifies in K over $\mathbb{Q}$. Note that f(x) is an irreducible quintic with precisely three real roots, meaning that $\GG \cong\ S_5$ and K is an unsolvable extension of $\Q$.
 \end{example}
+
 Often it is important to find the Galois Closure of a number field $K$;  this is defined to be the smallest extension field, in terms of inclusion, which contains K and is Galois over $\mathbb{Q}$.The following theorem is  from Galois theory: \begin{theorem}
   Suppose $K=\Q(\alpha)$, where $\alpha$ is a root of an irreducible polynomial $f(x) \in \Q[x]$, then $\bar{K} = \spl$.
 \end{theorem}
@@ -498,6 +504,8 @@ Using SageMath, additional examples for degrees 5 and 6 were found:
 \begin{example}
 Set $f(x)= x^6-23x-58$ with $D$, $K$ and $L$ as above, and $p_1,p_2,p_3$ are equal to 1999,1987,1861 respectively. ((n-1)a,nb) = (-115,-324)=1, $f(x)$ is irreducible mod 1999, $f(x)=(x + 1818)(x^5 + 169x^4 + 743x^3+386x^2+1650x+647)$ mod 1987, $f(x)=(x + 37)(x + 406)(x + 1265)(x+1396)(x^2 + 618 + 1485)$ mod 1861. Also $D = 31085593520933 = 7 \cdot 617 \cdot 7197405307$. Therefore, $\Gamma(L,\Q) \cong S_6$ and $L$ is an $A_6$-extension of $K$ unramified at all finite primes.
 \end{example}
+In \cite{uchida1970}, further examples are given; for example $x^7-x+1$, $x^9-x+1$ and $x^{10}-x+1$. 
+Applying the initial theorem in the case that $n=3$, \cite{uchida1970} also proves that there exist infinitely many real quadratic number fields with class numbers divisible by 3. 
 
 \section{Yamamura's Results}
 %todo check this 
@@ -1059,6 +1067,24 @@ Suppose $K = \Q(\sqrt{16621})$ and $f(x) = x^6-13x^4-4x^3 +36x^2 +3x-22$. Then $
 \begin{example}
 Let K be the real quadratic field Q( 16701). Then, under the assumption of GRH,  $\Gamma(K^{ur}/K) \cong A_5 \times C_2$.
 \end{example}
+\section{Yamaura Again}
+In \cite{YAMA2001}, the table for the $\Q(\sqrt{-d}))^{ur}$ is updated for the missing 19 of the missing 23 values of $d$, apart from $d= -883,-907,-947$. However, if it can be verified that $K^{ur} \neq K_1$ for these fields, then $\Gamma(K^{ur}/K \cong PSL(2,7) \times cl(K)$. 
+\cite{YAMA1997} gives the following proposition: \begin{proposition}
+For $d=1507 = 11*137$, $\Q(\sqrt{-1507})$ is the first imaginary quadratic number field with an unramified $A_5$-extension which is normal over $\Q$.
+Define $f(x) = x^5 -5x^3 + 5x^2 + 24x + 4$, $disc(f) = 581388544 = 2^8 \cdot 11^2 \cdot 137^2$. 
+\end{proposition}
+Consider now the quadratic number fields defined by $-d = 723, 763, 772, 787,808,843, 904, 932, 939, 964, 971, 979$ with Hilbert class tower of length 1. 
+\begin{proposition}
+For these fields, if $K$ has odd class number, then $K^{ur} = K_1$. 
+\end{proposition}
+\begin{proof}
+ Conditional Odlyzko bounds give that $[K^{ur}:K_1]<168 = |PSL(2,7)|$, and by results on group extensions from group theory, it is sufficient to show that $K_1$ does not have a unramified $A_5$-extension, normal over $\Q$. Suppose that $K_1$ had such an extension, denoted by $L$. Then $\Gamma(L/K) \cong \Gamma(K_1/K) \times A_5$, and so $K$ would have an unramified $A_5$-extension, normal over $\Q$, contradicting the above proposition. Hence $K^{ur} = K$
+
+\end{proof}
+For fields with even class number, for example when $-d = 924 = 2^2 \cdot 241$, existing data for quintic polynomials is used. For $K_1$ to have an unramified $A_5$-extension, normal over $\Q$, it is necessary to find a quintic number field with discriminant $-2^2,241,-2^2 \cdot 241$ or $2^4 \cdot 241$, which does not exist, as can be verified by \cite{JONE2}. Therefore $K^{ue} = K_1$, and the proof for other number fields with even class number are similar. 
+
+
+\section{Wong}
 
 
 
