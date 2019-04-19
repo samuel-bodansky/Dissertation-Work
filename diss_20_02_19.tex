@@ -1084,26 +1084,34 @@ For these fields, if $K$ has odd class number, then $K^{ur} = K_1$.
 For fields with even class number, for example when $-d = 924 = 2^2 \cdot 241$, existing data for quintic polynomials is used. For $K_1$ to have an unramified $A_5$-extension, normal over $\Q$, it is necessary to find a quintic number field with discriminant $-2^2,241,-2^2 \cdot 241$ or $2^4 \cdot 241$, which does not exist, as can be verified by \cite{JONE2}. Therefore $K^{ue} = K_1$, and the proof for other number fields with even class number are similar. 
 \cite{YAMA2001} also gives the following example. 
 \begin{example}
-Suppose $f(x) = x^7 - x^6 - 3x^5 - x^4 + 2x^3 + 4x^2 + 4x + 1$ define a field $E$, with closure $L$, the splitting field of $f$. Further define $K=\Q(\sqrt{-3983})$. Noting that $3983 = 7*569$, and checking the ramification the rational primes $7$ and $569$ in $E$, it is verified that $KE?K$ is unramified, whence $KL/K$ is also unramified. Therefore $L$ is an unramified $PSL(2,7)$-extension of $K$. 
+Suppose $f(x) = x^7 - x^6 - 3x^5 - x^4 + 2x^3 + 4x^2 + 4x + 1$ define a field $E$, with closure $L$, the splitting field of $f$. Further define $K=\Q(\sqrt{-3983})$. Noting that $3983 = 7*569$, and checking the ramification the rational primes $7$ and $569$ in $E$, it is verified that $KE/K$ is unramified, whence $KL/K$ is also unramified. Therefore $L$ is an unramified $PSL(2,7)$-extension of $K$. 
 \end{example}
 \section{Smith}
-\cite{SMITH} gives the a method to find unramified cyclic extensions of polynomials. First let $L_n$ define the n-th Lucas number and $F_n$ the n-th Fibonacci number. It is a well-known result that $L_n^2 = 5F_n^2+4(-1)^n$, therefore $\sqrt{5*L_n^2+20} = 5F_n \in \mathbb{Z}$ for odd $n$. Furthermore for $m,n \in \Z$ , m|n iff $F_m | F_n$. Since $F_5 = 5$, it followd that $5| F_n $ when $n$ isa multiple of 5, and therefore when $n$ is an odd multiple of 5, $\frac{L_n^2+4}{125} = \frac{F_n^2}{25} \in \Z$. 
+\cite{SMITH} gives the a method to find unramified cyclic extensions of polynomials. First let $L_n$ define the n-th Lucas number and $F_n$ the n-th Fibonacci number. It is a well-known result that $L_n^2 = 5F_n^2+4(-1)^n$, therefore $\sqrt{5*L_n^2+20} = 5F_n \in \mathbb{Z}$ for odd $n$. Furthermore for $m,n \in \Z$ , m|n iff $F_m | F_n$. Since $F_5 = 5$, it followd that $5| F_n $ when $n$ is a multiple of 5, and therefore when $n$ is an odd multiple of 5, $\frac{L_n^2+4}{125} = \frac{F_n^2}{25} \in \Z$. Also for $t = 2L_{20i-15}$ for $i \in \Z$, $\sqrt{\frac{t^2+16}{500}} = \frac{F_{20i-15}}{5} \in \Z$. 
 \cite{SMITH} then gives the following theorems:
 \begin{theorem}
-Suppose $t = L_{4i-1}$ for some $i \in \Z$. Define $f_t(x) = x^5 -10x^3 - 5x^2t^2+5(t^3+2t^2+4t+5)x-(t^3+2t^2+5t+8)$ with splitting field $L_t$. Furthermore define $d_t = -t(t+2)(\sqrt{5t^2+20})$ and $K_t = \Q(\sqrt{d_t})$. If $f_t(x)$ is irreducible, $L_t(x)$ defines an unramified $C_5$ - extension of $K_t$. In fact, $f_t(x)$ is irreducible for all but finitely many values of $t$, giving an infinite family of unramified cyclic extensions of imaginary quadratic number fields.  
+Suppose $t = 2L_{20i-5}$ for some $i \in \Z$. Define $f_t(x) = x^5 + 10x^3 - 5tx^2-15x-t^2+t-16$ with splitting field $L_t$. Furthermore define $d_t = -\sqrt{\frac{t^2+16}{500}}$ and $K_t = \Q(\sqrt{d_t})$. If $f_t(x)$ is irreducible, $L_t(x)$ defines an unramified $C_5$ - extension of $K_t$. 
 \end{theorem}
 \begin{example}
-
+Let $i=1$. Then $t=2L_{15} = 2728$, $f_t(x) = x^5 + 10x^3 - 13640x^2 - 15x - 7439272$, $K_t = \Q(\sqrt{-(2*61)})$ and $disc(f) = 2^{14} * 5^{20} * 11^2 * 61^6$. and $L_t$ is an unramified $C_5$-extension of $K_t$. 
+\end{example}
+\begin{theorem}
+Suppose $t = L_{4i-1}$ for some $i \in \Z$. Define $f_t(x) = x^5 -10x^3 - 5x^2t^2+5(t^3+2t^2+4t+5)x-(t^3+2t^2+5t+8)$ with splitting field $L_t$. Furthermore define $d_t = -t(t+2)(\sqrt{5t^2+20})$ and $K_t = \Q(\sqrt{d_t})$. If $f_t(x)$ is irreducible, $L_t(x)$ defines an unramified $C_5$ - extension of $K_t$.
+\end{theorem}
+\begin{example}
+Let $i=2$. Then $t=L_{7} = 29$, $f_t(x) = x^5 - 10x^3 - 4205x^2 + 130960x - 760496$, $K_t = \Q(\sqrt{-( 5 * 13 * 29 * 31})$ and $disc(f) =2^6 * 5^{10} * 13^6 * 29^2 * 31^6$,  and $L_t$ is an unramified $C_5$-extension of $K_t$. 
 \end{example}
 \begin{theorem}
 Suppose either $t = L_{20i-15}$ or $t = L_{100i-25}$ for some $i \in \Z$. Define $f_t(x) = (x+4)(x-1)^4 = 20(x-1)^2t + (10x^2-20x+26)t^2 + (5x^2-10x+13)t^3 +(-5x+6)t^4 + 2t^5$
 
- with splitting field $L_t$. Furthermore define $d_t = -t(t+2)\left(\sqrt{\frac{t^2+4}{125}}\right)$ and $K_t = \Q(\sqrt{d_t})$. If $f_t(x)$ is irreducible, $L_t(x)$ defines an unramified $C_5$ - extension of $K_t$. In fact, $f_t(x)$ is irreducible for all but finitely many values of $t$, giving an infinite family of unramified cyclic extensions of imaginary quadratic number fields.  
+ with splitting field $L_t$. Furthermore define $d_t = -t(t+2)\left(\sqrt{\frac{t^2+4}{125}}\right)$ and $K_t = \Q(\sqrt{d_t})$. If $f_t(x)$ is irreducible, $L_t(x)$ defines an unramified $C_5$ - extension of $K_t$. 
 \end{theorem}
+
 \begin{example}
-
+Let $i=1$. Then $t=L_{5} = 11$, $f_t(x) = x^5 - 10x^3 + 8105x^2 - 89390x + 430621$, $K_t = \Q(\sqrt{-( 11*13)}$ and $disc(f) =5^20 * 11^6 * 13^6
+$,  and $L_t$ is an unramified $C_5$-extension of $K_t$. 
 \end{example}
-
+For each of these polynomials, $f_t(x)$ is irreducible for all but finitely many values of $t$, giving 3 infinite families of unramified cyclic extensions of imaginary quadratic number fields.  
 %todo write examples and last yamamura paper
 \section{Wong}
 
