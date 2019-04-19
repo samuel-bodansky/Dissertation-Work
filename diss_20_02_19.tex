@@ -87,7 +87,7 @@
     \item $d_K$ is the discriminant of K.
     \item $K^{ur}$ is the maximally unramified extension of K.
     \item $K^{tur}$ is the maximal tamely unramified extension of K.
-    \item $n_K$ is the degree of the extension $K:\mathbb{Q}$.
+    \item $n_K$ is the degree of the extension $K:\Q$.
     \item $\bar{K}$ denotes the Galois closure of K.
     \item KL denotes the compositum of two number fields K and L.
     \item $rd_K$ is the root discriminant of K, $|d_K|^\frac{1}{n_K}$ .
@@ -110,18 +110,18 @@ Often it is important to find find unsolvable extensions of number fields. Usefu
 Suppose $n \geq 5$. Then $A_n$ and $S_n$ are not solvable. 
 \end{theorem}
 \begin{theorem}
- Suppose that K be a field extension of $\mathbb{Q}$ with discriminant D. Then a prime p
+ Suppose that K be a field extension of $\Q$ with discriminant D. Then a prime p
 ramifies in K if and only if $p|D$.   
 \end{theorem}
-Note that the discriminant of a number field is finite, hence only finitely many primes ramify over $\mathbb{Q}$. Here is an easy corollary:
+Note that the discriminant of a number field is finite, hence only finitely many primes ramify over $\Q$. Here is an easy corollary:
 \begin{corollary}
 A field extension K of $\Q$ ramifies at precisely one prime iff the absolute value of disc(K) is a prime power.
 \end{corollary}
 \begin{example}
-    Suppose $f(x)=x^5-5x^4-2x^3+x^2-3x+1$, and K is the splitting field of f over $\Q$. Then $disc(K)=-3442951=151^3$ and so 151 is the only prime which ramifies in K over $\mathbb{Q}$. Note that f(x) is an irreducible quintic with precisely three real roots, meaning that $\GG \cong\ S_5$ and K is an unsolvable extension of $\Q$.
+    Suppose $f(x)=x^5-5x^4-2x^3+x^2-3x+1$, and K is the splitting field of f over $\Q$. Then $disc(K)=-3442951=151^3$ and so 151 is the only prime which ramifies in K over $\Q$. Note that f(x) is an irreducible quintic with precisely three real roots, meaning that $\GG \cong\ S_5$ and K is an unsolvable extension of $\Q$.
 \end{example}
 
-Often it is important to find the Galois Closure of a number field $K$;  this is defined to be the smallest extension field, in terms of inclusion, which contains K and is Galois over $\mathbb{Q}$.The following theorem is  from Galois theory: \begin{theorem}
+Often it is important to find the Galois Closure of a number field $K$;  this is defined to be the smallest extension field, in terms of inclusion, which contains K and is Galois over $\Q$.The following theorem is  from Galois theory: \begin{theorem}
   Suppose $K=\Q(\alpha)$, where $\alpha$ is a root of an irreducible polynomial $f(x) \in \Q[x]$, then $\bar{K} = \spl$.
 \end{theorem}
 
@@ -152,7 +152,7 @@ Here are two further examples:
     Suppose K=$\mathbb{Q}$. Then K is its own Hilbert class field. 
 \end{example}
 \begin{example}
-    Suppose $K=\mathbb{Q}[\sqrt{-5}]$, and take $L=\mathbb{Q}[\sqrt{-1},\sqrt{-5}]$. L is an unramified degree 2 extension of K and so the Hilbert class field of K is $K[\sqrt{-1}]$.
+    Suppose $K=\mathbb{Q}[\sqrt{-5}]$, and take $L=\Q[\sqrt{-1},\sqrt{-5}]$. L is an unramified degree 2 extension of K and so the Hilbert class field of K is $K[\sqrt{-1}]$.
 \end{example}
 \begin{example}[Hasse]
     Suppose $K=\mathbb{Q}[\sqrt{-31}]$ with class number 3. Let L be its Hilbert class field. Then $L = \Q(\alpha)$, where $\alpha$ is a root of the polynomial 
@@ -1082,8 +1082,29 @@ For these fields, if $K$ has odd class number, then $K^{ur} = K_1$.
 
 \end{proof}
 For fields with even class number, for example when $-d = 924 = 2^2 \cdot 241$, existing data for quintic polynomials is used. For $K_1$ to have an unramified $A_5$-extension, normal over $\Q$, it is necessary to find a quintic number field with discriminant $-2^2,241,-2^2 \cdot 241$ or $2^4 \cdot 241$, which does not exist, as can be verified by \cite{JONE2}. Therefore $K^{ue} = K_1$, and the proof for other number fields with even class number are similar. 
+\cite{YAMA2001} also gives the following example. 
+\begin{example}
+Suppose $f(x) = x^7 - x^6 - 3x^5 - x^4 + 2x^3 + 4x^2 + 4x + 1$ define a field $E$, with closure $L$, the splitting field of $f$. Further define $K=\Q(\sqrt{-3983})$. Noting that $3983 = 7*569$, and checking the ramification the rational primes $7$ and $569$ in $E$, it is verified that $KE?K$ is unramified, whence $KL/K$ is also unramified. Therefore $L$ is an unramified $PSL(2,7)$-extension of $K$. 
+\end{example}
+\section{Smith}
+\cite{SMITH} gives the a method to find unramified cyclic extensions of polynomials. First let $L_n$ define the n-th Lucas number and $F_n$ the n-th Fibonacci number. It is a well-known result that $L_n^2 = 5F_n^2+4(-1)^n$, therefore $\sqrt{5*L_n^2+20} = 5F_n \in \mathbb{Z}$ for odd $n$. Furthermore for $m,n \in \Z$ , m|n iff $F_m | F_n$. Since $F_5 = 5$, it followd that $5| F_n $ when $n$ isa multiple of 5, and therefore when $n$ is an odd multiple of 5, $\frac{L_n^2+4}{125} = \frac{F_n^2}{25} \in \Z$. 
+\cite{SMITH} then gives the following theorems:
+\begin{theorem}
+Suppose $t = L_{4i-1}$ for some $i \in \Z$. Define $f_t(x) = x^5 -10x^3 - 5x^2t^2+5(t^3+2t^2+4t+5)x-(t^3+2t^2+5t+8)$ with splitting field $L_t$. Furthermore define $d_t = -t(t+2)(\sqrt{5t^2+20})$ and $K_t = \Q(\sqrt{d_t})$. If $f_t(x)$ is irreducible, $L_t(x)$ defines an unramified $C_5$ - extension of $K_t$. In fact, $f_t(x)$ is irreducible for all but finitely many values of $t$, giving an infinite family of unramified cyclic extensions of imaginary quadratic number fields.  
+\end{theorem}
+\begin{example}
 
+\end{example}
+\begin{theorem}
+Suppose either $t = L_{20i-15}$ or $t = L_{100i-25}$ for some $i \in \Z$. Define $f_t(x) = (x+4)(x-1)^4 = 20(x-1)^2t + (10x^2-20x+26)t^2 + (5x^2-10x+13)t^3 +(-5x+6)t^4 + 2t^5$
 
+ with splitting field $L_t$. Furthermore define $d_t = -t(t+2)\left(\sqrt{\frac{t^2+4}{125}}\right)$ and $K_t = \Q(\sqrt{d_t})$. If $f_t(x)$ is irreducible, $L_t(x)$ defines an unramified $C_5$ - extension of $K_t$. In fact, $f_t(x)$ is irreducible for all but finitely many values of $t$, giving an infinite family of unramified cyclic extensions of imaginary quadratic number fields.  
+\end{theorem}
+\begin{example}
+
+\end{example}
+
+%todo write examples and last yamamura paper
 \section{Wong}
 
 
