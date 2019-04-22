@@ -189,6 +189,15 @@ Minkowski's theorem gives another bound for the root discriminant. It states tha
 \begin{equation}
 rd_K\geqslant (\frac{\pi}{4})^{\frac{2r_1}{n}}\frac{n^2}{n!^{\frac{2}{n}}}
 \end{equation} 
+
+\subsection{Unramified Closed}
+As shown above, every nontrivial field extension of $\Q$ is ramified. Therefore $\Q^{ur} = \Q$. In the answer given at \cite{CONRAD}, Minkowski's bound is used to find more examples of such number fields.
+\begin{theorem}
+Suppose $K$ is a number field of degree $m$, and $|d_K| < \frac{\pi^m m^{2m}}{(2m)!} $. 
+\end{theorem}
+\begin{example}
+Suppose $m=2$, then $\Q(\sqrt{-1})$,$\Q(\sqrt{-3})$,$\Q(\sqrt{-5})$ all satisfy the above theorem, so have no nontrivial unramified extensions. For $m=3$, number fields defined by either $x^3-x+1$ or $x^3+x+1$ also satisfy the theorem, and can be checked in \cite{JONE2}. 
+\end{example}
 As $n\rightarrow \infty$, Stirling's formula can give a bound that
 \begin{equation}
     rd_K\geqslant e^2 = 7.39
@@ -327,7 +336,14 @@ Let r be the number of primes $\mathfrak{p}$ in L ramified in M, and let $\theta
 \end{equation}
 Write $Z_\mathfrak{B}\subseteq\Gamma(L/\Q) = S_5$; as the decomposition group of $\mathfrak{B}$ where $\mathfrak{B}$ is a prime in L dividing q. q is unramified so this group is cyclic, and \cite{MART1978} shows that $Z_\mathfrak{B}$ has order at most 3.  It now follows that L has 120 primes dividing p and at least 40 primes dividing q. Then $r\geq 160$ since they all ramify in M, and the theorem follows.
 \end{proof}
-There are 9 imaginary quadratic fields with class number 1 and 47 imaginary biquadratic number fields with class number 1. Odlyzko's bound (even not assuming GRH) show that no imaginary quadratic number field with trivial class group has an infinite unramified extension. Such a method does not work for imaginary biquadratic number fields with trivial class group, by considering the field $K=\mathbb{Q}(\sqrt{-67},\sqrt{-163})$ which has root discriminant approximately 104.5.
+There are 9 imaginary quadratic fields with class number 1 and 47 imaginary biquadratic number fields with class number 1. 
+\begin{lemma}
+There are no imaginary quadratic number field with trivial class group has an infinite unramified extension. 
+\end{lemma}
+\begin{proof}
+Suppose $K$ is a imaginary quadratic number field with class number one. Then $rd_K \leq \sqrt{163} = 12.77 < 17.02 = B(120,0,60)$. So $K$ is unramified-closed by the above lemma. 
+\end{proof}
+Odlyzko's bound (even not assuming GRH) show Such a method does not work for imaginary biquadratic number fields with trivial class group, by considering the field $K=\mathbb{Q}(\sqrt{-67},\sqrt{-163})$ which has root discriminant approximately 104.5.
 
 Using SageMath, the following polynomial and primes were found:
 \begin{equation}
@@ -367,7 +383,12 @@ These polynomials satisfy the criteria of the above theorem and therefore descri
    \end{polynomial}
   The splitting field of this polynomial has class group isomorphic to $V_4$.
 \end{example}
-\subsection{Important Results from Class Field Theory}
+\section{More Yamamura Results}
+\cite{YAMAMURA1996} gives the following result for imaginary quadratic number fields with class number two.
+\begin{theorem}
+Suppose $K$ is an imaginary quadratic number field with class number 2, i.e. $K=\Q(\sqrt{-d}))$, where $d= 5, 20, 24, 35, 40, 51, 52, 88, 91, 115, 123, 148, 187, 232, 235, 267, 403$, or $427$. 
+\end{theorem}
+\section{Important Results from Class Field Theory}
 \cite{uchida1970} gives the following theorem relating to trinomials:
 \begin{theorem}
 Suppose $K$ is a number field of finite degree with integers $a$ and $b$, $f(x) = x^n-ax+b$ and $L$ is the splitting field of $f(x)$ over $K$. If $(n-1)a$ and $nb$ are relatively prime, the ramification index of any prime ideal of $L$ over $K$ is either 1 or 2. 
@@ -578,11 +599,17 @@ Suppose $K=\Q(\sqrt{592661})$, then $K$ has a strictly ramified $A_6$ extension,
 %todo find citation and add to bib
 \end{example}
 
-\section{Results on Cubics Field Extensions}
+\section{Results on Cubic Field Extensions}
 In this section, let $K=\Q(\theta)$ where $\theta$ is the root of a cubic polynomial 
 f. If $\Gamma(K/\Q) \cong A_3$, call K a  \textbf{cyclic cubic field}.
 \begin{proposition}[Galois Theory]
 Then K is a cyclic cubic field iff disc(f) is a square. 
+
+\cite{SERR} gives the following example:
+\begin{example}
+Define $f(x) = x^3-x-1$, with splitting field $L$. Note that $disc(f)=-23$, and define $K=\Q(\sqrt{-23})$. Then $h(K)=3$ and $\Gamma(L/\Q) \cong S_3$, so indeed $L=K_1$. Using Odlyzko's bounds, it is possible to show that indeed $L = K^{ur}$.
+\end{example}
+
 \end{proposition} If K is a totally real cubic number field, the (un)conditional bound for the root discriminat given by Odlyzko and published by Martinet is (46.42)72.55. Wong tabulates the all cyclic cubic fields ramified at one prime with trivial class group. 
 \begin{example}
     Let $f=x^3-x^2-2x+1$. Then disc(K)=$7^2$, $rd_{k}=3.66$ and h(K)=1. Then unconditionally, K does not have an unsolvable unramified extension, $\Gamma(K:\mathbb{Q})\cong C_3$
@@ -1108,7 +1135,7 @@ Suppose either $t = L_{20i-15}$ or $t = L_{100i-25}$ for some $i \in \Z$. Define
 \end{theorem}
 
 \begin{example}
-Let $i=1$. Then $t=L_{5} = 11$, $f_t(x) = x^5 - 10x^3 + 8105x^2 - 89390x + 430621$, $K_t = \Q(\sqrt{-( 11*13)}$ and $disc(f) =5^20 * 11^6 * 13^6
+Let $i=1$. Then $t=L_{5} = 11$, $f_t(x) = x^5 - 10x^3 + 8105x^2 - 89390x + 430621$, $K_t = \Q(\sqrt{-( 11*13)}$ and $disc(f) =5^{20} * 11^6 * 13^6
 $,  and $L_t$ is an unramified $C_5$-extension of $K_t$. 
 \end{example}
 For each of these polynomials, $f_t(x)$ is irreducible for all but finitely many values of $t$, giving 3 infinite families of unramified cyclic extensions of imaginary quadratic number fields.  
