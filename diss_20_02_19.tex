@@ -72,7 +72,7 @@
   {$\par\vspace{\belowdisplayskip}}
 \setlength{\columnseprule}{1 pt}
 
-\title{Extensions of number fields with small ramification}
+\title{Unramified Extensions of Number Fields}
 
 \author{Samuel Bodansky}
 \date{March 2019}
@@ -81,20 +81,20 @@
 %!TEX root = ../main.tex
 \maketitle
 \section{Goal}
-Goal: For a given number field K, what is the maximal unramified extension $K^{ur}$ of K and also the structure of $G_K^{ur}$.
+Goal: For a given number field $K$, to find unramified extensions of $K$, its maximal unramified extension and also the structure of $\Gamma(K^{ur}/K)$. Often, $K$ is taken to be a quadratic number field, and unramified extensions are defined by the splitting field of some polynomial $f(x) \in \Z[x]$. One important tool in the analysis of unramified extensions is bounds on the discriminant of a number field; both initially from Minkowski and then later from Odlyzko. 
 
 
 \section{Literature Review}
 
 \section{Notation}
 \begin{enumerate}
-    \item K is a number field, h(K) is its class number and Cl(K) is its ideal class group.
+    \item $K$ is a number field, h(K) is its class number and Cl(K) is its ideal class group.
     \item $d_K$ is the discriminant of K.
     \item $K^{ur}$ is the maximally unramified extension of K.
     \item $K^{tur}$ is the maximal tamely unramified extension of K.
     \item $n_K$ is the degree of the extension $K:\Q$.
     \item $\bar{K}$ denotes the Galois closure of K.
-    \item KL denotes the compositum of two number fields K and L.
+    \item KL denotes the compositum of two number fields $K$ and L.
     \item $rd_K$ is the root discriminant of K, $|d_K|^\frac{1}{n_K}$ .
     \item $G_K$ is the Galois group $\Gamma(\bar{K}:K)$
     \item $G_K^{ur}$ is the Galois group $\Gamma(K^{ur}:K)$
@@ -108,41 +108,42 @@ Goal: For a given number field K, what is the maximal unramified extension $K^{u
 
 \section{Important Results in Galois Theory and Class Field Theory}
 \subsection{Galois Theory}
-The following theorems from Algebraic Number Theory are very important in this topic:
+
 
 Often it is important to find find unsolvable extensions of number fields. Useful is the following result from Group Theory:
 \begin{theorem}
 Suppose $n \geq 5$. Then $A_n$ and $S_n$ are not solvable. 
 \end{theorem}
+The following theorems from Algebraic Number Theory are very helpful in this topic:
 \begin{theorem}
- Suppose that K be a field extension of $\Q$ with discriminant D. Then a prime p
-ramifies in K if and only if $p|D$.   
+ Suppose that $K$ be a field extension of $\Q$ with discriminant D. Then a prime p
+ramifies in $K$ if and only if $p|D$.   
 \end{theorem}
 Note that the discriminant of a number field is finite, hence only finitely many primes ramify over $\Q$. Here is an easy corollary:
 \begin{corollary}
-A field extension K of $\Q$ ramifies at precisely one prime iff the absolute value of disc(K) is a prime power.
+A field extension $K$ of $\Q$ ramifies at precisely one prime iff the absolute value of disc(K) is a prime power.
 \end{corollary}
 \begin{example}
-    Suppose $f(x)=x^5-5x^4-2x^3+x^2-3x+1$, and K is the splitting field of f over $\Q$. Then $disc(K)=-3442951=151^3$ and so 151 is the only prime which ramifies in K over $\Q$. Note that f(x) is an irreducible quintic with precisely three real roots, meaning that $\GG \cong\ S_5$ and K is an unsolvable extension of $\Q$.
+    Suppose $f(x)=x^5-5x^4-2x^3+x^2-3x+1$, and $K$ is the splitting field of $f$ over $\Q$. Then $disc(K)=-3442951=151^3$ and so 151 is the only prime which ramifies in $K$ over $\Q$. Note that f(x) is an irreducible quintic with precisely three real roots, meaning that $\GG \cong\ S_5$ and $K$ is an unsolvable extension of $\Q$.
 \end{example}
 
-Often it is important to find the Galois Closure of a number field $K$;  this is defined to be the smallest extension field, in terms of inclusion, which contains K and is Galois over $\Q$.The following theorem is  from Galois theory: \begin{theorem}
+Often it is important to find the Galois Closure of a number field $K$;  this is defined to be the smallest extension field, in terms of inclusion, which contains $K$ and is Galois over $\Q$. The following theorem is  from Galois theory: \begin{theorem}
   Suppose $K=\Q(\alpha)$, where $\alpha$ is a root of an irreducible polynomial $f(x) \in \Q[x]$, then $\bar{K} = \spl$.
 \end{theorem}
 
-Recall that a prime ideal $\mathfrak{p}$ in $\mathcal{O}_K$ factors in an extension L of K as
-$\mathfrak{p}\mathcal{O}_L=\mathfrak{B}_1^{e_1}...\mathfrak{B}_m^{e_m}$, where $\mathfrak{B}_i$ are ideals in $\mathcal{O}_L$ intersecting $\mathcal{O}_K$ at $\mathfrak{p}$. Each $e_i\geq1$ and if $e_i>1$ for some i then we say that $\mathfrak{p}$ \textbf{ramifies} in L and is unramified otherwise. If $e_i=1$ for all i then we say $\mathfrak{p}$ \textbf{splits} in L. If there exists a unique prime $\mathfrak{B}$ lying over $\mathfrak{p}$ with inertial degree 1, then $\mathfrak{p}$ is \textbf{totally ramified} in $L$. For an extension $L/K$, an infinite prime $\mathfrak{p}$ in $K$ is ramified in $L$ if it is real but has a complex extension to $L$. $L/K$ is an \textbf{unramified extension} if all primes in unramified, finite or not. 
+Recall that a prime ideal $\mathfrak{p}$ in $\mathcal{O}_K$ factors in an extension $L$ of $K$ as
+$\mathfrak{p}\mathcal{O}_L=\mathfrak{B}_1^{e_1}...\mathfrak{B}_m^{e_m}$, where $\mathfrak{B}_i$ are ideals in $\mathcal{O}_L$ intersecting $\mathcal{O}_K$ at $\mathfrak{p}$. Each $e_i\geq1$ and if $e_i>1$ for some $i$ then we say that $\mathfrak{p}$ \textbf{ramifies} in $L$ and is unramified otherwise. If $e_i=1$ for all i then we say $\mathfrak{p}$ \textbf{splits} in L. If there exists a unique prime $\mathfrak{B}$ lying over $\mathfrak{p}$ with inertial degree 1, then $\mathfrak{p}$ is \textbf{totally ramified} in $L$. For an extension $L/K$, an infinite prime $\mathfrak{p}$ in $K$ is ramified in $L$ if it is real but has a complex extension to $L$. $L/K$ is an \textbf{unramified extension} if all primes are unramified, finite or not. 
 \par
 The following theorem  motivates the definition of the maximal unramified extension of a number field. 
 \begin{theorem}
-The compositum of two finite unramified extensions of K is also unramified, and so the union $K^{ur}$ of all unramified extensions is also an unramified extension of K. Furthermore, the residue field $\tilde{k}$ of $K^{ur}$ is the algebraic closure of the residue field k of K.
+The compositum of two finite unramified extensions of $K$ is also unramified, and so the union $K^{ur}$ of all unramified extensions is also an unramified extension of K. Furthermore, the residue field $\tilde{k}$ of $K^{ur}$ is the algebraic closure of the residue field $K$ of K.
 \end{theorem}
 \begin{proof}
-    Suppose K is a number field and $L,\tilde{L}$ are extensions of K. Let $\mathfrak{p}$ be an ideal unramified in both $L$ and $\tilde{L}$. Let $P$ be a prime lying over $\mathfrak{p}$ in $L\tilde{L}$. Let $M$ be the minimal normal extension of $L\tilde{L}$, i.e. the normal closure. Suppose $Q$ is a prime in $M$ lying over $P$, then have 
+    Suppose $K$ is a number field and $L,\tilde{L}$ are extensions of K. Let $\mathfrak{p}$ be an ideal unramified in both $L$ and $\tilde{L}$. Let $P$ be a prime lying over $\mathfrak{p}$ in $L\tilde{L}$. Let $M$ be the minimal normal extension of $L\tilde{L}$, i.e. the normal closure. Suppose $Q$ is a prime in $M$ lying over $P$, then  
     \begin{equation}
         \mathfrak{p}\subseteq P \subseteq Q
     \end{equation}
-    Let $E=E(Q|\mathfrak{p})$ denote the inertia group of $Q$ at $\mathfrak{p}$. 
+    Now define $E=E(Q|\mathfrak{p})$ denote the inertia group of $Q$ at $\mathfrak{p}$. 
     Since $\mathfrak{p}$ is unramified in $L$ and $\tilde{L}$, it follows that $Q \cap \mathcal{O}_L$ and $Q \cap \mathcal{O}_{\tilde{L}}$ are unramified in $L$ and $\tilde{L}$ respectively. 
  But the inertia field $M^E$ is the largest field in which $\mathfrak{p}$ is unramified, so it follows that $L\subseteq M^E$ and $\tilde{L} \subseteq M^E $, whence $L\tilde{L}\subseteq M^E$ and $\mathfrak{p}$ is unramified in $L\tilde{L}$.
 \end{proof}
@@ -150,17 +151,17 @@ The compositum of two finite unramified extensions of K is also unramified, and 
 \begin{definition}
 The \textbf{class field} of the trivial subgroup of C(K) is called the Hilbert class field of K. 
 \end{definition}
-The Hilbert class field is the maximal abelian extension of K unramified at all primes of K. The degree of its extension over K is equal to the class number of K, and its Galois group is isomorphic to the ideal class group of K, taking Frobenius elements as prime ideals of K.\par
-In particular, if K is a unique factorisation domain then K is equal to its own Hilbert class field. 
+The Hilbert class field is the maximal abelian extension of $K$ unramified at all primes of K. The degree of its extension over $K$ is equal to the class number of K, and its Galois group is isomorphic to the ideal class group of K, taking Frobenius elements as prime ideals of $K$. \par
+In particular, if $K$ is a unique factorisation domain then $K$ is equal to its own Hilbert class field. 
 Here are two further examples:
 \begin{example}
-    Suppose K=$\mathbb{Q}$. Then K is its own Hilbert class field. 
+    Suppose K=$\mathbb{Q}$. Then $K$ is its own Hilbert class field. 
 \end{example}
 \begin{example}
-    Suppose $K=\mathbb{Q}[\sqrt{-5}]$, and take $L=\Q[\sqrt{-1},\sqrt{-5}]$. L is an unramified degree 2 extension of K and so the Hilbert class field of K is $K[\sqrt{-1}]$.
+    Suppose $K=\mathbb{Q}[\sqrt{-5}]$, and take $L=\Q[\sqrt{-1},\sqrt{-5}]$. $L$ is an unramified degree 2 extension of $K$ and so the Hilbert class field of $K$ is $K[\sqrt{-1}]$.
 \end{example}
 \begin{example}[Hasse]
-    Suppose $K=\mathbb{Q}[\sqrt{-31}]$ with class number 3. Let L be its Hilbert class field. Then $L = \Q(\alpha)$, where $\alpha$ is a root of the polynomial 
+    Suppose $K=\mathbb{Q}[\sqrt{-31}]$ with class number 3. Let $L$ be its Hilbert class field. Then $L = \Q(\alpha)$, where $\alpha$ is a root of the polynomial 
     \begin{equation}
         x^3+\frac{3+\sqrt{-31}}{2}x^2+\frac{-3+\sqrt{-31}}{2}x -1 =0.
     \end{equation}
@@ -168,7 +169,7 @@ Here are two further examples:
 
 Finally, define the \textbf{narrow class field}.
 \begin{definition}
-Suppose $K$ is a $\Q$-extension. Recall that the class field cl(K) is $C_K = I_K/P_k$ , where $I_K$ is the group of fractional ideals of $K$ and $P_K$ is the group of principle fractional ideals of $K$. The narrow class field $C_K^{+}$ is defined by $C_K^{+} = I_K/P_K^{+}$, where $P_K^{+}$ is the group of totally positive principal fractional ideals of $K$, i.e ideals of the form $a\mathcal{O}_K$ where $a$ is an element of $K$ such that $\sigma(a)$ is positive for every embedding $\sigma: K \rightarrow \mathbb{R}$. 
+Suppose $K$ is a $\Q$-extension. Recall that the class field cl(K) is $C_K = I_K/P_k$ , where $I_K$ is the group of fractional ideals of $K$ and $P_K$ is the group of principle fractional ideals of $K$. The narrow class field $C_K^{+}$ is defined by $C_K^{+} = I_K/P_K^{+}$, where $P_K^{+}$ is the group of totally positive principal fractional ideals of $K$, i.e ideals of the form $a\mathcal{O}_K$ where $a$ is an element of $K$ such that $\sigma(a)$ is positive for every embedding $\sigma: $K$ \rightarrow \mathbb{R}$. 
 Note that the \textbf{narrow class number} is equal to $|C_K^{+}|$ and is denoted by $h^{+}(K)$. 
   The ideal class group is a quotient of the narrow class group, implying that the narrow class number is a multiple of the class number. When the number field is totally complex, they are equal. 
 
@@ -178,22 +179,22 @@ Note that the \textbf{narrow class number} is equal to $|C_K^{+}|$ and is denote
 \subsection{Root Discriminant}
 One important strategy for calculating $K^{ur}$ is to use bounds of the root discriminant of a number field. 
 \begin{proposition}[Neukirch]
-Let N denote the relative norm, and $K\subseteq L \subseteq M $. Then \begin{equation}
+Let N denote the relative norm, and $K\subseteq $L$ \subseteq M $. Then \begin{equation}
     \Delta_{L/K} = N_{L/K}(\Delta_{L/K})\Delta_{L/K}^{[L:K]}
 \end{equation}
 \end{proposition}
 \begin{corollary}
- If L is an unramified extension of K, then $\Delta_{L/\mathbb{Q}}= \Delta_{L/\mathbb{Q}}^{[L:K]}$. Furthermore, L and K have the same root discriminant.
+ If $L$ is an unramified extension of K, then $\Delta_{L/\mathbb{Q}}= \Delta_{L/\mathbb{Q}}^{[L:K]}$. Furthermore, $L$ and $K$ have the same root discriminant.
 \end{corollary}
 \begin{proof}
-Since L is an unramified extension of K, no prime divides $\Delta_{L/K}$, so $\Delta_{L/K}$ is the unit ideal. But then $(N_{K/\mathbb{Q}}(\Delta_{L/K})=1$ and so by the tower law and the above proposition, \begin{equation}
+Since $L$ is an unramified extension of K, no prime divides $\Delta_{L/K}$, so $\Delta_{L/K}$ is the unit ideal. But then $(N_{K/\mathbb{Q}}(\Delta_{L/K})=1$ and so by the tower law and the above proposition, \begin{equation}
     rd_L=\Delta_{L/\mathbb{Q}}^\frac{1}{[L:K][K:\mathbb{Q}]}=\Delta_{K/\mathbb{Q}}^\frac{1}{[K:\mathbb{Q}]}= rd_K
 \end{equation}
-Hence if L is an unramified extension of K, a rational prime p divides disc(K) iff p divides disc(L).
+Hence if $L$ is an unramified extension of K, a rational prime p divides disc(K) iff p divides disc(L).
 \end{proof}
 \subsection{Minkowski's Theorem}
 \subsubsection*{Statement}
-Minkowski's theorem gives another bound for the root discriminant. It states that if K is a number field with $r_1$ real and $2r_2$ complex conjugate fields, and $n=r_1+2r_2$ is the degree of the field, then 
+Minkowski's theorem gives another bound for the root discriminant. It states that if $K$ is a number field with $r_1$ real and $2r_2$ complex conjugate fields, and $n=r_1+2r_2$ is the degree of the field, then 
 \begin{equation}
 rd_K\geqslant (\frac{\pi}{4})^{\frac{2r_1}{n}}\frac{n^2}{n!^{\frac{2}{n}}}
 \end{equation} 
@@ -226,18 +227,18 @@ this bound can be improved by replacing the numbers 60 and 22 by 188 and 41 resp
 \subsubsection*{Using Odlyzko's Bound}
 Following \cite{YAMA1986} write this bound function as $B(n,r_1,r_2)$.
 \begin{theorem}
-Suppose that H is a positive integer, and L is an unramified normal extension of K of degree M. The following theorem can be used to verify that an unramified extension is maximal. Suppose L is an unramified degree m  normal extension of K with h(L)=1, and 
+Suppose that $H$ is a positive integer, and $L$ is an unramified normal extension of $K$ of degree $M$. The following theorem can be used to verify that an unramified extension is maximal. Suppose $L$ is an unramified degree $m$  normal extension of $K$ with $h(L)=1$, and 
 \begin{equation}
         rd_K<B(60mn_K,60mr_1,60mr_2)
     \end{equation}
 , then $K^{ur}=L$.
 \end{theorem}
 \begin{proof}
-Let M be an unramified normal extension of K. Since the compositum retains closure and unramified extensions, LM is a normal unramified extension of L. Define $G=\Gamma(LM:L)$ with $|G|=a$. If G had a normal subgroup H, the FTGT would imply that G/H would correspond to an Abelian unramified extension of L, contradicting h(L)=1. Hence G is unsolvable. This immediately implies that $a\geqslant 60$ because $A_5$ is the 
+Let $M$ be an unramified normal extension of K. Since the compositum retains closure and unramified extensions, LM is a normal unramified extension of L. Define $G=\Gamma(LM:L)$ with $|G|=a$. If G had a normal subgroup H, the FTGT would imply that G/H would correspond to an Abelian unramified extension of L, contradicting h(L)=1. Hence G is unsolvable. This immediately implies that $a\geqslant 60$ because $A_5$ is the 
 smallest unsolvable group. Since LM is an unramified extension of K, we have \begin{equation}
     rd_{LM}=rd_{K}\ < B(60mn_K,60mr_1,60mr_2)\leq  B(amn_K,amr_1,amr_2)
 \end{equation} 
-However, the degree of LM over $\mathbb{Q}$ is $amn_K$, with $amr_1$ real places and $amr_2$ pairs of complex places over $\mathbb{Q}$. Therefore L contains all unramified extensions of K, and $L=K^{ur}$.
+However, the degree of LM over $\mathbb{Q}$ is $amn_K$, with $amr_1$ real places and $amr_2$ pairs of complex places over $\mathbb{Q}$. Therefore $L$ contains all unramified extensions of K, and $L=K^{ur}$.
 \end{proof}
 This allows us to check whether a field has no unsolvable unramified extensions. 
 \section{P-adics}
@@ -251,28 +252,28 @@ between the extensions of $k$ and the unramified extensions of $K$.
 \end{theorem}
 \begin{example}
 Consider the unramified extensions of $\Q_p$. By the above theorem, these are in 1-1 correspondence with finite extensions of $\F_p$. For every $n \in \N$, there exists a unique field extension of degree $n$ of $\F_p$, isomorphic to the splitting field of $x^{p^n}-x$. Therefore $\Q_p$ has a unique field extension of degree $n$, obtained by adjoining all $p^n-1$-th roots of unity. Furthermore,
-$\Q_p^{ur}$ is isomorphic to the albegraic closure of $\F_p$, which is obtained by joining the $p^n-1$-th roots of unity for all $n \in \N$. For any $n$ prime to $p$, $p^{\phi(n)}-1 \equiv 0$ mod $n$, so 
+$\Q_p^{ur}$ is isomorphic to the algebraic closure of $\F_p$, which is obtained by joining the $p^n-1$-th roots of unity for all $n \in \N$. For any $n$ prime to $p$, $p^{\phi(n)}-1 \equiv 0$ mod $n$, so 
 \begin{equation}
 \Q_p^{ur} = \Q_p(\left\{ \zeta_n: (n,p)=1 \right\})
 \end{equation}
 \end{example}
  \section{Cyclic Cubic Fields}
 In this section, let $K=\Q(\theta)$ where $\theta$ is the root of a cubic polynomial 
-f. If $\Gamma(K/\Q) \cong A_3$, call K a  \textbf{cyclic cubic field}.
+f. If $\Gamma(K/\Q) \cong A_3$, call $K$ a  \textbf{cyclic cubic field}.
 \begin{proposition}[Galois Theory]
-Then K is a cyclic cubic field iff disc(f) is a square. 
+Then $K$ is a cyclic cubic field iff disc(f) is a square. 
 
 \cite{SERR} gives the following example:
 \begin{example}
 Define $f(x) = x^3-x-1$, with splitting field $L$. Note that $disc(f)=-23$, and define $K=\Q(\sqrt{-23})$. Then $h(K)=3$ and $\Gamma(L/\Q) \cong S_3$, so indeed $L=K_1$. Using Odlyzko's bounds, it is possible to show that indeed $L = K^{ur}$.
 \end{example}
 
-\end{proposition} If K is a totally real cubic number field, the (un)conditional bound for the root discriminat given by Odlyzko and published by Martinet is (46.42)72.55. Wong tabulates the all cyclic cubic fields ramified at one prime with trivial class group. 
+\end{proposition} If $K$ is a totally real cubic number field, the (un)conditional bound for the root discriminant given by Odlyzko and published by Martinet is (46.42)72.55. Wong tabulates the all cyclic cubic fields ramified at one prime with trivial class group. 
 \begin{example}
-    Let $f=x^3-x^2-2x+1$. Then disc(K)=$7^2$, $rd_{k}=3.66$ and h(K)=1. Then unconditionally, K does not have an unsolvable unramified extension, $\Gamma(K:\mathbb{Q})\cong C_3$
+    Let $f=x^3-x^2-2x+1$. Then disc(K)=$7^2$, $rd_{k}=3.66$ and h(K)=1. Then unconditionally, $K$ does not have an unsolvable unramified extension, $\Gamma(K:\mathbb{Q})\cong C_3$
 \end{example}
 \begin{example}
-    $f(x)=x^3 + 10x^2 - 9x - 7$, disc(K)=49033, $rd_{K}=36.60$, then unconditionally, K does not have an unsolvable unramified extension, $\Gamma(K:\mathbb{Q})\cong S_3$.
+    $f(x)=x^3 + 10x^2 - 9x - 7$, disc(K)=49033, $rd_{K}=36.60$, then unconditionally, $K$ does not have an unsolvable unramified extension, $\Gamma(K:\mathbb{Q})\cong S_3$.
 \end{example}
 
 
@@ -287,20 +288,20 @@ case, we have $\Gamma(K^{ur}/K) \cong C_7$ and $\Gamma(K^{ur}/\mathbb{Q}) \cong 
 \end{example}
 Finally consider the results of Golod and Shafarevich as written above. We wish to find a cyclic cubic field with infinite class field tower and infinite unramified extension. Use the following sharp result from Roquette:
 \begin{theorem}
-    Suppose K is a normal degree n number field, r is the number of infinite places over K, and e(p) be the nonzero exponent of a prime p in the factorisation of n. Let $t_p$ be the number of primes ramified in K with p dividing their ramification index, and $\delta_p$ is 1 if the p-th roots of unity are in K, and 0 otherwise. Then K has an infinite class tower if \begin{equation}
+    Suppose $K$ is a normal degree n number field, r is the number of infinite places over K, and e(p) be the nonzero exponent of a prime p in the factorisation of n. Let $t_p$ be the number of primes ramified in $K$ with p dividing their ramification index, and $\delta_p$ is 1 if the p-th roots of unity are in K, and 0 otherwise. Then $K$ has an infinite class tower if \begin{equation}
         t_p\geqslant 2 + e(p)\delta_p + \frac{r-1}{p-1} + 2 \sqrt{r+\delta_p}
     \end{equation}
- If K is a cyclic cubic field,  n=r=p=3, e(p)=1, $\delta_3 = 0$. Therefore K has an infinite class tower if $t_3 \geq 3 + 2\sqrt{3} = 6.46$. 
+ If $K$ is a cyclic cubic field,  n=r=p=3, e(p)=1, $\delta_3 = 0$. Therefore $K$ has an infinite class tower if $t_3 \geq 3 + 2\sqrt{3} = 6.46$. 
 \end{theorem}
-Hence we need K to have 7 ramified primes. Here is such an example:
+Hence we need $K$ to have 7 ramified primes. Here is such an example:
 \begin{example}
-    Suppose we want K to have discriminant $(3^4)(373^2)(463^2)(547^2)(607^2)(877^2)(997^2)$. Then define $f(x) = x^3 -451235335661981991x-583367691097731940739787$ for $u=12928236$ gives a cyclic cubic field K with 7 ramified primes. Therefore K has an infinite class field tower and infinite unramified extension. 
+    Suppose we want $K$ to have discriminant $(3^4)(373^2)(463^2)(547^2)(607^2)(877^2)(997^2)$. Then define $f(x) = x^3 -451235335661981991x-583367691097731940739787$ for $u=12928236$ gives a cyclic cubic field $K$ with 7 ramified primes. Therefore $K$ has an infinite class field tower and infinite unramified extension. 
 \end{example}
 
 \section{Lesseni's Results on Degree 9 Number Fields}
 \cite{LESSENI} gives the following results:
 Suppose $K=\mathbb{Q}(\theta)$ is a number field where $\theta$ is a root of an irreducible polynomial of degree 9, and let $L$ represent the Galois closure of $K$. $K$ is said to be \textbf{primitive} if it has no cubic subfields. We have the following theorem: \begin{theorem}
-    Suppose GRH holds. Then L cannot be ramified over K only at p=5. Now suppose GRH doe{}sn't hold. Then $5\mathcal{O}_K$ is equal to one of the following: \begin{itemize}
+    Suppose GRH holds. Then $L$ cannot be ramified over $K$ only at p=5. Now suppose GRH doesn't hold. Then $5\mathcal{O}_K$ is equal to one of the following: \begin{itemize}
         \item $\mathfrak{p}_1^5\mathfrak{p}_2^4$
         \item $\mathfrak{p}_1^5\mathfrak{p}_2^3\mathfrak{p}_3$
         \item $\mathfrak{p}_1^5\mathfrak{p}_2^2\mathfrak{p}_3^2$
@@ -313,7 +314,7 @@ Similar theorems hold for p=3 and p=7.  Using a computer search for primitive nu
     There is no primitive degree 9 number field ramified at only one prime p, $p<11$.
 \end{theorem}
 \begin{corollary}
- Suppose K is a degree 9 number field which is ramified at only one prime p, $p<11$. Then the Galois group of its Galois closure is solvable. 
+ Suppose $K$ is a degree 9 number field which is ramified at only one prime p, $p<11$. Then the Galois group of its Galois closure is solvable. 
 \end{corollary}
 Searching on \cite{JONE2} confirms this result. 
 
@@ -334,10 +335,10 @@ A \textbf{Hilbert p-class field} $H_K^{p}$ of a number field $K$ is the maximal 
 A \textbf{Hilbert p-class field} $H_K^{p}$ of a number field $K$ is the maximal unramified abelian p-extension of K, with the \textbf{p-class field tower} defined in a similar way to the definition of the Hilbert tower. 
 \end{definition}
 \begin{corollary}
- A number field K can be embedded into a finite field extension with class number coprime to p iff the Hilbert p-class field tower terminates.
+ A number field $K$ can be embedded into a finite field extension with class number coprime to p iff the Hilbert p-class field tower terminates.
 \end{corollary}
 \begin{corollary}
-If any p-class field tower over K is infinite, then the class field tower is also infinite. If the p-class tower terminates, then $H_{K_\infty}^{p}$ is a finite field extension of K and $\Gamma(H_{K_\infty}^{p}/K)$ is a p-group.
+If any p-class field tower over $K$ is infinite, then the class field tower is also infinite. If the p-class tower terminates, then $H_{K_\infty}^{p}$ is a finite field extension of $K$ and $\Gamma(H_{K_\infty}^{p}/K)$ is a p-group.
 \end{corollary}
 Note that the converse to the first part of above corollary need not hold; take $\mathbb{Q}\left(\sqrt{-239},\sqrt{4049}\right)$. Then this biquadratic field extension of $\mathbb{Q}$ has an infinite class field tower, but all p-class field towers are finite. 
 \subsection{Golod and Shafaverich}
@@ -345,27 +346,27 @@ We have the theorem of Golod and Shafaverich:\begin{theorem}
     Let G be a finite p-group, and define $d=dim_{\mathbb{F}_{p}}H^1(G,\mathbb{F}_p)$, $r=dim_{\mathbb{F}_{p}}H^2(G,\mathbb{F}_p)$. 
     Then $r>d^2/4$.
 \end{theorem}
-We also have the following theoreom from Shafaverich,1963:\begin{theorem}
-    Let $G = \Gamma(H_{K_{\infty}}^{p}/K)$ where K is an imaginary quadratic number field. If G is finitely generated as a pro-p group, then
+We also have the following theorem from Shafaverich,1963:\begin{theorem}
+    Let $G = \Gamma(H_{K_{\infty}}^{p}/K)$ where $K$ is an imaginary quadratic number field. If G is finitely generated as a pro-p group, then
 $r-d\leq 1 $. If p is an odd prime, r=d.
 \end{theorem}
 The above inequalities give a contradiction for $d \geq 5$ if all such G are assumed to be finite p-groups. Hence there must be a number field with an infinite 2-class field tower, so not all number fields have a finite field extension with class number 1. Here is an example:
 \begin{example}
-    Define $K=\mathbb{Q}(\sqrt{-3.5.7.11.19.23})$. Then 6 odd primes ramify in K over $\mathbb{Q}$, and so K has an infinite 2-class field tower. 
+    Define $K=\mathbb{Q}(\sqrt{-3.5.7.11.19.23})$. Then 6 odd primes ramify in $K$ over $\mathbb{Q}$, and so $K$ has an infinite 2-class field tower. 
 \end{example}
 Furthermore, \cite{SCHO} shows that $\mathbb{Q}(\sqrt{-191.773})$ has an infinite 2-class field tower, and that there are infinitely many real quadratic number fields of the form $\mathbb{Q}(\sqrt{p_1.p_2})$ with $p_1$ and $p_2$ prime, possessing infinite class field towers. 
 
 \subsection{Examples of Number Fields with Infinite Unramified Extension}
 
-Suppose now that K is a class field with trivial class group, i.e. h(K)=1. Then K has no abelian (and hence no
-solvable) non-trivial unramified Galois extension. Despite this, K may have a non-solvable unramified extension. \cite{BRINK} gives such an example. Suppose
+Suppose now that $K$ is a class field with trivial class group, i.e. h(K)=1. Then $K$ has no abelian (and hence no
+solvable) non-trivial unramified Galois extension. Despite this, $K$ may have a non-solvable unramified extension. \cite{BRINK} gives such an example. Suppose
 \begin{equation}
    K=\mathbb{Q}(\sqrt{29},\sqrt{4967}) 
 \end{equation}
 \begin{equation}
    L=split(x^7 - 11x^5 + 17x^3 - 5x + 1,\mathbb{Q}[x])
 \end{equation}
-Then K has class number 1 and L is a PSL(2, 7)-extension of K.
+Then $K$ has class number 1 and $L$ is a PSL(2, 7)-extension of K.
 \cite{MAIR} showed that there exist biquadratic number fields with class number one with an infinite unramified extension. 
 \begin{example}
 Suppose $K= \Q( \sqrt{17601097}, \sqrt{17380678572159893})$. Then $h(K)=1$ and $K$ has an infinite unramified Galois extension. 
@@ -374,15 +375,15 @@ Suppose $K= \Q( \sqrt{17601097}, \sqrt{17380678572159893})$. Then $h(K)=1$ and $
 \cite{BRINK} Suppose that \begin{enumerate}
     \item $f\in \mathbb{Z}[x]$ is an irreducible quintic with five real roots
     \item $D=\Delta(f)$ is prime and $\mathbb{Q}(\sqrt{L})$ has class number 1
-    \item p and q are two primes such that $\mathbb{Q}(\sqrt{p.q})$ has class number 1 and $\mathbb{Q}(\sqrt{(D.p.q})$ has class number 2.
-    \item f has five simple roots modulo p and f factors modulo q into polynomials of degrees, as a tuple $\mu$ of the form (1,1,1,1,1),(1,1,1,3),(1,2,2) or (1,1,3).
+    \item $p$ and $q$ are two primes such that $\mathbb{Q}(\sqrt{p.q})$ has class number 1 and $\mathbb{Q}(\sqrt{(D.p.q})$ has class number 2.
+    \item f has five simple roots modulo $p$ and $f$ factors modulo $q$ into polynomials of degrees, as a tuple $\mu$ of the form (1,1,1,1,1),(1,1,1,3),(1,2,2) or (1,1,3).
 \end{enumerate}
 Then the field $L=\mathbb{Q}(\sqrt{D},\sqrt{p.q})$ has class number 1 and infinite unramified extension.
 \end{theorem}
 \begin{proof}
 A result from \cite{} shows that the splitting field K
 of f is an $S_5$-extension of $\mathbb{Q}$ and an unramified $A_5$-extension of $\mathbb{Q}(\sqrt{D})$. Hence $M=K(\sqrt{p.q})$ is an
-unramified $A_5$-extension of L.In fact, since M has a finite 2-Hilbert tower, the class group of M must be a 2-group.  Furthermore, K has class number 1, as demonstrated in the following diagram.
+unramified $A_5$-extension of L.In fact, since $M$ has a finite 2-Hilbert tower, the class group of $M$ must be a 2-group.  Furthermore, $K$ has class number 1, as demonstrated in the following diagram.
 \begin{center}
     \begin{tikzpicture} [align=center]
   \path  (0, 0)   node(Q)  {$\mathbb{Q}$}
@@ -405,11 +406,11 @@ unramified $A_5$-extension of L.In fact, since M has a finite 2-Hilbert tower, t
 \end{tikzpicture}
 \end{center}
 
-Let r be the number of primes $\mathfrak{p}$ in L ramified in M, and let $\theta$ be a root of f, $T = \mathbb{Q}(\theta)$. \cite{MART1978} shows that M has an infinite 2-class field tower if $r\geq 155$. By assumption p splits completely in T and therefore also in L; furthermore q decomposes in T as $q = \mathfrak{p}_1...\mathfrak{p}_r$, with inertia degrees
+Let $r$ be the number of primes $\mathfrak{p}$ in $L$ ramified in $M$, and let $\theta$ be a root of f, $T = \mathbb{Q}(\theta)$. \cite{MART1978} shows that $M$ has an infinite 2-class field tower if $r\geq 155$. By assumption $p$splits completely in $T$ and therefore also in $L$; furthermore $q$ decomposes in $T$ as $q = \mathfrak{p}_1...\mathfrak{p}_r$, with inertia degrees
 \begin{equation}
     (deg(\mathfrak{p}_1),...deg(\mathfrak{p}_r))=\mu 
 \end{equation}
-Write $Z_\mathfrak{B}\subseteq\Gamma(L/\Q) = S_5$; as the decomposition group of $\mathfrak{B}$ where $\mathfrak{B}$ is a prime in L dividing q. q is unramified so this group is cyclic, and \cite{MART1978} shows that $Z_\mathfrak{B}$ has order at most 3.  It now follows that L has 120 primes dividing p and at least 40 primes dividing q. Then $r\geq 160$ since they all ramify in M, and the theorem follows.
+Write $Z_\mathfrak{B}\subseteq\Gamma(L/\Q) = S_5$; as the decomposition group of $\mathfrak{B}$ where $\mathfrak{B}$ is a prime in $L$ dividing q. q is unramified so this group is cyclic, and \cite{MART1978} shows that $Z_\mathfrak{B}$ has order at most 3.  It now follows that $L$ has 120 primes dividing p and at least 40 primes dividing q. Then $r\geq 160$ since they all ramify in $M$, and the theorem follows.
 \end{proof}
 There are 9 imaginary quadratic fields with class number 1 and 47 imaginary biquadratic number fields with class number 1. 
 \begin{lemma}
@@ -436,7 +437,7 @@ These polynomials satisfy the criteria of the above theorem and therefore descri
     \begin{equation}
         p=2003,q=499, \Delta(f)=4906992917
     \end{equation}
-    Using Magma, the class group of K is isomorphic to $V_4$. Due to the Fundamental Theorem of Galois Theory, there must exist an intermediate field isomorphic to $C_2$ between K and its Hilbert class field. Furthermore, the Hilbert class field of K is isomorphic to the splitting field of \par
+    Using Magma, the class group of $K$ is isomorphic to $V_4$. Due to the Fundamental Theorem of Galois Theory, there must exist an intermediate field isomorphic to $C_2$ between $K$ and its Hilbert class field. Furthermore, the Hilbert class field of $K$ is isomorphic to the splitting field of \par
    \begin{polynomial}
    x^{20} - 2874x^{18} + 2391847x^{16} -
     471345876x^{14} + 29106648697x^{12} - 550807754260x^{10} +
@@ -451,7 +452,7 @@ These polynomials satisfy the criteria of the above theorem and therefore descri
     \begin{equation}
         p=811,q=59, \Delta(f)=8996154317
     \end{equation}
-    Using Magma, the class group of K is isomorphic to $C_2$. There is no intermediate field isomorphic to  between K and its Hilbert class field. Furthermore, the Hilbert class field of K is isomorphic to the splitting field of \par
+    Using Magma, the class group of $K$ is isomorphic to $C_2$. There is no intermediate field isomorphic to  between $K$ and its Hilbert class field. Furthermore, the Hilbert class field of $K$ is isomorphic to the splitting field of \par
    \begin{polynomial}
  x^{10} - 375x^{8} + 5121x^{6} -
     4084x^{4} + 928x^{2} - 64.
@@ -493,7 +494,7 @@ Now specify values for $q_1$ and $q_2$:
 \end{equation}
 Then indeed $q_1\equiv\:q_2\equiv3(4)$. Also, $q_1$ splits completely in K, and there are n-1 places lying above $q_2$ in $K/\mathbb{Q}$.
 \par
-Define $L=\mathbb{Q}(\sqrt{l.q_1.q_2})$, $M=KL$. Using the above theorem, all places lying above $q_1$ and $q_2$, in addition to n-2 places above l are ramified in M/K.  Applying \cite{MAIR}[Proposition 2.2] shows that M/L is nowhere ramified. Thus we get the following field extensions
+Define $L=\mathbb{Q}(\sqrt{l.q_1.q_2})$, $M=KL$. Using the above theorem, all places lying above $q_1$ and $q_2$, in addition to n-2 places above $L$ are ramified in $M/K$.  Applying \cite{MAIR}[Proposition 2.2] shows that M/L is nowhere ramified. Thus we get the following field extensions
 \begin{center}
     \begin{tikzpicture}[node distance = 1cm, auto]
       \node (L) {L=$\mathbb{Q}(\sqrt{l.q_1.q_2})$};
@@ -505,7 +506,7 @@ Define $L=\mathbb{Q}(\sqrt{l.q_1.q_2})$, $M=KL$. Using the above theorem, all pl
 \end{center}
 where $M_2/L$ is an infinite unramified extension. We therefore have the following theorem:
 \begin{theorem}
-    Suppose K is a quadratic field of the form $\mathbb{Q}(\sqrt{8980833629.17471.q_2})$, where 
+    Suppose $K$ is a quadratic field of the form $\mathbb{Q}(\sqrt{8980833629.17471.q_2})$, where 
     \begin{equation}
         q_2\in\{443,919,1627,2803,3691,5231,5867,9391\}
     \end{equation}
@@ -514,7 +515,7 @@ where $M_2/L$ is an infinite unramified extension. We therefore have the followi
         \item $K_\infty/K$ is finite.
     \end{enumerate}
 \end{theorem}
-\cite{MAIR}[2.1] gives a condition for the p-Hilbert tower of K to be infinite; \cite{MAIR}[2.3] says that if P is an irreducible real polynomial in $\mathbb{Q}[x]$ with squarefree discriminant D(P), and C is its Galois closure, then $C/\mathbb{Q}(\sqrt{\Delta(P)})$ is unramified.
+\cite{MAIR}[2.1] gives a condition for the p-Hilbert tower of $K$ to be infinite; \cite{MAIR}[2.3] says that if P is an irreducible real polynomial in $\mathbb{Q}[x]$ with squarefree discriminant D(P), and C is its Galois closure, then $C/\mathbb{Q}(\sqrt{\Delta(P)})$ is unramified.
 \par
 Using these two propositions from Maire can give an algorithm to find a field $K=\mathbb{Q}(\sqrt{l_1.l_2.l_3)}$, where $l_1$ is a prime 1 modulo 4, and $l_2$ and $l_3$ are primes 3 modulo 4. 
 \par
@@ -524,7 +525,7 @@ Here is an example for n= 5:
 \end{equation}
 
 
-\subsection{Hoelscher's Results for Abelian Unnramified Extensions}
+\subsection{Hoelscher's Results for Abelian Unramified Extensions}
 Using \cite{HOEL} and \cite{JONE}, we see that 
 the prime p=239 is tamely ramified for 
 \begin{equation}
@@ -562,7 +563,7 @@ We have the field extension diagram
       \end{tikzpicture}
 \end{center}
 \par
-Where the field extension L is a non-trivial abelian unrafimifed sub-extension of degree prime to p with L Galois over $\mathbb{Q}$.
+Where the field extension $L$ is a non-trivial abelian unramified sub-extension of degree prime to p with $L$ Galois over $\mathbb{Q}$.
 \cite{HOEL} also gives the following theorem: 
 \begin{theorem}
 Let $G$ be the Galois group of some number field, ramified only at 3 and possibly $\infty$. Then \begin{itemize}
@@ -596,7 +597,7 @@ The following polynomial was found:
 \end{equation}
 where 
 \begin{equation}
-    l = \Delta(P) = 76363470193820546413
+    L = \Delta(P) = 76363470193820546413
 \end{equation}
 Put \begin{equation}
     q_1 = 219823, q_2 = 931363, K = split(P, \mathbb{Q}[x]).
@@ -628,8 +629,8 @@ In fact, $E_2/\mathbb{Q}(\sqrt{l.q_1.q_2})$ is an unramified field extension of 
 \begin{theorem}[Cebotarev's Density Criterion]
 Let L/K be a finite extension of
 number fields with Galois group G, and let $\mathcal{C}$ be a conjugacy class in G. Then the set of
-prime ideals of K such that $(\mathfrak{p},L/K)=\mathcal{C}$ has density $|\mathcal{C}|/|G|$ in the set of all prime
-ideals of K. If G is abelian, then, for a fixed $\sigma\in G$, the set of prime ideals $\mathfrak{p}$ of K with $\{\mathfrak{p}:(\mathfrak{p},L/K)=\sigma\}$  = (G:1).
+prime ideals of $K$ such that $(\mathfrak{p},L/K)=\mathcal{C}$ has density $|\mathcal{C}|/|G|$ in the set of all prime
+ideals of K. If G is abelian, then, for a fixed $\sigma\in G$, the set of prime ideals $\mathfrak{p}$ of $K$ with $\{\mathfrak{p}:(\mathfrak{p},L/K)=\sigma\}$  = (G:1).
 \end{theorem}
 \begin{corollary}
  If a polynomial $f \in K[x]$ splits into linear factors modulo $\mathfrak{p}$ for all but finitely prime ideals $\mathfrak{p}$ in K, then it splits in $K[x]$.
@@ -637,13 +638,13 @@ ideals of K. If G is abelian, then, for a fixed $\sigma\in G$, the set of prime 
 \begin{proof}
 Apply the theorem to the splitting field of f.
 \end{proof}
-Applying this result to the above proves that if the extension K exists, there are infinitely many such $q_1$ and $q_2$ satisfying the conditions.
+Applying this result to the above proves that if the extension $K$ exists, there are infinitely many such $q_1$ and $q_2$ satisfying the conditions.
 
 
 \section{Unramified Galois Extensions of Real Quadratic Number Fields}
 \subsection{Kondo's Results}
 \begin{theorem}
-    Suppose F is a number field with discriminant d(F) of degree n, and K is its Galois closure over $\mathbb{Q}$. Suppose d(F) is not a square, i.e. it is equal to the discriminant of the quadratic number field $\mathbb{Q}(\sqrt{d(F)})$, then \begin{enumerate}
+    Suppose F is a number field with discriminant d(F) of degree n, and $K$ is its Galois closure over $\mathbb{Q}$. Suppose d(F) is not a square, i.e. it is equal to the discriminant of the quadratic number field $\mathbb{Q}(\sqrt{d(F)})$, then \begin{enumerate}
         \item $\Gamma(K:\mathbb{Q})\cong S_n$
         \item $K/\mathbb{Q}(\sqrt{d(F)})$ is an unramified extension.
     \end{enumerate}
@@ -657,25 +658,25 @@ Furthermore we have the following theorem \begin{theorem}
 \begin{lemma}
 Furthermore, the following condition is equivalent to the above:
 \par
-    The inertia group of every ramified prime of K is a group of order 2 generated by a transposition.\par
+    The inertia group of every ramified prime of $K$ is a group of order 2 generated by a transposition.\par
 In particular, if F satisfies the above condition, then d(F) is equal to $\Delta(\mathbb{Q}(\sqrt{d(F)}))$.
 \end{lemma}
 \begin{proof}
-This is immediate from a theoreom of Van der Waerden. 
+This is immediate from a theorem of Van der Waerden. 
 \end{proof}
 \begin{lemma}
 Suppose $d(F)\notin \mathbb{Q}^2$. Then the following are equivalent:\begin{enumerate}
-    \item K is an unramified extension of $\mathbb{Q}(\sqrt{d(F)})$
-    \item The inertia group of every ramified prime of K is a group of order 2, generated by an odd permutation. 
+    \item $K$ is an unramified extension of $\mathbb{Q}(\sqrt{d(F)})$
+    \item The inertia group of every ramified prime of $K$ is a group of order 2, generated by an odd permutation. 
 \end{enumerate}
 \end{lemma} 
 The following examples were found using SageMath:
 \begin{example}
-Define $f(x)=x^6 + x^5 - 6x^4 - 4x^3 + 8x^2 + 3x - 2$. Also define $F=\mathbb{Q}(\theta)$, where $\theta$ is a root of f, and let K be the splitting field of f over $\mathbb{Q}$. Then we get $d(f)=\Delta(F)=7846061=17^3.1597$. 
+Define $f(x)=x^6 + x^5 - 6x^4 - 4x^3 + 8x^2 + 3x - 2$. Also define $F=\mathbb{Q}(\theta)$, where $\theta$ is a root of f, and let $K$ be the splitting field of f over $\mathbb{Q}$. Then we get $d(f)=\Delta(F)=7846061=17^3.1597$. 
 \begin{equation}
    f(x)= (x^3 + 9x^2 + 16x + 7)^2\:modulo\:17
 \end{equation}
-By the above lemmas, we see that K is an unramified extension of $\mathbb{Q}(\sqrt{17^3.1597})$. Furthermore, $\Gamma(K/\mathbb{Q})$ is a group of order 72 and is isomorphic to the wreath product of $S_3$ and $C_2$. It follows that $K/\mathbb{Q}(\sqrt{17^3.1597})$ is an unramified extension with Galois group isomorphic to the Frobenius group of order 36.
+By the above lemmas, we see that $K$ is an unramified extension of $\mathbb{Q}(\sqrt{17^3.1597})$. Furthermore, $\Gamma(K/\mathbb{Q})$ is a group of order 72 and is isomorphic to the wreath product of $S_3$ and $C_2$. It follows that $K/\mathbb{Q}(\sqrt{17^3.1597})$ is an unramified extension with Galois group isomorphic to the Frobenius group of order 36.
 Note the polynomial of degree 6 with the smallest absolute discriminant found was $x^6 - 2x^5 + 2x^4 - x + 1$ with absolute discriminant 11691.
 \end{example}
 \begin{example}
@@ -689,7 +690,7 @@ Then $d(f)=d(F)=-357911=-71^{3}$ and
 Therefore, by the above Lemma, $K/Q(\sqrt{-71})$ is unramified. The Galois group of $K/Q$
 is isomorphic to a dihedral group of order 14, and so $K/Q(\sqrt{-71})$
 is an unramified extension with Galois group isomorphic to $C_7$.
-This shows that K is the absolute class field of $\mathbb{Q}(\sqrt{-71})$, since $h(Q(\sqrt{-71}))=7$.
+This shows that $K$ is the absolute class field of $\mathbb{Q}(\sqrt{-71})$, since $h(Q(\sqrt{-71}))=7$.
 \end{example}
 \begin{example}
     Suppose we define the polynomial f with the following properties: \begin{equation}
@@ -734,7 +735,7 @@ Then any prime factor of $(A,B,D)$ is also a prime factor of $2ac$.
 Suppose f is as above and the five conditions hold. Then $\Q(\sqrt{D})$ is a real quadratic number field, and the splitting field $K$ of $f(x) $ is a strictly unramified $A_5$-extension of $\Q(\sqrt{D})$. 
 \end{lemma}
 \begin{example}
-    The following example was found using Sagemath. Take a=6,b=-3,c=-7. 
+    The following example was found using SageMath. Take a=6,b=-3,c=-7. 
 \end{example}
 \cite{YAMAMURA2} defines $f_m(x)= x^5-2m^2x^3+(6m^2-1)x-(m-4)$ for some integer $m$. Indeed imposing some modularity conditions on $m$ gives conditions $(2)$ and $(3)$, thereby proving the theorem. 
 \cite{YAMAMURA2} also gives examples of real quadratic number fields with class number one having either a strictly or weakly unramified $A_n$-extension which is an $S_n$-extension of $\Q$ for $n$ equal to 5, 6, and 7. Here strictly unramified means that a field extension not ramified at any finite or infinite prime.
@@ -748,14 +749,14 @@ Suppose $K=\Q(\sqrt{592661})$, then $K$ has a strictly ramified $A_6$ extension,
 \end{example}
 \subsection{Unramified Cyclic Quintic Extensions of Imaginary Quadratic Number Fields}
 \subsubsection{A family of unramified cyclic quintic extensions of imaginary quadratic number fields}
-These results are due to \cite{KISH}. For this subsection let $F_n$ denote the n-th Fibonacci number, and $L_n$ the n-th Lucas number. For a non-negative integer m, define $k_m = \Q(\sqrt{-F_{2m+1}})$ and \begin{equation}
+These results are due to \cite{KISH}. For this subsection let $F_n$ denote the n-th Fibonacci number, and $L_n$ the n-th Lucas number. For a non-negative integer $m$, define $k_m = \Q(\sqrt{-F_{2m+1}})$ and \begin{equation}
     g_m(x) = x^5 - 10x^3  -20x^2 + 
     5(20F^2_{2m+1} - 3)x
     + 40F^2_{2m+1}(-1^{m}L_{2m+1} + 1)- 4
 \end{equation} 
 Also define \begin{equation}
     \delta_m = 1+\phi^m(\sqrt{-F_{2m+1}})(\zeta-\zeta^{-1})
-\end{equation} where $\zeta = e^{\frac{2\pi}{5}}$ and $\phi = \frac{1+\sqrt{5}}{2}$. There exists a unique proper subextension, M, of the bicyclic biquadratic
+\end{equation} where $\zeta = e^{\frac{2\pi}{5}}$ and $\phi = \frac{1+\sqrt{5}}{2}$. There exists a unique proper sub-extension, M, of the bi-cyclic bi-quadratic
 extension $k(\zeta)/\Q(\sqrt{5})$ which is not equal to $k(\sqrt{5})$ or $\Q(\zeta)$. We denote it by M. Then M is a cyclic quartic field. Define $NT(\alpha) = N_{\Q(\sqrt{5})}(\alpha)Tr_{M/\Q(\sqrt{5})}(\alpha)$. Also define $\tau$ to be the generator of $\Gamma(k(\zeta)/k)$ with $\zeta^2=\zeta^\tau$.
 Now for $\gamma \in M$, define the polynomial \begin{equation}
     f_\gamma(x) = x^5 - 10N_M(\gamma)x^3 - 5N_M(\gamma)NT (\gamma)x^2
@@ -763,7 +764,7 @@ Now for $\gamma \in M$, define the polynomial \begin{equation}
 .
 \end{equation}
 We have the following theorem: \begin{theorem}
-    Let m be a non-negative integer and define $E = split(g_m,\Q)$.Then E is a $D_5$-extension
+    Let $m$ be a non-negative integer and define $E = split(g_m,\Q)$.Then E is a $D_5$-extension
 of $\Q$ containing $k_m$. Furthermore, if $m \equiv 12 \:(mod\:25$), then E is an unramified cyclic quintic extension of $k_m$. Therefore, putting $m = 25s + 12$, 5 divides the class number of the quadratic field $\Q(\sqrt{-F_{50s+25}})$.
 \end{theorem}
 \begin{proof}
@@ -780,12 +781,12 @@ It therefore holds that $\delta_m \in \mathcal{M}(k_m)$ iff $g_m(x)$ is irreduci
 Here is a further example:
 \begin{example}
 Suppose $s=1, m= 37$. Then $F_{75} = 2111485077978050 = 2 * 5^2 * 61 * 3001 * 230686501$. Define $K = \Q(\sqrt{-F_{75}})$, and $g_{37} = x^5 - 10*x^3 - 20*x^2 + 445836923452397188907628180249985*x - 841994090120605132670921957520010040515272300004
-$ with discriminant $2^{24} * 5^{20} * 13^2 * 61^6 * 109^2 * 139^2 * 3001^6 * 464419^2 * 10772623^2 * 230686501^6 * 29020995417137^2 * 460045379989033^2$. Using \href{http://magma.maths.usyd.edu.au/calc/}, the class group of $K$ was calculated. The factoring was done using Sagemath. So $Cl(K) \cong C_{40} $ and $h(K) = 40$ which is divisible by 5. Let $L$ be the splitting field of $g_{37}(x)$. Then $L$ is an unramified $C_5$-extension of $K$. 
+$ with discriminant $2^{24} * 5^{20} * 13^2 * 61^6 * 109^2 * 139^2 * 3001^6 * 464419^2 * 10772623^2 * 230686501^6 * 29020995417137^2 * 460045379989033^2$. Using \href{http://magma.maths.usyd.edu.au/calc/}, the class group of $K$ was calculated. The factoring was done using SageMath. So $Cl(K) \cong C_{40} $ and $h(K) = 40$ which is divisible by 5. Let $L$ be the splitting field of $g_{37}(x)$. Then $L$ is an unramified $C_5$-extension of $K$. 
 \end{example}
 
 
 \subsubsection{Smith's Family of Cyclic Quintic Extensions}
-\cite{SMITH} gives the a method to find unramified cyclic extensions of polynomials. First let $L_n$ define the n-th Lucas number and $F_n$ the n-th Fibonacci number. It is a well-known result that $L_n^2 = 5F_n^2+4(-1)^n$, therefore $\sqrt{5*L_n^2+20} = 5F_n \in \mathbb{Z}$ for odd $n$. Furthermore for $m,n \in \Z$ , m|n iff $F_m | F_n$. Since $F_5 = 5$, it followd that $5| F_n $ when $n$ is a multiple of 5, and therefore when $n$ is an odd multiple of 5, $\frac{L_n^2+4}{125} = \frac{F_n^2}{25} \in \Z$. Also for $t = 2L_{20i-15}$ for $i \in \Z$, $\sqrt{\frac{t^2+16}{500}} = \frac{F_{20i-15}}{5} \in \Z$. 
+\cite{SMITH} gives the a method to find unramified cyclic extensions of polynomials. First let $L_n$ define the n-th Lucas number and $F_n$ the n-th Fibonacci number. It is a well-known result that $L_n^2 = 5F_n^2+4(-1)^n$, therefore $\sqrt{5*L_n^2+20} = 5F_n \in \mathbb{Z}$ for odd $n$. Furthermore for $m,n \in \Z$ , $m|n$ iff $F_m | F_n$. Since $F_5 = 5$, it follows that $5| F_n $ when $n$ is a multiple of 5, and therefore when $n$ is an odd multiple of 5, $\frac{L_n^2+4}{125} = \frac{F_n^2}{25} \in \Z$. Also for $t = 2L_{20i-15}$ for $i \in \Z$, $\sqrt{\frac{t^2+16}{500}} = \frac{F_{20i-15}}{5} \in \Z$. 
 \cite{SMITH} then gives the following theorems:
 \begin{theorem}
 Suppose $t = 2L_{20i-5}$ for some $i \in \Z$. Define $f_t(x) = x^5 + 10x^3 - 5tx^2-15x-t^2+t-16$ with splitting field $L_t$. Furthermore define $d_t = -\sqrt{\frac{t^2+16}{500}}$ and $K_t = \Q(\sqrt{d_t})$. If $f_t(x)$ is irreducible, $L_t(x)$ defines an unramified $C_5$ - extension of $K_t$. 
@@ -815,7 +816,7 @@ For each of these polynomials, $f_t(x)$ is irreducible for all but finitely many
 Consider the polynomial \begin{equation}
  f(x)=x^3-x-1, \Delta(f)=-23
 \end{equation}
-Note f has one real root and two imaginary roots. Let L denote its splitting field. Then $\Gamma(L/\mathbb{Q})\cong S_3$ and it is a degree three extension of the quadratic field $K= \mathbb{Q}(\sqrt{-23})$. Now h(K)=3 so using Odlyzko's bounds proves that L is the maximal unramified abelian extension of K. Here is a diagram:
+Note f has one real root and two imaginary roots. Let $L$ denote its splitting field. Then $\Gamma(L/\mathbb{Q})\cong S_3$ and it is a degree three extension of the quadratic field $K= \mathbb{Q}(\sqrt{-23})$. Now h(K)=3 so using Odlyzko's bounds proves that $L$ is the maximal unramified abelian extension of K. Here is a diagram:
 \begin{center}
     \begin{tikzpicture}[node distance = 1.8cm, auto]
       \node (Q) {$\mathbb{Q}$};
@@ -830,7 +831,7 @@ Note f has one real root and two imaginary roots. Let L denote its splitting fie
 Define  \begin{equation}
     f(x)=x^4-x-1, \Delta(f)=-283
 \end{equation}
-Note f has two real and two imaginary roots. Define L as above and then $\Gamma(L/\mathbb{Q})\cong S_4$. By the fundamental theorem of Galois theory, there exists an intermediate field H corresponding to the normal subgroup $V_4$ of $S_4$. Now $L^H$ is the Hilbert class field of $K= \mathbb{Q}(\sqrt{-283})$ and h(K)=3. Now define a further field extension of L, M such that M is unramified over L (and hence also over K) and M is a Galois extension of $\mathbb{Q}$. Martinet proved that M is the maximal unramified extension of K, with Galois group isomorphic to $SL_2(F_3)$ of order 24. In addition, the Galois group of M over $\mathbb{Q}$ is isomorphic to $GL_2(F_3)$. 
+Note f has two real and two imaginary roots. Define $L$ as above and then $\Gamma(L/\mathbb{Q})\cong S_4$. By the fundamental theorem of Galois theory, there exists an intermediate field H corresponding to the normal subgroup $V_4$ of $S_4$. Now $L^H$ is the Hilbert class field of $K= \mathbb{Q}(\sqrt{-283})$ and h(K)=3. Now define a further field extension of L, M such that M is unramified over $L$ (and hence also over K) and M is a Galois extension of $\mathbb{Q}$. Martinet proved that M is the maximal unramified extension of K, with Galois group isomorphic to $SL_2(F_3)$ of order 24. In addition, the Galois group of M over $\mathbb{Q}$ is isomorphic to $GL_2(F_3)$. 
 \begin{center}
     \begin{tikzpicture} [align=center]
   \path  (0, 0)   node(Q)  {$\mathbb{Q}$}
@@ -877,11 +878,11 @@ hence the Galois group defined by this $f_5(x)$ is symmetric. Similarly argument
 
 
 Now define $g_n(x) = x^n-x-1$ for $ n \in \mathbb{N}$ with discriminant $D_n'$. \cite{SELMER} shows that for $n>1$, $g_n(x)$ is always irreducible. Furthermore, by the above, $D_n'= (-(n-1))^{n-1} - (-n)^{n}$. 
-Using Sagemath, the factorisation of $D_n'$ is calculated for $2 \leq n \leq 30$. Define $G_n$ be the Galois group defined by $g_n(x)$. Using the Magma package available at \url{http://magma.maths.usyd.edu.au/calc/}, the Galois group $S_n$ is calculated and all the data is presented in the following table:
+Using SageMath, the factorisation of $D_n'$ is calculated for $2 \leq n \leq 30$. Define $G_n$ be the Galois group defined by $g_n(x)$. Using the Magma package available at \url{http://magma.maths.usyd.edu.au/calc/}, the Galois group $S_n$ is calculated and all the data is presented in the following table:
 \begin{center}
  \begin{tabular}{||c | c | c | c||} 
  \hline
- n & ((n-1)a,nb) & $G_n$ & Factorisation of $D_n'$ \\ [0.5ex] 
+ $n$ & $((n-1)a,nb)$ & $G_n$ & Factorisation of $D_n'$ \\ [0.5ex] 
  \hline\hline
 2 & 1 & $S_{2}$ & 5 \\
 \hline
@@ -952,13 +953,13 @@ Hence for $2 \leq n \leq 30$, the criteria given in the above theorem are fulfil
 \cite{YAMA1970} gives the following classification of trinomials of the form 
 \begin{equation}
     f(x) = x^n+ax+b \in \mathbb{Z}[x]
-\end{equation}and K is the splitting field of f over $\Q$.
+\end{equation}and $K$ is the splitting field of f over $\Q$.
 If the following conditions hold:
 \begin{enumerate}
     \item $(n-1).a$ and $n.b$ are relatively prime 
     \item $\Gamma(K/\mathbb{Q}) \cong S_n$
 \end{enumerate}\par
-Then K is an $A_n$-extension of $\Q\left( \sqrt{\Delta(f)}\right)$ which is unramified at all finite primes.
+Then $K$ is an $A_n$-extension of $\Q\left( \sqrt{\Delta(f)}\right)$ which is unramified at all finite primes.
 \begin{lemma}
 Suppose $f(x)$ is of the form above, a degree $n$ trinomial If there exist primes $p_1,p_2,p_3$ such that \begin{itemize}
 \item $f(x)$ is irreducible modulo $p_1$
@@ -971,7 +972,7 @@ Then the Galois group defined by the splitting field of $f$ is isomorphic to $S_
 Set $f(x)= x^5+51x-95$ with discriminant $D$, then $f(x)$ is irreducible modulo 1979, i.e. $f(x)= x^5+51x-95 $ mod 1979, 
 $f(x)=(x + 357)(x^4 + 1642x^3 + 1512 x^2 + 1945x + 1338)$ mod 1999, $f(x)=(
 x + 194)(x + 384)(x + 1332)(x^2 + 1832x + 950)$ mod 1871. Let $L$ be the splitting field of $f$, and $K = \Q(\sqrt{D(f)})$.    
-Note that ((n-1)(a),nb) = (204,-475)=1 and $D = 342859667381 = 7^3 \cdot 11 \cdot 1567 \cdot 57991$. Therefore $\Gamma(L,\Q) \cong S_5$ and $L$ is an $A_5$-extension of $K$ unramified at all finite primes.
+Note that $((n-1)(a),nb) = (204,-475)=1$ and $D = 342859667381 = 7^3 \cdot 11 \cdot 1567 \cdot 57991$. Therefore $\Gamma(L,\Q) \cong S_5$ and $L$ is an $A_5$-extension of $K$ unramified at all finite primes.
 \end{example}
 
 % ([1979, 1999, 1871], [-95, 51, 0, 0, 0, 1])
@@ -983,12 +984,12 @@ Note that ((n-1)(a),nb) = (204,-475)=1 and $D = 342859667381 = 7^3 \cdot 11 \cdo
 
 Using SageMath, additional examples for degrees 5 and 6 were found:
 \begin{example}
-Set $f(x)= x^6-23x-58$ with $D$, $K$ and $L$ as above, and $p_1,p_2,p_3$ are equal to 1999,1987,1861 respectively. ((n-1)a,nb) = (-115,-324)=1, $f(x)$ is irreducible mod 1999, $f(x)=(x + 1818)(x^5 + 169x^4 + 743x^3+386x^2+1650x+647)$ mod 1987, $f(x)=(x + 37)(x + 406)(x + 1265)(x+1396)(x^2 + 618 + 1485)$ mod 1861. Also $D = 31085593520933 = 7 \cdot 617 \cdot 7197405307$. Therefore, $\Gamma(L,\Q) \cong S_6$ and $L$ is an $A_6$-extension of $K$ unramified at all finite primes.
+Set $f(x)= x^6-23x-58$ with $D$, $K$ and $L$ as above, and $p_1,p_2,p_3$ are equal to 1999,1987,1861 respectively. $((n-1)a,nb) = (-115,-324)=1$, $f(x)$ is irreducible mod 1999, $f(x)=(x + 1818)(x^5 + 169x^4 + 743x^3+386x^2+1650x+647)$ mod 1987, $f(x)=(x + 37)(x + 406)(x + 1265)(x+1396)(x^2 + 618 + 1485)$ mod 1861. Also $D = 31085593520933 = 7 \cdot 617 \cdot 7197405307$. Therefore, $\Gamma(L,\Q) \cong S_6$ and $L$ is an $A_6$-extension of $K$ unramified at all finite primes.
 \end{example}
 In \cite{uchida1970}, further examples are given; for example $x^7-x+1$, $x^9-x+1$ and $x^{10}-x+1$. 
 Applying the initial theorem in the case that $n=3$, \cite{uchida1970} also proves that there exist infinitely many real quadratic number fields with class numbers divisible by 3. 
 \begin{proof}
-Suppose $f(x) = x^3+ax+b$ is an irreducible cubic with splitting field $K$ and discriminant $D$, such that $\Gamma(K/\Q) \cong S_3$. Then $K/\Q(\sqrt{d})$ is unramified and the claass number of $\Q(\sqrt{d})$ is divisible by 3.  Fixing $b=1$, it suffices to find infinitely many different $\Q(\sqrt{D})$ with positive $D$. Picking a prime $p \equiv 2$ mod 3 with $a_1 \equiv 1$ mod 3 and $a_1 > 2$ such that $p | 4a_1^3 - 27$ will generate the required fields. Examples of such fields have been calculated using Sagemath and are tabulated below.
+Suppose $f(x) = x^3+ax+b$ is an irreducible cubic with splitting field $K$ and discriminant $D$, such that $\Gamma(K/\Q) \cong S_3$. Then $K/\Q(\sqrt{d})$ is unramified and the class number of $\Q(\sqrt{d})$ is divisible by 3.  Fixing $b=1$, it suffices to find infinitely many different $\Q(\sqrt{D})$ with positive $D$. Picking a prime $p \equiv 2$ mod 3 with $a_1 \equiv 1$ mod 3 and $a_1 > 2$ such that $p | 4a_1^3 - 27$ will generate the required fields. Examples of such fields have been calculated using SageMath and are tabulated below.
 \begin{center}
  \begin{tabular}{| c | c | c | c |}
  \hline
@@ -1038,7 +1039,7 @@ By genus theory, $d= d_1d_2$, where $d_1$ and $d_2$ are fundamental prime discri
 \end{lemma}
 \begin{proof}
 When $d \not \in {115, 235, 403}$, h(F )=1 and therefore 
-$K_1 =\Q(- d_1, - d_2 $) is an imaginary biquadratic bicyclic number field with class number one by the above lemma. Since $K_1/K$ is unramified,  $rd_{K_1}=rd_K \leq 267=16.340$, and  if $d = 427$, and $rd_{K_1}=rd_K = 427=20.663$, If $d=427$. Now  $B(240, 0, 120) = 18.788$, $(B(240, 0, 120) = 23.575$ under GRH. Hence under GRH, $K_1$ is unramified-closed and $K_{ur}=K_1$ 
+$K_1 =\Q(- d_1, - d_2 $) is an imaginary biquadratic bi-cyclic number field with class number one by the above lemma. Since $K_1/K$ is unramified,  $rd_{K_1}=rd_K \leq 267=16.340$, and  if $d = 427$, and $rd_{K_1}=rd_K = 427=20.663$, If $d=427$. Now  $B(240, 0, 120) = 18.788$, $(B(240, 0, 120) = 23.575$ under GRH. Hence under GRH, $K_1$ is unramified-closed and $K_{ur}=K_1$ 
 \end{proof}
 \begin{corollary}
 Assume GRH. Define $G = \Gamma(\Q(\sqrt{-d})^{ur}/\Q(\sqrt{-d})$. Then there are three situations:
@@ -1060,7 +1061,11 @@ Suppose $n>5$ is odd. By group theory, $D_n^{ab} \cong C_2$. Then $G \not \cong 
 \begin{corollary}
 Suppose $n>2$. Then $[S_n] \cong D_n$, meaning that $S_n^{ab} \cong C_2$. By the above theorem, $G \not \cong S_n$ for any imaginary quadratic number field.
 \end{corollary}
-Until now, GRH was needed to find the maximal unramified extension in the case $d = 427$. \cite{WONG} removes this dependency. In addition, it is proved that the degree 14 subfield of the cyclotomic field $\Q(\zeta_49)$ is also unramified-closed. 
+Until now, GRH was needed to find the maximal unramified extension in the case $d = 427$. \cite{WONG} removes this dependency. In addition, the follow are proved:
+\begin{itemize}
+\item Unconditionally, the number field $\Q(\sqrt{-7},\sqrt{-61})$ is unramified-closed.
+\item  Assuming GRH, the degree 14 subfield of the cyclotomic field $\Q(\zeta_49)$ is also unramified-closed. 
+\end{itemize}
 \subsection{More Maximal Unramified Extensions of Quadratic Number Fields}
 In \cite{YAMA2001}, the table for the $\Q(\sqrt{-d}))^{ur}$ is updated for the missing 19 of the missing 23 values of $d$, apart from $d= -883,-907,-947$. However, if it can be verified that $K^{ur} \neq K_1$ for these fields, then $\Gamma(K^{ur}/K \cong PSL(2,7) \times cl(K)$. 
 \cite{YAMA1997} gives the following proposition: \begin{proposition}
@@ -1082,8 +1087,8 @@ Suppose $f(x) = x^7 - x^6 - 3x^5 - x^4 + 2x^3 + 4x^2 + 4x + 1$ define a field $E
 \end{example}
 
 %todo check this 
-\cite{YAMA1997} defines the structure of $\Gamma(K_{ur}/K)$ where K is an imaginary quadratic number field with small conductors. Note that for all number fields with conductor $<1000$, $K_{ur}$ is one of $K_1$, $K_2$ and $K_3$. \par 
-Let $K=\Q(\sqrt{d})$ for some integer d. Using Odlyzko's bound as above, the degree $[K^{ur}:K]$ is finite for $|d|\leq 499$, and assuming GRH, replace 499 with 2003. We know that if $[K^{ur}:K_H]<60$, then $K^{ur}=K_H$. However this is difficult to prove; for example for d=-423, $K_H=K_1$. It is necessary to find the degree $[K_H:\Q]$. One way is to use the tower law from Galois theory. Suppose $\Delta(K)=d_1d_2...d_n$, where $\Delta(K)$ is the discriminant of K, then the genus field of K satisfies $K_g=\Q(\sqrt{d_1},\sqrt{d_2},...\sqrt{d_n})$. We have the list of inclusions \begin{equation}
+\cite{YAMA1997} defines the structure of $\Gamma(K_{ur}/K)$ where $K$ is an imaginary quadratic number field with small conductors. Note that for all number fields with conductor $<1000$, $K_{ur}$ is one of $K_1$, $K_2$ and $K_3$. \par 
+Let $K=\Q(\sqrt{d})$ for some integer d. Using Odlyzko's bound as above, the degree $[K^{ur}:K]$ is finite for $|d|\leq 499$, and assuming GRH, replace 499 with 2003. We know that if $[K^{ur}:K_H]<60$, then $K^{ur}=K_H$. However this is difficult to prove; for example for d=-423, $K_H=K_1$. It is necessary to find the degree $[K_H:\Q]$. One way is to use the tower law from Galois theory. Suppose $\Delta(K)=d_1d_2...d_n$, where $\Delta(K)$ is the discriminant of K, then the genus field of $K$ satisfies $K_g=\Q(\sqrt{d_1},\sqrt{d_2},...\sqrt{d_n})$. We have the list of inclusions \begin{equation}
     \Q \subseteq K \subseteq K_g \subseteq K_1 \subseteq (K_g)_1 \subseteq K_2
 \end{equation} and the tower law gives \begin{equation}
     [K_2:q] = [K_2:(K_g)_1]h(K_g)[(K_g)_1:\Q]
@@ -1093,7 +1098,7 @@ Here is an explicit example. Let  $d=-1*5*51=-255\equiv \: 1\:mod\:4$. Therefore
 \end{equation}
 For d=-255, $K_H=K_2$. We have $cl(K)\equiv C_6 \times C_2$, 
 
-$K_1 = K \left( 
+$K_1 = $K$ \left( 
 \sqrt{5}, \sqrt[3]{(9+\sqrt{85})/2}
 \right)$, $K_2 = K_1 \left( 
 \sqrt{2+\sqrt{5}(5+2\sqrt{-3})}
@@ -1103,10 +1108,10 @@ $K_1 = K \left(
 \par
 $\mathbb{Q}(\sqrt{-1507})$ is the first imaginary quadratic field with an unramified $A_5$-extension over $\mathbb{Q}$. In fact, defining $L=split\left( x^5-5x^3+5x^2+24x+5,\Q\right)$ gives such an $A_5$ extension of K. 
 \begin{lemma}
-Define $K=\mathbb{Q}(\sqrt{-14731})$, $L=split(x^6+3x^5,5x^4+4x^3+3x^2+2x+1,\mathbb{Q}[x])$. Then L is an unramified $A_6$-extension of K and is an $S_6$ extension of $\mathbb{Q}$.
+Define $K=\mathbb{Q}(\sqrt{-14731})$, $L=split(x^6+3x^5,5x^4+4x^3+3x^2+2x+1,\mathbb{Q}[x])$. Then $L$ is an unramified $A_6$-extension of $K$ and is an $S_6$ extension of $\mathbb{Q}$.
 \end{lemma}
 \begin{lemma}
-Define $K=\mathbb{Q}(\sqrt{-30759})$, $L=split(x^7+2x^6-3x^4-x^3-x^2-x+2,\mathbb{Q}[x])$. Then L is an unramified PSL(2,7)-extension of K and is an $PSL(2,7)\times C_2$ extension of $\mathbb{Q}$.
+Define $K=\mathbb{Q}(\sqrt{-30759})$, $L=split(x^7+2x^6-3x^4-x^3-x^2-x+2,\mathbb{Q}[x])$. Then $L$ is an unramified PSL(2,7)-extension of $K$ and is an $PSL(2,7)\times C_2$ extension of $\mathbb{Q}$.
 \end{lemma}
 
 \subsection{Kim and Koenig's Results for Maximal Unramified Extensions}
@@ -1133,7 +1138,7 @@ Now define $K=\mathbb{Q}(\sqrt{-1567})$ and
     L=split(x^9-2x^8+10x^7-25x^6+34x^5-40x^4+52x^3-45x^2+20x-4,\mathbb{Q}[x])
 \end{equation}Then we use the following theorem
 \begin{theorem}
-    Write $G=PSL_2(\mathbb{F}_8)$. L is a G-extension of $\mathbb{Q}$; 1567 is the only prime in this field which is ramified with index 2. Abhyankar's Lemma shows that LK/K is unramified at every prime. G is a nonabelian simple group and so $L\cap K_1=\mathbb{Q}$. Therefore $\Gamma(LK_1/K_1)\cong\Gamma(L/\mathbb{Q})\cong G$. It follows that $\Gamma(LK_1/\mathbb{Q})\cong G\times D_{15}$.
+    Write $G=PSL_2(\mathbb{F}_8)$. $L$ is a G-extension of $\mathbb{Q}$; 1567 is the only prime in this field which is ramified with index 2. Abhyankar's Lemma shows that LK/K is unramified at every prime. G is a non-abelian simple group and so $L\cap K_1=\mathbb{Q}$. Therefore $\Gamma(LK_1/K_1)\cong\Gamma(L/\mathbb{Q})\cong G$. It follows that $\Gamma(LK_1/\mathbb{Q})\cong G\times D_{15}$.
 \end{theorem}
 We have the following diagram:
 \begin{center}
@@ -1152,7 +1157,7 @@ We have the following diagram:
     \draw [-] (L) to node [pos=0.5,right]{$D_{15}$} (LK1);
       \end{tikzpicture}
 \end{center}
-\subsection{Results Using Group Theoruy}
+\subsection{Results Using Group Theory}
 \subsubsection*{Abyhankar's Lemma}
 In this section, GRH is assumed. 
 Begin with some definitions:
@@ -1171,7 +1176,7 @@ Such an extension is called a \textbf{central extension} if the centre of $G$ co
 \begin{definition}
 A \textbf{p-group} for a given prime number p is a group in which every element has order a power of p.
 \end{definition}
-The following propoosition from group theory is relevant:
+The following proposition from group theory is relevant:
 \begin{proposition}
 Let $H$ be an abelian 2-group. Suppose that $1 \rightarrow H \rightarrow G \rightarrow A_5 \rightarrow 1$ is a central extension of $A_5$ by $H$. If $|H| > 2$ then $G$ has a non-trivial abelian quotient, whereas if $|H|=2$, then G is isomorphic either to $C_2 \times A_5$ or to $SL_2(F_5)$.
 \end{proposition}
@@ -1184,7 +1189,7 @@ Let $K= \Q(\sqrt{13613})$,  $L$ be the splitting field of $f(x)=x^6-13x^4-7x^3 +
 \begin{equation}
 (x+4519)(x+6371)^2(x+10315)(x+13438)^2 \: mod \: 13613.
 \end{equation}
-Therefore $L$ is an $A_5$ extension of $\Q$ unramified only at 13613 with ramification index 2. By Abhyankar's Lemma, $LK/K$ is unramified at all primes. $A_5$ is an nonabelian simple group, so $L \cap K = \Q$ and $\Gamma(LK/K) \cong \Gamma(L/\Q) \cong A_5$, whence $LK$ is an unramified $A_5$-extension of $K$.
+Therefore $L$ is an $A_5$ extension of $\Q$ unramified only at 13613 with ramification index 2. By Abhyankar's Lemma, $LK/K$ is unramified at all primes. $A_5$ is an non-abelian simple group, so $L \cap $K$ = \Q$ and $\Gamma(LK/K) \cong \Gamma(L/\Q) \cong A_5$, whence $LK$ is an unramified $A_5$-extension of $K$.
 Now write $M=LK$. Since $M/K$ is unramified at all places, $M$ and $K$ have the same root discriminant, $rd_M = rd_K = \sqrt{13613} = 116.67 < 121.11 = B(2400,2400,0)$. Therefore $[K^{ur}:M]<20$. \par
 Now define $N=KE$, and $N$ is a subfield of $M$, so $N/K$ is unramified. Following the known fact that $N/M \cong D_5$, the Fundamental Theorem of Galois Theory shows that there must exist some intermediate field $F$, $M/F/N$ with $\Gamma(M/F) \cong A_5$ and $\Gamma(F/N) \cong C_2$. Calculation gives that $h(N)=4$ and $cl(N) \cong C_4$, whence $M$ has some unramified $C_2$-extension $T$ with closure $S = \bar{T}$. Therefore $S/M$ is an unramified extension with Galois group $\Gamma(S/M) \cong \left(C_2 \right)^{n}$ for some $1 \leq n \leq 4$. \par
 For $n=2$, $|Aut((C_2)^2)| = |C_2| = 2$, and for $n=3$, $|Aut((C_2)^3)| = |PSL(3,2)| = 168$. In either case, the order is not divisible by 60, so $\Gamma(M/K)$ acts trivially on $\Gamma(S/M)$. By the above proposition, $\Gamma(S/K)$ has an abelian quotient, contradicting $h(K)=1$. \par
@@ -1192,7 +1197,7 @@ Now suppose that $m=4$.
 If $\Gamma(M/K)$ acts trivially on $\Gamma(S/M)$, the above proposition will lead to a contradiction. Let $\tilde{N}$ denote the unique intermediate field in $N_2/\tilde{N}/N$, and $\Gamma(N_2/\tilde{N})$ is an abelian quotient of $\Gamma(S/\tilde{N})$. \par 
 Noting that  $\Gamma(S/\tilde{N})$ is a $C_5$-extension of
 $\Gamma(M/\tilde{N})$ by $\Gamma(S/M) \cong (C_2)^{4})$. Since 
-$\Gamma(M/\tilde{N})$ acts nontrivially on $\Gamma(S/M)$
+$\Gamma(M/\tilde{N})$ acts non-trivially on $\Gamma(S/M)$
  and it follows that  $\Gamma(S/\tilde{N})$ does not have $C_2$ as a quotient, with contradiction. \par
 Therefore, $m = 1$, implying that , $S=T$ and $\Gamma(T/M) = \Gamma(S/M) \cong C_2$. By the above proposition, $\Gamma(T/K) \cong A_5 \times C_2$  or $\cong SL_2(F_5)$ However, $A_5 \times C_2$ has an abelian quotient. Therefore,  $SL_2(F_5)$ is the only possibility. Since Since $T$ is a $\Q$-extension of degree 240, $[K^{ur}:T] < 10$. 
 
@@ -1217,7 +1222,7 @@ Here are two more examples from \cite{KIM2017}
 Suppose $K = \Q(\sqrt{16621})$ and $f(x) = x^6-13x^4-4x^3 +36x^2 +3x-22$. Then $Disc(f) = 11^2 \cdot 1511^2 = 16621^2$, Define $L= split(f,\Q)$. Then $L$ is an unramified $A_5$-extension of $K$ and similar to the previous example, $\Gamma(K^{ur}/K) \cong SL_2(F_5)$.
 \end{example}
 \begin{example}
-Let K be the real quadratic field Q( 16701). Then, under the assumption of GRH,  $\Gamma(K^{ur}/K) \cong A_5 \times C_2$.
+Let $K$ be the real quadratic field Q( 16701). Then, under the assumption of GRH,  $\Gamma(K^{ur}/K) \cong A_5 \times C_2$.
 \end{example}
  
 
