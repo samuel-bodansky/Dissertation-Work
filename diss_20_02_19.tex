@@ -119,7 +119,7 @@ The following theorems from Algebraic Number Theory are very helpful in this top
  Suppose that $K$ be a field extension of $\Q$ with discriminant D. Then a prime p
 ramifies in $K$ if and only if $p|D$.   
 \end{theorem}
-Note that the discriminant of a number field is finite, hence only finitely many primes ramify over $\Q$. Here is an easy corollary:
+Note that the discriminant of a number field is finite, hence only finitely many primes ramify over $\Q$. The following is an easy corollary:
 \begin{corollary}
 A field extension $K$ of $\Q$ ramifies at precisely one prime iff the absolute value of disc(K) is a prime power.
 \end{corollary}
@@ -147,18 +147,21 @@ The compositum of two finite unramified extensions of $K$ is also unramified, an
     Since $\mathfrak{p}$ is unramified in $L$ and $\tilde{L}$, it follows that $Q \cap \mathcal{O}_L$ and $Q \cap \mathcal{O}_{\tilde{L}}$ are unramified in $L$ and $\tilde{L}$ respectively. 
  But the inertia field $M^E$ is the largest field in which $\mathfrak{p}$ is unramified, so it follows that $L\subseteq M^E$ and $\tilde{L} \subseteq M^E $, whence $L\tilde{L}\subseteq M^E$ and $\mathfrak{p}$ is unramified in $L\tilde{L}$.
 \end{proof}
-\subsection{Class Fields}
+\subsection{Hilbert Class Fields}
+Analysing the Hilbert class field - and hence the Hilbert class tower - gives information about unramified extensions of number fields. The \textbf{class
+field tower problem} - stated by Hasse in 1925 -  asks whether or not this tower is always finite, i.e. terminates in a field with class number one. The answer was shown to be negative by
+Golod and Shafarevich in 1964. 
 \begin{definition}
 The \textbf{class field} of the trivial subgroup of C(K) is called the Hilbert class field of K. 
 \end{definition}
 The Hilbert class field is the maximal abelian extension of $K$ unramified at all primes of K. The degree of its extension over $K$ is equal to the class number of K, and its Galois group is isomorphic to the ideal class group of K, taking Frobenius elements as prime ideals of $K$. \par
 In particular, if $K$ is a unique factorisation domain then $K$ is equal to its own Hilbert class field. 
-Here are two further examples:
+Here are three further examples:
 \begin{example}
     Suppose K=$\mathbb{Q}$. Then $K$ is its own Hilbert class field. 
 \end{example}
 \begin{example}
-    Suppose $K=\mathbb{Q}[\sqrt{-5}]$, and take $L=\Q[\sqrt{-1},\sqrt{-5}]$. $L$ is an unramified degree 2 extension of $K$ and so the Hilbert class field of $K$ is $K[\sqrt{-1}]$.
+    Suppose $K=\mathbb{Q}[\sqrt{-15}]$, and take $L=\Q[\sqrt{-3},\sqrt{-5}]$.  $\Delta(K) = -15$ and $\Delta(K) = -15^2$, so $L$ is an degree 2 unramified abelian extension of $K$. In addition, $h(K)=2$, so indeed $L=K_1$.  
 \end{example}
 \begin{example}[Hasse]
     Suppose $K=\mathbb{Q}[\sqrt{-31}]$ with class number 3. Let $L$ be its Hilbert class field. Then $L = \Q(\alpha)$, where $\alpha$ is a root of the polynomial 
@@ -177,7 +180,7 @@ Note that the \textbf{narrow class number} is equal to $|C_K^{+}|$ and is denote
 \end{definition}
 \section{Bounds on Discriminants}
 \subsection{Root Discriminant}
-One important strategy for calculating $K^{ur}$ is to use bounds of the root discriminant of a number field. 
+One technique for calculating $K^{ur}$ is to use bounds on the root discriminant of a number field. Since unramified extensions have the same root discriminant, these bounds can prove that an unramified extension of a number field with class number one is indeed the maximal unramified extension. Minkowski first found a lower bound for the discriminant using geometry, and Odlyzko later improved thse bounds. Assuming the Generalised Riemann Hypothesis, even better bounds can be achieved. 
 \begin{proposition}[Neukirch]
 Let N denote the relative norm, and $K\subseteq $L$ \subseteq M $. Then \begin{equation}
     \Delta_{L/K} = N_{L/K}(\Delta_{L/K})\Delta_{L/K}^{[L:K]}
@@ -242,7 +245,7 @@ However, the degree of LM over $\mathbb{Q}$ is $amn_K$, with $amr_1$ real places
 \end{proof}
 This allows us to check whether a field has no unsolvable unramified extensions. 
 \section{P-adics}
-To find $\Q_p^{ur}$, it is necessary to define an unramified extension of a local field $K$. Local Field Theory \cite{} gives the following results:
+To find $\Q_p^{ur}$, it is necessary to define an unramified extension of a local field $K$. Local Field Theory gives the following results:
 \begin{definition}
 Suppose $L:K$ is a local field extension. Then $L:K$ is unramified if $[L:K]$ = $[l:k]$, where $l = \co_L\pi_L$ and $ k= \co_K\pi_K$, where $\pi_L,\pi_K$ are the uniformisers of $L,K$. This is equivalent to saying that $\pi_k$ is inert in $L$. 
 \end{definition}
@@ -1061,7 +1064,7 @@ Suppose $n>5$ is odd. By group theory, $D_n^{ab} \cong C_2$. Then $G \not \cong 
 \begin{corollary}
 Suppose $n>2$. Then $[S_n] \cong D_n$, meaning that $S_n^{ab} \cong C_2$. By the above theorem, $G \not \cong S_n$ for any imaginary quadratic number field.
 \end{corollary}
-Until now, GRH was needed to find the maximal unramified extension in the case $d = 427$. \cite{WONG} removes this dependency. In addition, the follow are proved:
+Until now, GRH was needed to find the maximal unramified extension in the case $d = 427$. \cite{Wong2015} removes this dependency. In addition, the follow are proved:
 \begin{itemize}
 \item Unconditionally, the number field $\Q(\sqrt{-7},\sqrt{-61})$ is unramified-closed.
 \item  Assuming GRH, the degree 14 subfield of the cyclotomic field $\Q(\zeta_49)$ is also unramified-closed. 
