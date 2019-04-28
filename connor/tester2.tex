@@ -727,19 +727,18 @@ Kishi \cite{KISH} finds an infinite family of imaginary quadratic number fields 
  For a non-negative integer $m$, define 
 \begin{itemize}
 \item $k_m = \Q(\sqrt{-F_{2m+1}})$ 
+\item $\zeta = e^{\frac{2\pi}{5}}$  
+\item $\phi = \dfrac{1+\sqrt{5}}{2}$
+\item $\delta_m = 1+\phi^m(\sqrt{-F_{2m+1}})(\zeta-\zeta^{-1})$
 \item $ g_m(x) = x^5 - 10x^3  -20x^2 + 
     5(20F^2_{2m+1} - 3)x
     + 40F^2_{2m+1}((-1)^{m}L_{2m+1} + 1)- 4$
-\item $\zeta = e^{\frac{2\pi}{5}}$ and 
-\item $\phi = \dfrac{1+\sqrt{5}}{2}$
-\item $\delta_m = 1+\phi^m(\sqrt{-F_{2m+1}})(\zeta-\zeta^{-1})$
-
 \end{itemize}
 
 Then there exists a unique proper sub-extension, $M$, of the bi-quadratic
 extension \\ $k(\zeta)/\Q(\sqrt{5})$ which is not equal to 
 $k(\sqrt{5})$ or $\Q(\zeta)$, denoted by $M$. Then $M$ is a cyclic quartic field. \par 
-Define 
+Now define 
 \begin{itemize}
 \item $NT(\alpha) = N_{\Q(\sqrt{5})}(\alpha)Tr_{M/\Q(\sqrt{5})}(\alpha)$
 \item $\tau$ is the generator of $\Gamma(k(\zeta)/k)$ with $\zeta^2=\zeta^\tau$
@@ -747,8 +746,8 @@ Define
 \begin{equation}
 \begin{split}
     f_\gamma(x) = {} & x^5 - 10N_M(\gamma)x^3  -5N_M(\gamma)NT (\gamma)x^2 \\ &
-  + 5N_M(\gamma)(N_M(\gamma) 
-  - NT(\gamma^{1+\tau})x 
+  + 5N_M(\gamma)\{N_M(\gamma) 
+  - NT(\gamma^{1+\tau})\}x 
   - N_M(\gamma)NT(\gamma^{2+\tau}) .
   \end{split}
 \end{equation}
@@ -757,7 +756,7 @@ Define
 Then these definitions help to find a family of quadratic number fields with unramified cyclic quintic extension:
 \begin{theorem}
     Let $m$ be a non-negative integer and define $E = split(g_m,\Q)$.Then $E$ is a $D_5$ - extension
-of $\Q$ containing $k_m$. Furthermore, if $m \equiv 12 \:(mod\:25$), then $E$ is an unramified cyclic quintic extension of $k_m$. Therefore, putting $m = 25s + 12$, $5$ divides the class number of the quadratic field $\Q(\sqrt{-F_{50s+25}})$.
+of $\Q$ containing $k_m$. Furthermore, if $m \equiv 12 \:(mod\:25$), then $E$ is an unramified cyclic quintic extension of $k_m$. Therefore, if $m = 25s + 12$ for some nonnegative integer $s$, $5$ divides the class number of the quadratic field $\Q(\sqrt{-F_{50s+25}})$.
 \end{theorem}
 \begin{proof}
 Using the result that \begin{equation}
@@ -766,21 +765,11 @@ Using the result that \begin{equation}
 it follows that $f_{\delta_m}(x) = g_m(x)$. Also using the fact that $k_m(\zeta)$ is normal over $\Q$, $E\subset k_m(\zeta)$. Now define \begin{equation}
     \mathcal{M}(k)=\{\gamma \in k(\zeta)^{\times}|\gamma^{3+4\tau+2\tau^{2}+\tau^3}\notin k(\zeta)^5\}
 \end{equation}
-It therefore holds that $\delta_m \in \mathcal{M}(k_m)$ iff $g_m(x)$ is irreducible over $\Q$. Note that both $\{F_n\}$ and $\{L_n\}$ have periods of length 50 modulo 151. For $m\equiv12 \: mod \: 25$ then \begin{equation}
+It follows that $\delta_m \in \mathcal{M}(k_m)$ iff $g_m(x)$ is irreducible over $\Q$. Note that both $\{F_n\}$ and $\{L_n\}$ have periods of length 50 modulo 151. For $m\equiv12 \: mod \: 25$ then \begin{equation}
     g_m(x) \equiv x^5 - 10x^3 - 20x^2 + 65x + 28\:(mod \:151)
 \end{equation} which is irreducible over $\Q$. Let $\theta$ be a root of this polynomial. By a result by Sase, no primes are totally ramified over $\Q(\theta)$. Therefore $E/k_m$ is an unramified cyclic quintic extension. 
 \end{proof}
-Kishi gives examples for the class group when $s = 0,1,2,3$. Using Magma, the class group for $s=4$ is calculated:
-\begin{example}
-Suppose $s=4$, 
-\begin{equation}
-d = F_{225} = 2 \cdot 5^2 \cdot 17 \cdot 61 \cdot 3001 \cdot 109441 \cdot 230686501 \cdot11981661982050957053616001.
-\end{equation} Define $K = \Q(\sqrt{-d})$.
-Then $h(K) = 22968615048297879813120$ which is a multiple of 5, and 
-\begin{equation}
-cl(K) \cong C_2 \times C_2 \times C_2 \times C_2 \times C_4 \times C_{358884610129654372080}.
-\end{equation} 
-\end{example}
+
 Here is such an example of an imaginary quadratic number field with an unramified cyclic quintic extension:
 \begin{example}
 Suppose $s=1, m= 37$. Then $F_{75} = 2111485077978050 = 2 \cdot 5^2 \cdot 61 \cdot 3001 \cdot 230686501$. Define $K = \Q(\sqrt{-F_{75}})$, and 
@@ -795,7 +784,20 @@ with discriminant
 $2^{24} \cdot 5^{20} \cdot 13^2 \cdot 61^6 \cdot 109^2 \cdot 139^2 \cdot 3001^6 \cdot 464419^2 \cdot 10772623^2 \cdot 230686501^6 \cdot 29020995417137^2 \cdot 460045379989033^2$. 
 \end{center}
 
-Using \href{http://magma.maths.usyd.edu.au/calc/}{Magma}, the class group of $K$ was calculated. The factoring was done using SageMath. So $Cl(K) \cong C_{40} $ and $h(K) = 40$ which is divisible by 5. Let $L$ be the splitting field of $g_{37}(x)$. Then $L$ is an unramified $C_5$ - extension of $K$. 
+Note that $g_{37}$ has precisely one real root. Using \href{http://magma.maths.usyd.edu.au/calc/}{Magma}, the class group of $K$ was calculated. The factoring was done using SageMath. So $Cl(K) \cong C_{40} $ and $h(K) = 40$ which is divisible by 5. Let $L$ be the splitting field of $g_{37}(x)$. Then $L$ is an unramified $C_5$ - extension of $K$. 
+
+
+Kishi gives examples for the class group when $s = 0,1,2,3$. Using Magma, the class group for $s=4$ is calculated:
+\begin{example}
+Suppose $s=4$, 
+\begin{equation}
+d = F_{225} = 2 \cdot 5^2 \cdot 17 \cdot 61 \cdot 3001 \cdot 109441 \cdot 230686501 \cdot11981661982050957053616001.
+\end{equation} Define $K = \Q(\sqrt{-d})$.
+Then $h(K) = 22968615048297879813120$ which is a multiple of 5, and 
+\begin{equation}
+cl(K) \cong C_2 \times C_2 \times C_2 \times C_2 \times C_4 \times C_{358884610129654372080}.
+\end{equation} 
+\end{example}
 \end{example}
 
 
@@ -1288,7 +1290,7 @@ In fact, $E_2/\Q(\sqrt{l \cdot q_1 \cdot q_2})$ is an unramified field extension
 Let $L/K$ be a finite extension of
 number fields with Galois group $G$, and let $\mathcal{C}$ be a conjugacy class in $G$. Then the set of
 prime ideals of $K$ such that $(\mathfrak{p},L/K)=\mathcal{C}$ has density $|\mathcal{C}|/|G|$ in the set of all prime
-ideals of $K$. If $G$ is abelian, then, for a fixed $\sigma \in G$, the set of prime ideals $\mathfrak{p}$ of $K$ with $\{\mathfrak{p}:(\mathfrak{p},L/K)=\sigma\}$  = $(G:1)$.
+ideals of $K$. If $G$ is abelian, then, for a fixed $\sigma \in G$, the set of prime ideals $\mathfrak{p}$ of $K$ with $\{\mathfrak{p}:(\mathfrak{p},L/K)=\sigma\}$ = $(G:1)$.
 \end{theorem}
 \begin{corollary}
 \label{cor:ceb}
@@ -1373,7 +1375,7 @@ Assume GRH. Define $G = \Gamma\left(\Q(\sqrt{-d})^{ur}/\Q(\sqrt{-d})\right)$. Th
 \begin{itemize}
 \item If $d \neq 115, 235, 403$, then have $ G \cong C_2$
 \item If $d = 115,403$ then $G \cong D_3$.
-\item If $d =  235$, $G \cong D_5$. 
+\item If $d = 235$, $G \cong D_5$. 
 \end{itemize}
 \end{corollary}
 
@@ -1434,7 +1436,7 @@ Suppose $f(x) = x^7 - x^6 - 3x^5 - x^4 + 2x^3 + 4x^2 + 4x + 1$, $E$ is a defined
 \subsubsection*{Maximal Unramified Extension for d = 22268}
 Kim and Koenig \cite{KIM2017} use Odlyzko's bounds and results from Group Theory to show the following: 
 \begin{theorem}
- Define $K=\Q(\sqrt{22268})$, and $22268 = 76\cdot 293$. \\ Also define $L=split(x^6-10x^4-7x^3+15x^2+14x+3,\Q)$. Then $K \subset K_1=\Q(\sqrt{76},\sqrt{293})$, and computer calculation shows that $h(K_1) = 1$, thus $K_1$ has no nontrivial unsolvable extensions. Define $M=LK_1$. Then $M=K^{ur}$, $\Gamma(K^{ur}/K \cong A_5)$, and the extensions are shown in the following diagram:   
+ Define $K=\Q(\sqrt{22268})$, noting $22268 = 76\cdot 293$. \\ Also define $L=split(x^6-10x^4-7x^3+15x^2+14x+3,\Q)$. Then $K \subset K_1=\Q(\sqrt{76},\sqrt{293})$, and computer calculation shows that $h(K_1) = 1$, thus $K_1$ has no nontrivial unsolvable extensions. Define $M=LK_1$. Then $M=K^{ur}$, $\Gamma(K^{ur}/K \cong A_5)$, and the extensions are shown in the following diagram:   
 \end{theorem}
 \begin{center}
     \begin{tikzpicture}[node distance = 1.8cm, auto]
